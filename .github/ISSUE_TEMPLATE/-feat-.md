@@ -2,7 +2,7 @@
 name: "[FEAT]"
 about: 기능 구현을 위한 이슈 등록
 title: "[FEAT] 기능 구현"
-labels: ''
+labels: 'feat :cupid:'
 assignees: ''
 
 ---
