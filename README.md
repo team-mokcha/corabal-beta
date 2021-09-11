@@ -52,7 +52,7 @@ Team Mokcha. - team.mokcha@gmail.com
 
 김수연 – Frontend Developer – alveloper@gmail.com 깃허브 주소도 추가하기
 양혜진 - Frontend Developer
-오하은 - Designer
+하마 - Designer
 
 XYZ 라이센스를 준수하며 ``LICENSE``에서 자세한 정보를 확인할 수 있습니다.
 
