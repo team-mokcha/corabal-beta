@@ -2,7 +2,7 @@
 name: "[CHORE]"
 about: 기타 작업을 위한 이슈 등록
 title: "[CHORE] 등 기타 작업"
-labels: 'chore  :mag:'
+labels: 'chore :safety_pin:'
 assignees: ''
 
 ---
