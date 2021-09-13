@@ -34,37 +34,38 @@ export async function createUserCollection(
       email: email,
       nickname: "",
       accept_terms: acceptTerms,
-      cat_status: 0,
+      cat_status: "normal",
       goal: 1,
+      total_cups: 0,
       cup_current_wearing: 0,
       cup_owned: [0],
       cup_can_buy: [
-        { 1: false },
-        { 2: false },
-        { 3: false },
-        { 4: false },
-        { 5: false },
-        { 6: false },
-        { 7: false },
-        { 8: false },
-        { 9: false }
+        { 1: true },
+        { 2: true },
+        { 3: true },
+        { 4: true },
+        { 5: true },
+        { 6: true },
+        { 7: true },
+        { 8: true },
+        { 9: true }
       ]
     });
 
-    const pointCollectionRef = db.collection("points").doc(email);
-    batch.set(pointCollectionRef, {
-      current: 10,
-      total_gain: { bonus: 10, watched_ADs: 0, normal_cup_records: 0, zero_cup_records: 0 },
-      total_used: { calling_cat: 0, buying_cup: 0 }
+    const monthCollectionRef = userCollectionRef.collection("logs").doc(`${year}-${month}`);
+    batch.set(monthCollectionRef, {
+      is_succeed_counts: 0,
+      is_recorded_counts: 0,
+      summed_up_cups: 0,
+      summed_up_shots: 0,
+      summed_up_milk: 0,
+      summed_up_syrup: 0,
+      summed_up_cream: 0
     });
 
-    const logCollectionRef = db
-      .collection("logs")
-      .doc(email)
-      .collection("date")
-      .doc(`${year}-${month}-${day}`);
-    batch.set(logCollectionRef, {
-      date: { year: year, month: month, day: day },
+    const dateCollectionRef = monthCollectionRef.collection("date").doc(`${year}-${month}-${day}`);
+    batch.set(dateCollectionRef, {
+      is_succeed: false,
       is_recorded: {
         is_zero_cup: false,
         is_normal_cup: false,
@@ -72,6 +73,13 @@ export async function createUserCollection(
       },
       normal_cup_record: [],
       watched_AD_counts: 0
+    });
+
+    const pointCollectionRef = db.collection("points").doc(email);
+    batch.set(pointCollectionRef, {
+      current: 10,
+      total_gain: { bonus: 10, watched_ADs: 0, normal_cup_records: 0, zero_cup_records: 0 },
+      total_used: { calling_cat: 0, buying_cup: 0 }
     });
 
     const response = await batch.commit();
