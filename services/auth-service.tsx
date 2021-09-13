@@ -16,6 +16,79 @@ export async function createCredential(email: string, password: string): Promise
   }
 }
 
+export async function createUserCollection(
+  email: string,
+  acceptTerms: boolean,
+  timestamp: Date
+): Promise<any> {
+  const year = timestamp.getFullYear();
+  const month = timestamp.getMonth() + 1;
+  const day = timestamp.getDate();
+
+  try {
+    const batch = db.batch();
+
+    const userCollectionRef = db.collection("users").doc(email);
+    batch.set(userCollectionRef, {
+      active: true,
+      email: email,
+      nickname: "",
+      accept_terms: acceptTerms,
+      cat_status: "normal",
+      goal: 1,
+      total_cups: 0,
+      cup_current_wearing: 0,
+      cup_owned: [0],
+      cup_can_buy: [
+        { 1: true },
+        { 2: true },
+        { 3: true },
+        { 4: true },
+        { 5: true },
+        { 6: true },
+        { 7: true },
+        { 8: true },
+        { 9: true }
+      ]
+    });
+
+    const monthCollectionRef = userCollectionRef.collection("logs").doc(`${year}-${month}`);
+    batch.set(monthCollectionRef, {
+      is_succeed_counts: 0,
+      is_recorded_counts: 0,
+      summed_up_cups: 0,
+      summed_up_shots: 0,
+      summed_up_milk: 0,
+      summed_up_syrup: 0,
+      summed_up_cream: 0
+    });
+
+    const dateCollectionRef = monthCollectionRef.collection("date").doc(`${year}-${month}-${day}`);
+    batch.set(dateCollectionRef, {
+      is_succeed: false,
+      is_recorded: {
+        is_zero_cup: false,
+        is_normal_cup: false,
+        timestamp: ""
+      },
+      normal_cup_record: [],
+      watched_AD_counts: 0
+    });
+
+    const pointCollectionRef = db.collection("points").doc(email);
+    batch.set(pointCollectionRef, {
+      current: 10,
+      total_gain: { bonus: 10, watched_ADs: 0, normal_cup_records: 0, zero_cup_records: 0 },
+      total_used: { calling_cat: 0, buying_cup: 0 }
+    });
+
+    const response = await batch.commit();
+    return [response, null];
+  } catch (error) {
+    return [null, error];
+  }
+}
+
 export async function setNickname(email: string, nickname: string): Promise<any> {
   try {
     const userCollectionRef = db.collection("users").doc(email);
