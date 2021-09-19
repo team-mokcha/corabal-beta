@@ -24,8 +24,6 @@
     "@expo-google-fonts/noto-sans-kr": "^0.2.0",
     "@expo-google-fonts/roboto": "^0.2.0",
     "@hookstate/core": "^3.0.8",
-    "@react-native-firebase/admob": "^11.5.0",
-    "@react-native-firebase/app": "^12.8.0",
     "@react-navigation/drawer": "^6.1.4",
     "@react-navigation/elements": "^1.1.0",
     "@react-navigation/native": "^6.0.2",
