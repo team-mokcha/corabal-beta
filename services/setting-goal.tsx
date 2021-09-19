@@ -1,5 +1,6 @@
 import { db, firebaseApp } from "@services/firebaseApp";
 
+// 깃 그래프 테스트
 // firebaseApp 에서 가져오는 게 아니라 전역변수로 선언된 이메일로 탐색
 const currentUserRef = firebaseApp.auth().currentUser?.email?.toString();
 const userRef = db.collection("users").doc(currentUserRef);
