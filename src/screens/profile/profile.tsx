@@ -1,6 +1,6 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useState, useEffect } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
-import { ButtonGradient, ButtonNormal, Text, Modal, Header } from "@Components";
+import { ButtonGradient, Text, Header } from "@Components";
 import styles from "./profile.style";
 import {
   logOutWithFirebase,
@@ -9,12 +9,16 @@ import {
 } from "@services/auth-service";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState } from "@stores/stores";
+import CallingCat from "../calling-cat/calling-cat";
+import { initRewardAds } from "@services/watching-ads-service";
 
 export default function Profile(): ReactElement {
   const [isCallingCat, setIsCallingCat] = useState(false);
   const [isDeletedAccount, setIsDeletedAccount] = useState(false);
   const currentUserState = HSUseState(globalUserState);
   const email = currentUserState.userEmail.get();
+  // const nickname = currentUserState.nickname.get();
+  // console.log("nickname:", nickname); // 빈 이름만 나오는 거 이유 확인하기
 
   const handlePasswordReset = async () => {
     try {
@@ -43,112 +47,59 @@ export default function Profile(): ReactElement {
   return (
     <>
       <Header back={true} close={false} />
-      <View style={styles.container}>
-        <View style={styles.info}>
-          <Image style={styles.profileImage} source={require("@assets/profile.png")} />
-          <View style={styles.user}>
-            <Text onPress={() => console.log("누르면 이름을 바꿀 수 있음")} style={styles.userName}>
-              커라밸님
-            </Text>
-            <Image
-              style={styles.userNameUpdate}
-              source={require("@assets/updating-user-name.png")}
-            />
-          </View>
-          <Text style={styles.userMail}>coffeeout@gmail.com</Text>
-        </View>
-        <View style={styles.records}>
-          <View style={styles.record}>
-            <Text style={styles.recordsTitle}>기록</Text>
-            <Text style={styles.recordFonts}>48</Text>
-          </View>
-          <View style={styles.record}>
-            <Text style={styles.recordsTitle}>포인트</Text>
-            <Text style={styles.recordFonts}>50P</Text>
-            <ButtonGradient style={styles.gradientButton} title="광고 보기 5p" />
-          </View>
-          <View style={styles.record}>
-            <Text style={styles.recordsTitle}>내 컵</Text>
-            <Image style={styles.catInCup} source={require("@assets/cat-in-the-cup.png")} />
-            <ButtonGradient
-              onPress={() => setIsCallingCat(!isCallingCat)}
-              style={styles.gradientButton}
-              title="고양이 부르기"
-            />
-          </View>
-        </View>
-        <View style={styles.config}>
-          <TouchableOpacity onPress={() => handlePasswordReset()}>
-            <Text style={styles.configScripts}>비밀번호 재설정</Text>
+      <View>
+        <View style={styles.profileContainer}>
+          <Image source={require("@assets/profile.png")} />
+          <TouchableOpacity activeOpacity={0.5} style={styles.profileNameContainer}>
+            <Text style={styles.profileNameFont}>커라밸님</Text>
+            <Image source={require("@assets/updating-user-name.png")} />
           </TouchableOpacity>
-          <Text
-            style={styles.configScripts}
+          <Text style={styles.profileEmailFont}>{email}</Text>
+        </View>
+        <View style={styles.EveryRecordContainer}>
+          <View style={styles.alginCenter}>
+            <Text style={styles.eachRecordNameFont}>기록</Text>
+            <Text style={styles.totalRecords}>48</Text>
+          </View>
+          <View style={styles.alginCenter}>
+            <Text style={styles.eachRecordNameFont}>포인트</Text>
+            <Text style={styles.totalPoints}>50p</Text>
+            <ButtonGradient
+              onPress={initRewardAds}
+              title="광고 보기 5p"
+              style={{ width: 86, height: 28 }}
+            />
+          </View>
+          <View style={styles.alginCenter}>
+            <Text style={styles.eachRecordNameFont}>내 컵</Text>
+            <Image
+              style={{ width: 82, height: 82 }}
+              source={require("@assets/cat-in-the-cup.png")}
+            />
+            <ButtonGradient
+              onPress={() => setIsCallingCat(true)}
+              title="고양이 부르기"
+              style={{ width: 86, height: 28 }}
+            />
+            <CallingCat isCallingCat={isCallingCat} setIsCallingCat={setIsCallingCat} />
+          </View>
+        </View>
+        <View style={styles.alginCenter}>
+          <TouchableOpacity onPress={() => handlePasswordReset()}>
+            <Text>비밀번호 재설정</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.logout}
             onPress={() => {
               logOutWithFirebase();
               currentUserState.loggedIn.set(false);
             }}
           >
-            로그아웃
-          </Text>
-          <Text
-            style={styles.accountDeletion}
-            onPress={() => setIsDeletedAccount(!isDeletedAccount)}
-          >
-            계정 삭제
-          </Text>
-          {/* When press delete account button */}
-          <Modal isVisible={isDeletedAccount}>
-            <Modal.Container>
-              <Modal.Header title="정말 삭제하시겠습니까?" />
-              <Modal.Body>
-                <Text>계정을 삭제하시면 뭐시기 저시기가 안 돼요!</Text>
-              </Modal.Body>
-              <Modal.Footer>
-                <ButtonGradient
-                  style={styles.deleteButton}
-                  title="계정 유지하기"
-                  onPress={() => setIsDeletedAccount(!isDeletedAccount)}
-                />
-                <ButtonNormal
-                  style={styles.deleteButton}
-                  title="계정 삭제하기"
-                  onPress={() => handleDeleteAccount()}
-                />
-              </Modal.Footer>
-            </Modal.Container>
-          </Modal>
-          {/* When press calling cat button */}
-          <Modal isVisible={isCallingCat}>
-            <Modal.Container>
-              <Modal.Body>
-                <TouchableOpacity onPress={() => setIsCallingCat(!isCallingCat)}>
-                  <Image style={styles.buttonX} source={require("@assets/btn_x.png")} />
-                </TouchableOpacity>
-                <Image
-                  style={styles.modalCatInCup}
-                  source={require("@assets/cat-in-the-cup.png")}
-                />
-                <Text>고양이를 부르시겠습니까?</Text>
-                <Text style={styles.pointFont}>
-                  내 포인트{" "}
-                  <Image style={styles.pointImage} source={require("@assets/btn_point.png")} />
-                  <Text>151p</Text>
-                </Text>
-              </Modal.Body>
-              <Modal.Footer>
-                <ButtonNormal
-                  onPress={() => setIsCallingCat(!isCallingCat)}
-                  style={styles.modalButton}
-                  title="결제하기"
-                />
-                <ButtonGradient
-                  onPress={() => setIsCallingCat(!isCallingCat)}
-                  style={styles.modalButton}
-                  title="광고보기"
-                />
-              </Modal.Footer>
-            </Modal.Container>
-          </Modal>
+            <Text>로그아웃</Text>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Text style={styles.deletingAccountFont}>계정 삭제</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </>

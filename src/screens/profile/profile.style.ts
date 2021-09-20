@@ -1,98 +1,52 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 17
-  },
-  info: {
-    justifyContent: "flex-start",
-    alignItems: "center",
-    marginBottom: 30
-  },
-  profileImage: {
-    width: 72,
-    height: 72
-  },
-  user: {
-    flexDirection: "row",
-    marginBottom: -10
-  },
-  userName: {
-    fontSize: 18
-  },
-  userNameUpdate: {
-    position: "absolute",
-    right: -10,
-    top: 10
-  },
-  userMail: {
-    fontSize: 16
-  },
-  records: {
-    flexDirection: "row",
+  profileContainer: {
     justifyContent: "center",
-    width: 400,
-    marginBottom: 70
-  },
-  record: {
     alignItems: "center",
-    marginLeft: 30
+    marginBottom: 40
   },
-  recordsTitle: {
-    color: "#757474",
-    fontSize: 14
+  profileNameContainer: {
+    flexDirection: "row",
+    marginTop: 10,
+    marginBottom: 15
   },
-  recordFonts: {
-    fontSize: 24
+  profileNameFont: {
+    fontSize: 18,
+    lineHeight: 21
   },
-  gradientButton: {
-    width: 86,
-    height: 28,
-    fontSize: 11,
-    marginTop: 10
+  profileEmailFont: {
+    fontSize: 16,
+    lineHeight: 18
   },
-  catInCup: {
-    width: 82,
-    height: 82,
-    marginTop: -13
+  EveryRecordContainer: {
+    flexDirection: "row",
+    marginLeft: 64,
+    marginRight: 34,
+    marginBottom: 53,
+    justifyContent: "space-between"
   },
-  config: {
+  alginCenter: {
     alignItems: "center"
   },
-  configScripts: {
-    fontSize: 16,
-    marginBottom: -5
-  },
-  accountDeletion: {
+  eachRecordNameFont: {
     fontSize: 14,
-    color: "#F15F5F",
-    marginTop: 25
+    color: "#757474",
+    lineHeight: 16.41
   },
-  deleteButton: {
-    width: 100,
-    height: 30
+  totalRecords: {
+    fontSize: 24
   },
-  buttonX: {
-    width: 21,
-    height: 21,
-    marginLeft: 300,
-    marginTop: 24
+  totalPoints: {
+    fontSize: 24,
+    marginBottom: 13
   },
-  modalCatInCup: {
-    width: 112,
-    height: 112
+  logout: {
+    marginBottom: 24
   },
-  pointFont: {
-    fontSize: 12
-  },
-  pointImage: {
-    width: 12,
-    height: 12
-  },
-  modalButton: {
-    width: 136,
-    height: 48
+  deletingAccountFont: {
+    fontSize: 12,
+    color: "#F15F5F"
   }
 });
 
