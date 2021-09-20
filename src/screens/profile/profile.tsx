@@ -10,7 +10,7 @@ import {
 import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState } from "@stores/stores";
 import CallingCat from "../calling-cat/calling-cat";
-import { AdMobRewarded, setTestDeviceIDAsync } from "expo-ads-admob";
+import { initRewardAds } from "@services/watching-ads-service";
 
 export default function Profile(): ReactElement {
   const [isCallingCat, setIsCallingCat] = useState(false);
@@ -44,17 +44,6 @@ export default function Profile(): ReactElement {
     }
   };
 
-  const initRewardAds = async () => {
-    // test Id
-    try {
-      await AdMobRewarded.setAdUnitID("ca-app-pub-3940256099942544/5224354917");
-      await AdMobRewarded.requestAdAsync();
-      await AdMobRewarded.showAdAsync();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
     <>
       <Header back={true} close={false} />
@@ -76,7 +65,7 @@ export default function Profile(): ReactElement {
             <Text style={styles.eachRecordNameFont}>포인트</Text>
             <Text style={styles.totalPoints}>50p</Text>
             <ButtonGradient
-              onPress={() => initRewardAds()}
+              onPress={initRewardAds}
               title="광고 보기 5p"
               style={{ width: 86, height: 28 }}
             />

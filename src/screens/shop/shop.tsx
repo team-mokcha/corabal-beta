@@ -2,6 +2,7 @@ import React, { ReactElement, useState } from "react";
 import { TouchableOpacity, View, Image, ScrollView } from "react-native";
 import { ButtonGradient, Text, Modal, ButtonNormal, Header } from "@Components";
 import styles from "./shop.style";
+import { initRewardAds } from "@services/watching-ads-service";
 
 const Shop = (): ReactElement => {
   const [wantToBuy, setWantToBuy] = useState(false);
@@ -24,7 +25,7 @@ const Shop = (): ReactElement => {
               </Text>
             </View>
           </View>
-          <ButtonGradient style={styles.watchingAd} title="광고 보기 5p" />
+          <ButtonGradient onPress={initRewardAds} style={styles.watchingAd} title="광고 보기 5p" />
         </View>
         <View style={styles.wrapper}>
           <TouchableOpacity
