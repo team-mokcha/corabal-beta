@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState, globalGoalState } from "@stores/stores";
 import { firebaseApp } from "@services/firebaseApp";
@@ -14,7 +14,8 @@ import {
   Shop,
   Cups,
   MonthlyRecord,
-  Record
+  Record,
+  Goal
 } from "@screens";
 import { createDrawerNavigator, DrawerContentScrollView } from "@react-navigation/drawer";
 import { Image, Linking, TouchableOpacity, View } from "react-native";
@@ -95,7 +96,8 @@ const Drawer = createDrawerNavigator();
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function DrawerContent(props: any) {
   const globalGoal = HSUseState(globalGoalState);
-  // console.log(props)
+  const [isShowingGoal, setIsShowingGoal] = useState(false);
+
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.aimContainer}>
@@ -103,7 +105,10 @@ function DrawerContent(props: any) {
           목표 <Text style={styles.aimStrong}>1</Text>일{" "}
           <Text style={styles.aimStrong}>{globalGoal.goal.get()}</Text>잔
         </Text>
-        <Text style={styles.aimSetting}>목표 설정 {">"}</Text>
+        <TouchableOpacity activeOpacity={0.5} onPress={() => setIsShowingGoal(true)}>
+          <Text style={styles.aimSetting}>목표 설정 {">"}</Text>
+        </TouchableOpacity>
+        <Goal isShowingGoal={isShowingGoal} setIsShowingGoal={setIsShowingGoal} />
       </View>
       <View style={styles.shopAndCups}>
         <TouchableOpacity activeOpacity={0.5} onPress={() => props.navigation.navigate("Shop")}>
