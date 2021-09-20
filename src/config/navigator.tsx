@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect } from "react";
 import { useState as HSUseState } from "@hookstate/core";
-import { globalUserState } from "@stores/stores";
+import { globalUserState, globalGoalState } from "@stores/stores";
 import { firebaseApp } from "@services/firebaseApp";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -94,12 +94,14 @@ const Drawer = createDrawerNavigator();
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function DrawerContent(props: any) {
+  const globalGoal = HSUseState(globalGoalState);
   // console.log(props)
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.aimContainer}>
         <Text style={styles.aim}>
-          목표 <Text style={styles.aimStrong}>1</Text>일 <Text style={styles.aimStrong}>1</Text>잔
+          목표 <Text style={styles.aimStrong}>1</Text>일{" "}
+          <Text style={styles.aimStrong}>{globalGoal.goal.get()}</Text>잔
         </Text>
         <Text style={styles.aimSetting}>목표 설정 {">"}</Text>
       </View>
