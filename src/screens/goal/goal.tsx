@@ -5,7 +5,7 @@ import styles from "./goal.style";
 import { Dispatch, SetStateAction } from "react";
 import { db, firebaseApp } from "@services/firebaseApp";
 import { useState as HSUseState } from "@hookstate/core";
-import { globalGoalState } from "@stores/stores";
+import { globalGoalState, globalUserState } from "@stores/stores";
 
 type GoalProps = {
   isShowingGoal: boolean;
@@ -14,9 +14,9 @@ type GoalProps = {
 
 // props 로 넘겨주기
 const Goal = ({ isShowingGoal, setIsShowingGoal }: GoalProps): ReactElement => {
-  const currentUserEmail = firebaseApp.auth().currentUser?.email?.toString();
-  const userRef = db.collection("users").doc(currentUserEmail);
-  const currentGoalState = HSUseState(globalGoalState);
+  const globalEmail = HSUseState(globalUserState).userEmail.get();
+  const userRef = db.collection("users").doc(globalEmail);
+  const globalGoal = HSUseState(globalGoalState);
   const radioButtons = [0, 1, 2, 3, 4, 5];
   const [selectedBtn, setSelectedBtn] = useState(1);
 
@@ -62,7 +62,7 @@ const Goal = ({ isShowingGoal, setIsShowingGoal }: GoalProps): ReactElement => {
                 .set({ goal: selectedBtn }, { merge: true })
                 .then(() => {
                   console.log("goal updated!");
-                  currentGoalState.goal.set(selectedBtn);
+                  globalGoal.goal.set(selectedBtn);
                 })
                 .catch(error => console.error(error));
               setIsShowingGoal(false);
