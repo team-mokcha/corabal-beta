@@ -13,6 +13,8 @@ import Goal from "../goal/goal";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalGoalState } from "@stores/stores";
 import { getGoal } from "@services/setting-goal";
+import { getPoint } from "@services/point-service";
+import { db } from "@services/firebaseApp";
 
 type NavigationProps = {
   navigation: DrawerNavigationProp<DrawerNavigationParams, "Main">;
@@ -25,11 +27,27 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
   const [goalFromFirebase, setGoalFromFirebase] = useState(0);
 
   // 유저의 DB에서 목표 가져와서 보여주기
+  // useEffect(() => {
+  //   getGoal()
+  //     .then(response => setGoalFromFirebase(response))
+  //     .catch(error => console.error(error));
+  // }, [goal]);
+
+  // getPoint("sy@sy.com").then(res => console.log(res.current))
+
+  // getPoint("sy@sy.com").then(res => console.log(res)) // undefined
+
+  // point test
+  const [point, setPoint] = useState(0);
   useEffect(() => {
-    getGoal()
-      .then(response => setGoalFromFirebase(response))
-      .catch(error => console.error(error));
-  }, [goal]);
+    const unsubscribe = db
+      .collection("points")
+      .doc("sy@sy.com")
+      .onSnapshot(snapshot => {
+        setPoint(snapshot.data()?.current);
+      });
+    return unsubscribe;
+  }, []);
 
   return (
     <>
@@ -82,7 +100,7 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
               </Text>
               <View style={styles.myPointContainer}>
                 <Image style={styles.myPointImg} source={require("@assets/btn_point.png")} />
-                <Text style={styles.myPointFont}>51p</Text>
+                <Text style={styles.myPointFont}>{point}p</Text>
               </View>
             </View>
           </View>
