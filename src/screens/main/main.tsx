@@ -12,8 +12,6 @@ import CircleProgress from "./circleProgress";
 import Goal from "../goal/goal";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalGoalState, globalPointState, globalUserState } from "@stores/stores";
-import { getGoal } from "@services/setting-goal";
-import { getPoint } from "@services/point-service";
 import { db } from "@services/firebaseApp";
 
 type NavigationProps = {
@@ -22,11 +20,9 @@ type NavigationProps = {
 export default function Main({ navigation }: NavigationProps): ReactElement {
   const [isEmpty, setIsEmpty] = useState(false);
   const [isShowingGoal, setIsShowingGoal] = useState(false);
-  const currentGoalState = HSUseState(globalGoalState);
-  const goal = currentGoalState.goal.get();
-  const [goalFromFirebase, setGoalFromFirebase] = useState(0);
   const globalPoint = HSUseState(globalPointState);
   const globalEmail = HSUseState(globalUserState).userEmail.get();
+  const globalGoal = HSUseState(globalGoalState);
 
   useEffect(() => {
     const unsubscribe = db
@@ -44,6 +40,16 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
   //     .then(response => setGoalFromFirebase(response))
   //     .catch(error => console.error(error));
   // }, [goal]);
+
+  useEffect(() => {
+    const unsubscribe = db
+      .collection("users")
+      .doc(globalEmail)
+      .onSnapshot(snapshot => {
+        globalGoal.set({ goal: snapshot.data()?.goal });
+      });
+    return unsubscribe;
+  }, []);
 
   return (
     <>
@@ -64,7 +70,7 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
             {/* 목표 1일 {}잔 */}
             <Text style={styles.aim}>
               목표 <Text style={styles.pointFont}>1</Text>일{" "}
-              <Text style={styles.pointFont}>{goalFromFirebase}</Text>잔
+              <Text style={styles.pointFont}>{globalGoal.goal.get()}</Text>잔
             </Text>
             <Image style={styles.aimNextBtn} source={require("@assets/btn_next.png")} />
           </TouchableOpacity>
