@@ -3,10 +3,13 @@ import { TouchableOpacity, View, Image, ScrollView } from "react-native";
 import { ButtonGradient, Text, Modal, ButtonNormal, Header } from "@Components";
 import styles from "./shop.style";
 import { initRewardAds } from "@services/watching-ads-service";
+import { globalPointState } from "@stores/stores";
+import { useState as HSUseState } from "@hookstate/core";
 
 const Shop = (): ReactElement => {
   const [wantToBuy, setWantToBuy] = useState(false);
   const [isBuying, setIsBuying] = useState(false);
+  const globalPoint = HSUseState(globalPointState);
 
   return (
     <>
@@ -21,7 +24,7 @@ const Shop = (): ReactElement => {
               </Text>
               <Text style={styles.profilePointFont}>
                 <Image style={styles.point} source={require("@assets/btn_point.png")} />
-                {} 51p
+                {} {globalPoint.current.get()}p
               </Text>
             </View>
           </View>
@@ -74,7 +77,7 @@ const Shop = (): ReactElement => {
               {isBuying ? <Text>구매가 완료되었습니다!</Text> : <Text>정말 구매하시겠습니까?</Text>}
               <Text style={styles.myPointFont}>
                 내 포인트 <Image style={styles.point} source={require("@assets/btn_point.png")} />
-                {} 151p
+                {} {globalPoint.current.get()}p
               </Text>
             </Modal.Body>
             <Modal.Footer>
