@@ -11,7 +11,7 @@ import * as Progress from "react-native-progress";
 import CircleProgress from "./circleProgress";
 import Goal from "../goal/goal";
 import { useState as HSUseState } from "@hookstate/core";
-import { globalGoalState } from "@stores/stores";
+import { globalGoalState, globalPointState, globalUserState } from "@stores/stores";
 import { getGoal } from "@services/setting-goal";
 import { getPoint } from "@services/point-service";
 import { db } from "@services/firebaseApp";
@@ -25,6 +25,18 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
   const currentGoalState = HSUseState(globalGoalState);
   const goal = currentGoalState.goal.get();
   const [goalFromFirebase, setGoalFromFirebase] = useState(0);
+  const globalPoint = HSUseState(globalPointState);
+  const globalEmail = HSUseState(globalUserState).userEmail.get();
+
+  useEffect(() => {
+    const unsubscribe = db
+      .collection("points")
+      .doc(globalEmail)
+      .onSnapshot(snapshot => {
+        globalPoint.set({ current: snapshot.data()?.current });
+      });
+    return unsubscribe;
+  }, []);
 
   // 유저의 DB에서 목표 가져와서 보여주기
   // useEffect(() => {
@@ -32,22 +44,6 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
   //     .then(response => setGoalFromFirebase(response))
   //     .catch(error => console.error(error));
   // }, [goal]);
-
-  // getPoint("sy@sy.com").then(res => console.log(res.current))
-
-  // getPoint("sy@sy.com").then(res => console.log(res)) // undefined
-
-  // point test
-  const [point, setPoint] = useState(0);
-  useEffect(() => {
-    const unsubscribe = db
-      .collection("points")
-      .doc("sy@sy.com")
-      .onSnapshot(snapshot => {
-        setPoint(snapshot.data()?.current);
-      });
-    return unsubscribe;
-  }, []);
 
   return (
     <>
@@ -100,7 +96,7 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
               </Text>
               <View style={styles.myPointContainer}>
                 <Image style={styles.myPointImg} source={require("@assets/btn_point.png")} />
-                <Text style={styles.myPointFont}>{point}p</Text>
+                <Text style={styles.myPointFont}>{globalPoint.current.get()}p</Text>
               </View>
             </View>
           </View>
