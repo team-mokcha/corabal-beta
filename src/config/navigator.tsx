@@ -64,8 +64,8 @@ export default function Navigator(): ReactElement {
     <NavigationContainer theme={initialTheme}>
       {(userIn && nickNameIn) || loggedIn ? (
         <Stack.Navigator initialRouteName="Index" screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="MonthlyRecord" component={MonthlyRecord} />
           <Stack.Screen name="Index" component={DrawerNavigator} />
+          <Stack.Screen name="MonthlyRecord" component={MonthlyRecord} />
           <Stack.Screen name="Profile" component={Profile} />
           <Stack.Screen name="Record" component={Record} />
         </Stack.Navigator>

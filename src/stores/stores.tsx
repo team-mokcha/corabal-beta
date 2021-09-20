@@ -21,3 +21,7 @@ export const globalErrorStateDuringAuth = createState({
 export const globalGoalState = createState({
   goal: 0
 });
+
+export const globalPointState = createState({
+  current: 0
+});
