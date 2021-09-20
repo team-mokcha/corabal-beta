@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useState, useEffect } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import { ButtonGradient, Text, Header } from "@Components";
 import styles from "./profile.style";
@@ -10,14 +10,15 @@ import {
 import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState } from "@stores/stores";
 import CallingCat from "../calling-cat/calling-cat";
+import { AdMobRewarded, setTestDeviceIDAsync } from "expo-ads-admob";
 
 export default function Profile(): ReactElement {
   const [isCallingCat, setIsCallingCat] = useState(false);
   const [isDeletedAccount, setIsDeletedAccount] = useState(false);
   const currentUserState = HSUseState(globalUserState);
   const email = currentUserState.userEmail.get();
-  const nickname = currentUserState.nickname.get();
-  console.log("nickname:", nickname);
+  // const nickname = currentUserState.nickname.get();
+  // console.log("nickname:", nickname); // 빈 이름만 나오는 거 이유 확인하기
 
   const handlePasswordReset = async () => {
     try {
@@ -43,6 +44,17 @@ export default function Profile(): ReactElement {
     }
   };
 
+  const initRewardAds = async () => {
+    // test Id
+    try {
+      await AdMobRewarded.setAdUnitID("ca-app-pub-3940256099942544/5224354917");
+      await AdMobRewarded.requestAdAsync();
+      await AdMobRewarded.showAdAsync();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <Header back={true} close={false} />
@@ -63,7 +75,11 @@ export default function Profile(): ReactElement {
           <View style={styles.alginCenter}>
             <Text style={styles.eachRecordNameFont}>포인트</Text>
             <Text style={styles.totalPoints}>50p</Text>
-            <ButtonGradient title="광고 보기 5p" style={{ width: 86, height: 28 }} />
+            <ButtonGradient
+              onPress={() => initRewardAds()}
+              title="광고 보기 5p"
+              style={{ width: 86, height: 28 }}
+            />
           </View>
           <View style={styles.alginCenter}>
             <Text style={styles.eachRecordNameFont}>내 컵</Text>
@@ -92,7 +108,7 @@ export default function Profile(): ReactElement {
           >
             <Text>로그아웃</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDeleteAccount()}>
+          <TouchableOpacity>
             <Text style={styles.deletingAccountFont}>계정 삭제</Text>
           </TouchableOpacity>
         </View>
