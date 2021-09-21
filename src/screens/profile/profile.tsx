@@ -66,7 +66,7 @@ export default function Profile(): ReactElement {
             <Text style={styles.eachRecordNameFont}>포인트</Text>
             <Text style={styles.totalPoints}>{globalPoint.current.get()}p</Text>
             <ButtonGradient
-              onPress={initRewardAds}
+              onPress={() => initRewardAds(email)}
               title="광고 보기 5p"
               style={{ width: 86, height: 28 }}
             />
