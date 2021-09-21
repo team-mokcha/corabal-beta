@@ -3,13 +3,15 @@ import { TouchableOpacity, View, Image, ScrollView } from "react-native";
 import { ButtonGradient, Text, Modal, ButtonNormal, Header } from "@Components";
 import styles from "./shop.style";
 import { initRewardAds } from "@services/watching-ads-service";
-import { globalPointState } from "@stores/stores";
+import { globalPointState, globalUserState } from "@stores/stores";
 import { useState as HSUseState } from "@hookstate/core";
 
 const Shop = (): ReactElement => {
   const [wantToBuy, setWantToBuy] = useState(false);
   const [isBuying, setIsBuying] = useState(false);
   const globalPoint = HSUseState(globalPointState);
+  const globalUser = HSUseState(globalUserState);
+  const globalEmail = globalUser.userEmail.get();
 
   return (
     <>
@@ -28,7 +30,11 @@ const Shop = (): ReactElement => {
               </Text>
             </View>
           </View>
-          <ButtonGradient onPress={initRewardAds} style={styles.watchingAd} title="광고 보기 5p" />
+          <ButtonGradient
+            onPress={() => initRewardAds(globalEmail)}
+            style={styles.watchingAd}
+            title="광고 보기 5p"
+          />
         </View>
         <View style={styles.wrapper}>
           <TouchableOpacity
