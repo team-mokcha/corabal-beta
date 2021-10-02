@@ -11,6 +11,7 @@ import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState, globalPointState } from "@stores/stores";
 import CallingCat from "../calling-cat/calling-cat";
 import { initRewardAds } from "@services/watching-ads-service";
+import { db } from "@services/firebaseApp";
 
 export default function Profile(): ReactElement {
   const [isCallingCat, setIsCallingCat] = useState(false);
@@ -20,6 +21,7 @@ export default function Profile(): ReactElement {
   // const nickname = currentUserState.nickname.get();
   // console.log("nickname:", nickname); // 빈 이름만 나오는 거 이유 확인하기
   const globalPoint = HSUseState(globalPointState);
+  const [totalCups, setTotalCups] = useState(0);
 
   const handlePasswordReset = async () => {
     try {
@@ -45,6 +47,17 @@ export default function Profile(): ReactElement {
     }
   };
 
+  useEffect(() => {
+    const unsubscribe = db
+      .collection("users")
+      .doc(email)
+      .onSnapshot(snapshot => {
+        // console.log(snapshot.data()?.total_cups);
+        setTotalCups(snapshot.data()?.total_cups);
+      });
+    return unsubscribe;
+  }, []);
+
   return (
     <>
       <Header back={true} close={false} />
@@ -60,7 +73,7 @@ export default function Profile(): ReactElement {
         <View style={styles.EveryRecordContainer}>
           <View style={styles.alginCenter}>
             <Text style={styles.eachRecordNameFont}>기록</Text>
-            <Text style={styles.totalRecords}>48</Text>
+            <Text style={styles.totalRecords}>{totalCups}</Text>
           </View>
           <View style={styles.alginCenter}>
             <Text style={styles.eachRecordNameFont}>포인트</Text>
