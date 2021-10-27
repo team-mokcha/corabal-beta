@@ -16,7 +16,7 @@ import {
   MonthlyRecord,
   Record,
   Goal
-} from "@screens";
+} from "@pages";
 import { createDrawerNavigator, DrawerContentScrollView } from "@react-navigation/drawer";
 import { Image, Linking, TouchableOpacity, View } from "react-native";
 import { Text } from "@Components";

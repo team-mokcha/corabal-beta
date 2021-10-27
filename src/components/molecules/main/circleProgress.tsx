@@ -12,27 +12,27 @@ interface circleProgressProps {
 const example = [
   {
     name: "샷",
-    source: require("../../../assets/shot.png"),
+    source: require("@assets/shot.png"),
     height: "100%",
     part: 30
   },
   {
     name: "우유",
-    source: require("../../../assets/milk.png"),
+    source: require("@assets/milk.png"),
     height: "66%", // 우유: 20(마심)/30(전체 커피) * 100 = 66.66667...
     part: 20,
     total: 30
   },
   {
     name: "시럽",
-    source: require("../../../assets/syrup.png"),
+    source: require("@assets/syrup.png"),
     height: "36%",
     part: 11,
     total: 30
   },
   {
     name: "크림",
-    source: require("../../../assets/cream.png"),
+    source: require("@assets/cream.png"),
     height: "6%",
     part: 2,
     total: 30
