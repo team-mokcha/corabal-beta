@@ -1,0 +1,22 @@
+:root {
+  --clr-highlight-primary: #2B8CFF;
+  --clr-highlight-secondary: #76B5FF;
+
+  --clr-font-normal: #000000;
+  --clr-font-placeholder: #C4C4C4;
+  --clr-font-comment: #565656;
+  --clr-font-weak: #757474;
+  --clr-font-warning: #F15F5F;
+
+  --clr-font-btn-normal: #1E1A1A;
+  --clr-font-btn-accent: #FFFFFF;
+  --clr-font-btn-previous: #0A0A0A;
+  --clr-font-btn-unselected: #CECECE;
+  --clr-font-today-comment: #878787;
+  --clr-font-calendar-record: #0F0F0F;
+
+  --clr-mark-cup-normal: #8E6655;
+  --clr-mark-label: #6A6A6A;
+
+  --clr-btn-gradient: linear-gradient(252.94deg, #76A3FF 17.25%, #8AFFDC 174.73%);
+}
