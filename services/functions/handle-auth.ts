@@ -1,4 +1,4 @@
-import { firebaseApp, db } from "./firebaseApp";
+import { firebaseApp, db } from "@services/firebaseApp";
 
 // 1. DB 모델 생성 > Auth 로직 재확인
 // (기왕이면 password 왜 특수문자 2개 입력해야 하는지도 고치자)

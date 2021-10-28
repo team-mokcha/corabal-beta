@@ -5,7 +5,7 @@ import {
   addNormalCupRecord,
   addZeroCupRecord,
   completeTodayRecord
-} from "@services/coffeeLog-service";
+} from "@services/functions/handle-coffee-log";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState } from "@stores/stores";
 import { Calendar, RecordList } from "@Components";

@@ -1,4 +1,4 @@
-import { firebaseApp, db } from "./firebaseApp";
+import { firebaseApp, db } from "@services/firebaseApp";
 import { AdMobRewarded } from "expo-ads-admob";
 
 // "rewardedVideoDidDismiss" -> 사용자가 중간에 꺼도 이벤트 실행

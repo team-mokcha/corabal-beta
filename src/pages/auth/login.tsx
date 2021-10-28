@@ -5,7 +5,7 @@ import { StackNavigatorParams } from "@config/navigator";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState } from "@stores/stores";
 import { Form, FormField, FormSubmitButton, Text } from "@Components";
-import { logInWithFirebase } from "@services/auth-service";
+import { logInWithFirebase } from "@services/functions/handle-auth";
 import { globalErrorStateDuringAuth } from "@stores/stores";
 import ErrorModal from "../error-modal/error-modal";
 import { Field } from "formik";

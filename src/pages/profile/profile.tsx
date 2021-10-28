@@ -6,11 +6,11 @@ import {
   logOutWithFirebase,
   sendPasswordRestEmail,
   deleteAccountOnFirebase
-} from "@services/auth-service";
+} from "@services/functions/handle-auth";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState, globalPointState } from "@stores/stores";
 import CallingCat from "../calling-cat/calling-cat";
-import { initRewardAds } from "@services/watching-ads-service";
+// import { initRewardAds } from "@services/watching-ads-service";
 import { db } from "@services/firebaseApp";
 
 export default function Profile(): ReactElement {
@@ -79,7 +79,7 @@ export default function Profile(): ReactElement {
             <Text style={styles.eachRecordNameFont}>포인트</Text>
             <Text style={styles.totalPoints}>{globalPoint.current.get()}p</Text>
             <ButtonGradient
-              onPress={() => initRewardAds(email)}
+              // onPress={() => initRewardAds(email)}
               title="광고 보기 5p"
               style={{ width: 86, height: 28 }}
             />

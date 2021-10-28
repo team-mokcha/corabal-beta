@@ -5,7 +5,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { StackNavigatorParams } from "@config/navigator";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState, globalErrorStateDuringAuth } from "@stores/stores";
-import { setNickname } from "@services/auth-service";
+import { setNickname } from "@services/functions/handle-auth";
 import styles from "./nickname.styles";
 
 type NavigationProps = {

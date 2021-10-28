@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from "react";
 import { TouchableOpacity, View, Image, ScrollView } from "react-native";
 import { ButtonGradient, Text, Modal, ButtonNormal, Header } from "@Components";
 import styles from "./shop.style";
-import { initRewardAds } from "@services/watching-ads-service";
+import { initRewardAds } from "@services/functions/handle-ads";
 import { globalPointState, globalUserState } from "@stores/stores";
 import { useState as HSUseState } from "@hookstate/core";
 

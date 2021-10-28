@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import { db } from "./firebaseApp";
+import { db } from "@services/firebaseApp";
 
 // DB에서 포인트 가져오기
 

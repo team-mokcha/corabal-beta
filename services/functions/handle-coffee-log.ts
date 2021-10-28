@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import { db } from "./firebaseApp";
+import { db } from "@services/firebaseApp";
 
 // 함수 안의 함수로 모듈화?
 

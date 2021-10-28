@@ -4,7 +4,7 @@ import { KeyboardAvoidingView, ScrollView, View } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { StackNavigatorParams } from "@config/navigator";
 import { Form, FormField, FormSubmitButton, FormCheckButton, LinkToTerms } from "@Components";
-import { createCredential, createUserCollection } from "@services/auth-service";
+import { createCredential, createUserCollection } from "@services/functions/handle-auth";
 import { globalErrorStateDuringAuth, globalUserState } from "@stores/stores";
 import ErrorModal from "../error-modal/error-modal";
 import { PRIVACY_POLICY, TERMS_OF_USE } from "@config/URL";
