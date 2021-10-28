@@ -21,3 +21,5 @@ export { default as CircleProgress } from "./molecules/main/circleProgress";
 export { default as Aim } from "./molecules/main/aim";
 export { default as RecordsOfMonth } from "./molecules/main/recordsOfMonth";
 export { default as Point } from "./molecules/main/point";
+export { default as RightArrowIcon } from "./atoms/icons/rightArrowIcon";
+export { default as CoinIcon } from "./atoms/icons/coinIcon";

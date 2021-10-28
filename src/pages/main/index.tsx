@@ -17,6 +17,9 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
   const globalGoal = HSUseState(globalGoalState);
   const [month, setMonth] = useState(10);
   const [totalCups, setTotalCups] = useState(100);
+  const [daysOfSuccess, setDaysOfSuccess] = useState(16);
+  const [daysOfRecords, setDaysOfRecords] = useState(20);
+  const [daysOfMonth, setDaysOfMonth] = useState(31);
 
   useEffect(() => {
     const unsubscribe = db
@@ -50,6 +53,9 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
         globalGoal={globalGoal} // 전역 말고 지역으로 쓸 수 있는지 확인
         month={month}
         totalCups={totalCups}
+        daysOfSuccess={daysOfSuccess}
+        daysOfRecords={daysOfRecords}
+        daysOfMonth={daysOfMonth}
       />
     </>
   );

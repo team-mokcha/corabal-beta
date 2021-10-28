@@ -13,7 +13,10 @@ export default function Template({
   globalEmail,
   globalGoal,
   month,
-  totalCups
+  totalCups,
+  daysOfSuccess,
+  daysOfRecords,
+  daysOfMonth
 }: any): ReactElement {
   return (
     <>
@@ -25,6 +28,9 @@ export default function Template({
           setIsShowingGoal={setIsShowingGoal}
           globalGoal={globalGoal}
           globalPoint={globalPoint}
+          daysOfSuccess={daysOfSuccess}
+          daysOfRecords={daysOfRecords}
+          daysOfMonth={daysOfMonth}
         />
         <Divider orientation="horizontal" width={12} color="#EEEEEE" />
         <Today isEmpty={isEmpty} />

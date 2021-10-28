@@ -1,6 +1,6 @@
 import React from "react";
-import { Image, TouchableOpacity } from "react-native";
-import { Text } from "@Components";
+import { TouchableOpacity } from "react-native";
+import { Text, RightArrowIcon } from "@Components";
 import styles from "./aim.styles";
 
 const Aim = ({ setIsShowingGoal, globalGoal }: any) => {
@@ -14,7 +14,7 @@ const Aim = ({ setIsShowingGoal, globalGoal }: any) => {
         목표 <Text style={styles.pointFont}>1</Text>일{" "}
         <Text style={styles.pointFont}>{globalGoal.goal.get()}</Text>잔
       </Text>
-      <Image style={styles.aimNextBtn} source={require("@assets/btn_next.png")} />
+      <RightArrowIcon style={styles.aimNextBtn} />
     </TouchableOpacity>
   );
 };
