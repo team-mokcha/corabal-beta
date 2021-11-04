@@ -1,6 +1,8 @@
 import React, { ReactElement } from "react";
 import { ScrollView } from "react-native";
-import { MainHeader, Status, Today, Month, FloatingButton, Banner } from "@Components";
+import { Status, Today, Month } from "../../../components/organisms";
+import { FloatingButton, Banner } from "../../../components/molecules";
+import { MainHeader } from "@Components";
 // Divider -> atoms로 바꾸기, button gradient에 안 쓰면 라이브러리 삭제
 import { Divider } from "react-native-elements";
 

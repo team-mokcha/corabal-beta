@@ -10,7 +10,7 @@ import { globalErrorStateDuringAuth } from "@stores/stores";
 import ErrorModal from "../error-modal/error-modal";
 import { Field } from "formik";
 import * as Yup from "yup";
-import styles from "./auth.styles";
+import styles from "./auth.style";
 
 type NavigationProps = {
   navigation: StackNavigationProp<StackNavigatorParams, "Login">;

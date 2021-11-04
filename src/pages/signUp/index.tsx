@@ -1,25 +1,15 @@
 import React, { ReactElement } from "react";
 import { useState as HSUseState } from "@hookstate/core";
-import { KeyboardAvoidingView, ScrollView, View } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { StackNavigatorParams } from "@config/navigator";
-import { Form, FormField, FormSubmitButton, FormCheckButton, LinkToTerms } from "@Components";
 import { createCredential, createUserCollection } from "@services/functions/handle-auth";
 import { globalErrorStateDuringAuth, globalUserState } from "@stores/stores";
-import ErrorModal from "../error-modal/error-modal";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { StackNavigatorParams } from "@config/navigator";
 import { PRIVACY_POLICY, TERMS_OF_USE } from "@config/URL";
-import { Field } from "formik";
 import * as Yup from "yup";
-import styles from "./auth.style";
+import Template from "./templates";
 
 type NavigationProps = {
   navigation: StackNavigationProp<StackNavigatorParams, "SignUp">;
-};
-
-type ValueProps = {
-  email: string;
-  password: string;
-  acceptTerms: boolean;
 };
 
 const validationSchema = Yup.object().shape({
@@ -82,46 +72,13 @@ export default function SignUp({ navigation }: NavigationProps): ReactElement {
   };
 
   return (
-    <KeyboardAvoidingView style={styles.container}>
-      <ScrollView>
-        <Form
-          initialValues={{ email: "", password: "", acceptTerms: false }}
-          validationSchema={validationSchema}
-          validateOnMount={false}
-          isInitialValid={false}
-          onSubmit={(values: ValueProps) => {
-            handleSignUp(values.email, values.password, values.acceptTerms);
-          }}
-        >
-          <ErrorModal />
-          <View style={styles.emailContainer}>
-            <Field
-              name="email"
-              component={FormField}
-              autoFocus={true}
-              placeholder="corabal@gamil.com"
-              keyboardType="email-address"
-              textContentType="emailAddress"
-            />
-          </View>
-          <Field //
-            name="password"
-            component={FormField}
-            secureTextEntry
-            textContentType="password"
-          />
-          <Field //
-            type="checkbox"
-            name="acceptTerms"
-            component={FormCheckButton}
-          />
-          <FormSubmitButton title="가입하기" />
-        </Form>
-        <View style={[styles.linkContainer, { marginTop: 158 }]}>
-          <LinkToTerms URL={PRIVACY_POLICY}>{"개인 정보 처리 방침"}</LinkToTerms>
-          <LinkToTerms URL={TERMS_OF_USE}>{"이용 약관"}</LinkToTerms>
-        </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+    <>
+      <Template
+        handleSignUp={handleSignUp}
+        validationSchema={validationSchema}
+        privacyPolicy={PRIVACY_POLICY}
+        termsOfUse={TERMS_OF_USE}
+      />
+    </>
   );
 }

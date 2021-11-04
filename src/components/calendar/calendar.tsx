@@ -15,12 +15,8 @@ LocaleConfig.locales["KoreanCalendar"] = {
   monthNames: KR_MONTH_NAMES,
   monthNamesShort: KR_MONTH_NAMES,
   dayNames: KR_DAY_NAMES,
-  dayNamesShort: KR_DAY_NAMES
-  // today: "오늘" // typescript error!
-  /*
-  src/components/calendar/calendar.tsx(19,3): 
-  error TS2322: Type '{ monthNames: string[]; monthNamesShort: string[]; dayNames: string[]; dayNamesShort: string[]; today: string; }' is not assignable to type 'locale_detail'.  Object literal may only specify known properties, and 'today' does not exist in type 'locale_detail'.
-  */
+  dayNamesShort: KR_DAY_NAMES,
+  today: "오늘"
 };
 LocaleConfig.defaultLocale = "KoreanCalendar";
 

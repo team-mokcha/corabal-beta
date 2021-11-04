@@ -1,6 +1,7 @@
 import React from "react";
 import { View } from "react-native";
-import { CoinIcon, Text } from "@Components";
+import { Text } from "@Components";
+import { CoinIcon } from "../../atoms/index";
 import styles from "./point.style";
 
 const Point = ({ globalPoint }: any) => {

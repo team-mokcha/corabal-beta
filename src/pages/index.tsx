@@ -9,3 +9,4 @@ export { default as Cups } from "./cups/cups";
 export { default as Goal } from "./goal/goal";
 export { default as MonthlyRecord } from "./monthly-record/monthly-record";
 export { default as Record } from "./record/record";
+export { default as ErrorModal } from "./error-modal/error-modal";

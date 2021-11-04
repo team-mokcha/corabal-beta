@@ -1,6 +1,7 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
-import { Text, RightArrowIcon } from "@Components";
+import { RightArrowIcon } from "../../atoms/index";
+import { Text } from "@Components";
 import styles from "./aim.styles";
 
 const Aim = ({ setIsShowingGoal, globalGoal }: any) => {
