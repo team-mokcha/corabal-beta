@@ -1,32 +1,32 @@
 import React, { ReactElement } from "react";
 import { TouchableOpacity, View } from "react-native";
 import { FormikContextType, useFormikContext } from "formik";
-import Text from "../text/text";
-import styles from "./forms.styles";
+import Text from "../../text/text";
+import style from "./checkTermsButton.style";
 
-interface Values {
+type Values = {
   email: string;
   password: string;
   acceptTerms: boolean;
-}
+};
 
-export default function FormCheckButton(): ReactElement {
+export default function CheckTermsButton(): ReactElement {
   const { setFieldValue, values }: FormikContextType<Values> = useFormikContext();
 
   return (
-    <View style={styles.checkTermsContainer}>
+    <View style={style.checkTermsContainer}>
       {values.acceptTerms === false ? (
         <TouchableOpacity
-          style={[styles.checkTermsButton, styles.checkTermsButtonFalse]}
+          style={[style.checkTermsButton, style.checkTermsButtonFalse]}
           onPress={() => setFieldValue("acceptTerms", true)}
         />
       ) : (
         <TouchableOpacity
-          style={[styles.checkTermsButton, styles.checkTermsButtonTrue]}
+          style={[style.checkTermsButton, style.checkTermsButtonTrue]}
           onPress={() => setFieldValue("acceptTerms", false)}
         />
       )}
-      <Text weight="400" style={styles.checkTermsText}>
+      <Text weight="400" style={style.checkTermsText}>
         개인정보 처리 방침과 이용약관에 동의합니다.
       </Text>
     </View>

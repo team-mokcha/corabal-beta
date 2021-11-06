@@ -4,7 +4,7 @@ import { DrawerNavigationParams } from "@config/navigator";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalGoalState, globalPointState, globalUserState } from "@stores/stores";
 import { db } from "@services/firebaseApp";
-import Template from "./templates";
+import Template from "./template";
 
 type NavigationProps = {
   navigation: DrawerNavigationProp<DrawerNavigationParams, "Main">;

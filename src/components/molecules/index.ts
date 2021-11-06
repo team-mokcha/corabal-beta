@@ -4,3 +4,7 @@ export { default as CircleProgress } from "./main/circleProgress";
 export { default as FloatingButton } from "./main/floatingButton";
 export { default as Point } from "./main/point";
 export { default as RecordsOfMonth } from "./main/recordsOfMonth";
+export { default as Form } from "./auth/form";
+export { default as CheckTermsButton } from "./auth/checkTermsButton";
+export { default as SubmitButton } from "./auth/submitButton";
+export { default as InputField } from "./auth/inputField";

@@ -4,9 +4,8 @@ import { createCredential, createUserCollection } from "@services/functions/hand
 import { globalErrorStateDuringAuth, globalUserState } from "@stores/stores";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { StackNavigatorParams } from "@config/navigator";
-import { PRIVACY_POLICY, TERMS_OF_USE } from "@config/URL";
 import * as Yup from "yup";
-import Template from "./templates";
+import Template from "./template";
 
 type NavigationProps = {
   navigation: StackNavigationProp<StackNavigatorParams, "SignUp">;
@@ -73,12 +72,7 @@ export default function SignUp({ navigation }: NavigationProps): ReactElement {
 
   return (
     <>
-      <Template
-        handleSignUp={handleSignUp}
-        validationSchema={validationSchema}
-        privacyPolicy={PRIVACY_POLICY}
-        termsOfUse={TERMS_OF_USE}
-      />
+      <Template handleSignUp={handleSignUp} validationSchema={validationSchema} />
     </>
   );
 }
