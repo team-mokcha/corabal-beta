@@ -1,9 +1,12 @@
 import React, { ReactElement } from "react";
 import { View, ScrollView, Image } from "react-native";
 import { ButtonGradient, ButtonNormal } from "@Components";
+import { useNavigation } from "@react-navigation/core";
 import styles from "./intro.styles";
 
-export default function Template({ navigation }: any): ReactElement {
+export default function Template(): ReactElement {
+  const navigation = useNavigation<any>();
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollView}>
