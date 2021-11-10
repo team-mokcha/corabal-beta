@@ -71,7 +71,7 @@ export default function Navigator(): ReactElement {
           <Stack.Screen name="Record" component={Record} />
         </Stack.Navigator>
       ) : (
-        <Stack.Navigator initialRouteName="Intro" screenOptions={{ headerShown: false }}>
+        <Stack.Navigator initialRouteName="Nickname" screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Intro" component={Intro} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="SignUp" component={SignUp} />

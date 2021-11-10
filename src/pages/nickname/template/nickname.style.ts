@@ -11,9 +11,9 @@ const styles = StyleSheet.create({
     alignContent: "center"
   },
   profile: {
-    marginTop: 155,
-    marginLeft: 142,
-    marginRight: 146
+    marginTop: 155
+    // marginLeft: 142,
+    // marginRight: 146
   },
   inputContainer: {
     marginTop: 29,
