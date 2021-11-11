@@ -10,6 +10,11 @@ type TemplateProps = {
   handleSettingNickname: () => void;
 };
 
+const NICKNAME_TEXT = {
+  placeholder: "닉네임을 입력해주세요",
+  validation: "* 최대 8글자 이내로 입력해주세요."
+};
+
 export default function Template({
   nicknameValue,
   setNicknameValue,
@@ -23,13 +28,13 @@ export default function Template({
           style={styles.inputContainer}
           textAlign={"center"}
           underlineColorAndroid={"#ffffff"}
-          placeholder="닉네임을 입력해주세요"
+          placeholder={NICKNAME_TEXT.placeholder}
           maxLength={8}
           value={nicknameValue}
           onChangeText={value => setNicknameValue(value)}
         />
         <Text style={styles.validationText} weight="400">
-          * 최대 8글자 이내로 입력해주세요.
+          {NICKNAME_TEXT.validation}
         </Text>
         {nicknameValue.length > 0 && nicknameValue.length <= 8 ? (
           <ButtonGradient title="완료" style={styles.button} onPress={handleSettingNickname} />
