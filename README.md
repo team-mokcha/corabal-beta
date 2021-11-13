@@ -79,5 +79,5 @@
    * 0.0.1
       * 작업 진행 중
 
-## 📘 Lisence
+## 📘 License
 Team Mokcha. - team.mokcha@gmail.com
