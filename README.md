@@ -51,7 +51,7 @@
 
 | [개인 사이트는 비밀!]() |[Github](https://github.com/alveloper) | [Github](https://github.com/HyejinYang) |
 | :--:| :--:|  :--:  | 
-| <img src="https://user-images.githubusercontent.com/70951555/141611060-43a7ef2d-98b8-40d1-95f1-957b44a14351.png" height=270 /> | <img src="https://user-images.githubusercontent.com/70951555/141611056-e87d8a48-d26a-45c5-b2c2-8ea14360a5a5.png" height=270 /> | <img src="https://user-images.githubusercontent.com/70951555/141611036-f3b9def0-a172-4d3c-ad60-074fa799de99.png" height=270 />|
+| <img src="https://user-images.githubusercontent.com/73899253/141611653-2b550f5a-a7a2-4ed0-bfd0-6ceb7a5cf3d3.png" /> | <img src="https://user-images.githubusercontent.com/73899253/141611666-27256581-3b36-49a4-8783-228068ae2347.png" /> | <img src="https://user-images.githubusercontent.com/73899253/141611669-f117680d-149d-4bae-93d6-46c3339e0c24.png" />| 
 | **하마🐈** | **김수연🍻** | **양혜진🧊** | 
 |**Designer 🖼️**|**Frontend Developer 🖥️**|**Frontend Developer 🖥️**|
 
