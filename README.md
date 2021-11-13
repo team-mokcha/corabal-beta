@@ -28,7 +28,7 @@
 
 ## 📘 About Project
 
-> 커라밸은 커피와 삶의 건강한 균형점을 찾도록 돕는 라이프스타일 어플리케이션입니다.
+### 커라밸은 커피와 삶의 건강한 균형점을 찾도록 돕는 라이프스타일 어플리케이션입니다.
 
 > 현재 안드로이드 앱을 개발하고 있으며, 2022년 상반기에 런칭 예정입니다.
 
@@ -39,19 +39,28 @@
 </br>
 
 ## 📘 About Team
+
+### Team Mokcha
+
+> '당신 인생에 목차를 달아줄게요!'   
+
+> 서로 같은 페이지에 있을 때에도 다른 페이지에 있을 때에도,   
+
+> 모두 삶을 긍정적으로 기록할 수 있도록 돕는 프로덕트를 만드는 팀 목차입니다.
+
+
 | [개인 사이트는 비밀!]() |[Github](https://github.com/alveloper) | [Github](https://github.com/HyejinYang) |
 | :--:| :--:|  :--:  | 
-| <img src="https://user-images.githubusercontent.com/70951555/141609353-d3041bd4-b23a-41fa-bc25-11e350f3c853.png" height=280 /> | <img src="https://user-images.githubusercontent.com/70951555/141609407-5cf4e353-771a-459c-b4b1-00bd25112a2a.png" height=280 /> | <img src="https://user-images.githubusercontent.com/70951555/141609611-2afa4070-5a7d-4e1e-b410-7bbb073f181b.png" height=280 /> |
+| <img src="https://user-images.githubusercontent.com/70951555/141611060-43a7ef2d-98b8-40d1-95f1-957b44a14351.png" height=270 /> | <img src="https://user-images.githubusercontent.com/70951555/141611056-e87d8a48-d26a-45c5-b2c2-8ea14360a5a5.png" height=270 /> | <img src="https://user-images.githubusercontent.com/70951555/141611036-f3b9def0-a172-4d3c-ad60-074fa799de99.png" height=270 />|
 | **하마🐈** | **김수연🍻** | **양혜진🧊** | 
 |**Designer 🖼️**|**Frontend Developer 🖥️**|**Frontend Developer 🖥️**|
 
-> **하마** 🐈 : 고양이와 앱 디자인을 사랑하는 디자이너입니다.
+   -  **하마** 🐈 : 고양이와 앱 디자인을 사랑하는 디자이너입니다.
 
-> **김수연** 🍻 : 재미있는 일을 할 때면 밥도 안 먹고 개발하는 프론트엔드 개발자입니다.
+   -  **김수연** 🍻 : 재미있는 일을 할 때면 밥도 안 먹고 개발하는 프론트엔드 개발자입니다.
 
-> **양혜진** 🧊 : 웹 개발 전반에 관심이 있지만 특히 프론트엔드를 좋아하는 얼죽아 회원입니다. 
+   -  **양혜진** 🧊 : 웹 개발 전반에 관심이 있지만 특히 프론트엔드를 좋아하는 얼죽아 회원입니다. 
 
-   - Team Mokcha > '당신 인생에 목차를 달아줄게요!' 같은 페이지에 있을 때에도 다른 페이지에 있을 때에도, 언제나 삶을 긍정적으로 기록하도록 돕는 팀 목차입니다.
 
 </br>
 
