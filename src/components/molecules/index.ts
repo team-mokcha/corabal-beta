@@ -8,3 +8,6 @@ export { default as Form } from "./auth/form";
 export { default as CheckTermsButton } from "./auth/checkTermsButton";
 export { default as SubmitButton } from "./auth/submitButton";
 export { default as InputField } from "./auth/inputField";
+export { default as CupButton } from "./navigator/cupButton";
+export { default as GoalADay } from "./navigator/goalADay";
+export { default as GoalSetting } from "./navigator/goalSetting";

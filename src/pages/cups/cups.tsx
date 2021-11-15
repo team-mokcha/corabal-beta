@@ -6,18 +6,20 @@ import firebase from "firebase";
 
 const Cups = (): ReactElement => {
   const [test, setTest] = useState();
+  // 구글 클라우드나 파이어베이스 스토리지 둘 다 안 쓰기로 했음
+  // 이 부분 삭제할 것 : 21-11-15 수연
   // Points to the root reference
-  const storageRef = firebase.storage().ref();
+  // const storageRef = firebase.storage().ref();
   // Points to 'images/space.jpg'
-  const testImgRef = storageRef.child("cups/1shot.png");
-  testImgRef
-    .getDownloadURL()
-    .then(url => {
-      setTest(url);
-    })
-    .catch(error => console.error("error occurs:", error));
+  // const testImgRef = storageRef.child("cups/1shot.png");
+  // testImgRef
+  //   .getDownloadURL()
+  //   .then(url => {
+  //     setTest(url);
+  //   })
+  //   .catch(error => console.error("error occurs:", error));
 
-  console.log(test);
+  // console.log(test);
 
   return (
     <>
