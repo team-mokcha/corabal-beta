@@ -16,17 +16,17 @@
 <div align="center">
    <details>
       <summary>Table of Contents</summary>
-         <a href="https://github.com/team-mokcha/corabal-beta#-about-project">1. About Project</a></br>
-         <a href="#about-team">2. About Team</a></br>
-         <a href="#teck-stack">3. Teck Stack</a></br>
-         <a href="#update-history">4. Update History</a></br>
-         <a href="#lisence">5. Lisence</a>
+         <a href="#project">1. About Project</a></br>
+         <a href="#team">2. About Team</a></br>
+         <a href="#stack">3. Teck Stack</a></br>
+         <a href="#history">4. Update History</a></br>
+         <a href="#license">5. Lisence</a>
    </details>
    </div>
 <br>
 
 
-## 📘 About Project
+## 📘 About Project <a name="project"></a>
 
 ### 커라밸은 커피와 삶의 건강한 균형점을 찾도록 돕는 라이프스타일 어플리케이션입니다.
 
@@ -38,7 +38,7 @@
 
 </br>
 
-## 📘 About Team
+## 📘 About Team <a name="team"></a>
 
 ### Team Mokcha
 
@@ -64,7 +64,7 @@
 
 </br>
 
-## 📘 Teck Stack
+## 📘 Teck Stack <a name="stack"></a>
 
 ### Front-End
 
@@ -86,9 +86,9 @@
 
 </br>
 
-## 📘 Update History
+## 📘 Update History <a name="history"></a>
    * 0.0.1
       * 작업 진행 중
 
-## 📘 License
+## 📘 License <a name="license"></a>
 Team Mokcha. - team.mokcha@gmail.com
