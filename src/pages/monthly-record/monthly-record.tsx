@@ -10,7 +10,7 @@ import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState } from "@stores/stores";
 import { Calendar, RecordList } from "@Components";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { StackNavigatorParams } from "@config/navigator";
+import { StackNavigatorParams } from "../navigator/index";
 import { styles } from "./monthly-record.styles";
 
 type NavigationProps = {

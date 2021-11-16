@@ -13,25 +13,33 @@ const BUTTON_TEXT = {
   storage: "컵 보관함"
 };
 
-const CupButton = ({ navigation, type }: CupButtonParams): ReactElement => {
+const SwitchRoute = (type: string): string => {
   switch (type) {
-    case "shop": {
-      return (
-        <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate("Shop")}>
+    case "shop":
+      return "shop";
+    case "storage":
+      return "storage";
+    default:
+      throw new Error("invalid type.");
+  }
+};
+
+const CupButton = ({ navigation, type }: CupButtonParams): ReactElement => {
+  return (
+    <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate(SwitchRoute(type))}>
+      {type === "shop" ? (
+        <>
           <ShopIcon />
           <Text>{BUTTON_TEXT.shop}</Text>
-        </TouchableOpacity>
-      );
-    }
-    case "storage": {
-      return (
-        <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate("Shop")}>
+        </>
+      ) : (
+        <>
           <StorageIcon />
           <Text>{BUTTON_TEXT.storage}</Text>
-        </TouchableOpacity>
-      );
-    }
-  }
+        </>
+      )}
+    </TouchableOpacity>
+  );
 };
 
 export default CupButton;

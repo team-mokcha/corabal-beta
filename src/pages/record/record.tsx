@@ -3,7 +3,7 @@ import styles from "./record.style";
 import { TouchableOpacity, View, Image } from "react-native";
 import { ButtonGradient, Text, Header } from "@Components";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { StackNavigatorParams } from "@config/navigator";
+import { StackNavigatorParams } from "../navigator/index";
 
 type NavigationProps = {
   navigation: StackNavigationProp<StackNavigatorParams, "Record">;

@@ -6,6 +6,10 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     color: "#757474",
     marginBottom: 27
+  },
+  fonts: {
+    marginLeft: 24,
+    marginBottom: 24
   }
 });
 

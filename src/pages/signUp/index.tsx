@@ -3,7 +3,7 @@ import { useState as HSUseState } from "@hookstate/core";
 import { createCredential, createUserCollection } from "@services/functions/handle-auth";
 import { globalErrorStateDuringAuth, globalUserState } from "@stores/stores";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { StackNavigatorParams } from "@config/navigator";
+import { StackNavigatorParams } from "../navigator/index";
 import * as Yup from "yup";
 import Template from "./template";
 

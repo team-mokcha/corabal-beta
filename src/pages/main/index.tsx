@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import { DrawerNavigationProp } from "@react-navigation/drawer";
-import { DrawerNavigationParams } from "@config/navigator";
+import { DrawerNavigationParams } from "../navigator/index";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalGoalState, globalPointState, globalUserState } from "@stores/stores";
 import { db } from "@services/firebaseApp";
