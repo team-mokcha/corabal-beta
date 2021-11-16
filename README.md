@@ -16,7 +16,7 @@
 <div align="center">
    <details>
       <summary>Table of Contents</summary>
-         <a href="#---about-project">1. About Project</a></br>
+         <a href="https://github.com/team-mokcha/corabal-beta#-about-project">1. About Project</a></br>
          <a href="#about-team">2. About Team</a></br>
          <a href="#teck-stack">3. Teck Stack</a></br>
          <a href="#update-history">4. Update History</a></br>
