@@ -10,11 +10,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 23.17
   },
-  totalPickingContainer: {
+  totalOptionContainer: {
     marginLeft: 71,
     marginRight: 84
   },
-  eachPickingContainer: {
+  eachOptionContainer: {
     flexDirection: "row",
     marginBottom: 32
   },

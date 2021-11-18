@@ -5,7 +5,7 @@ import { ButtonGradient, Header } from "@Components";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { StackNavigatorParams } from "../navigator/index";
 import { DateText } from "../../components/atoms/index";
-import { OptionContainer } from "../../components/organisms/index";
+import { PickingContainer } from "../../components/organisms/index";
 
 type NavigationProps = {
   navigation: StackNavigationProp<StackNavigatorParams, "Record">;
@@ -42,8 +42,8 @@ const Record = ({ navigation }: NavigationProps): ReactElement => {
         <DateText type="present" />
         <Image style={styles.cupImage} source={require("@assets/cup-of-today.png")} />
         {/* total option container */}
-        <View style={styles.totalOptionContainer}>
-          <OptionContainer
+        <View style={styles.totalPickingContainer}>
+          <PickingContainer
             oneShot={oneShot}
             twoShot={twoShot}
             threeShot={threeShot}
