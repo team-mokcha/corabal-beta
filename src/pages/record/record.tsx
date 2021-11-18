@@ -1,9 +1,11 @@
 import React, { useEffect, ReactElement, useState } from "react";
 import styles from "./record.style";
-import { TouchableOpacity, View, Image } from "react-native";
-import { ButtonGradient, Text, Header } from "@Components";
+import { View, Image } from "react-native";
+import { ButtonGradient, Header } from "@Components";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { StackNavigatorParams } from "../navigator/index";
+import { DateText } from "../../components/atoms/index";
+import { OptionContainer } from "../../components/organisms/index";
 
 type NavigationProps = {
   navigation: StackNavigationProp<StackNavigatorParams, "Record">;
@@ -37,128 +39,29 @@ const Record = ({ navigation }: NavigationProps): ReactElement => {
     <>
       <Header back={false} close={true} />
       <View style={styles.container}>
-        <Text style={styles.dateFont}>2021.06.28</Text>
-        {/* 이미지는 나중에 바꾸고 지금은 레이아웃만 맞추기 210901 */}
-        <View style={{ marginLeft: 125, marginRight: 124, marginTop: 28, marginBottom: 31 }}>
-          <Image
-            style={{ width: "100%", height: 160 }}
-            source={require("@assets/cup-of-today.png")}
-          />
-        </View>
+        <DateText type="present" />
+        <Image style={styles.cupImage} source={require("@assets/cup-of-today.png")} />
         {/* total option container */}
         <View style={styles.totalOptionContainer}>
-          {/* shot option container */}
-          <View style={styles.eachOptionContainer}>
-            <View style={styles.shotFontContainer}>
-              <Text>샷</Text>
-              <Image style={styles.shotIcon} source={require("@assets/shot-of-today.png")} />
-            </View>
-            <View style={styles.flexDirRow}>
-              <TouchableOpacity
-                style={styles.optionAlign}
-                onPress={() => {
-                  setOneShot(true);
-                  setTwoShot(false);
-                  setThreeShot(false);
-                }}
-              >
-                {oneShot ? (
-                  <Image style={styles.optionImg} source={require("@assets/1shot.png")} />
-                ) : (
-                  <Image style={styles.optionImg} source={require("@assets/empty-shot.png")} />
-                )}
-                <Text>1샷</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.optionAlign}
-                onPress={() => {
-                  setOneShot(false);
-                  setTwoShot(true);
-                  setThreeShot(false);
-                }}
-              >
-                {twoShot ? (
-                  <Image style={styles.optionImg} source={require("@assets/2shot.png")} />
-                ) : (
-                  <Image style={styles.optionImg} source={require("@assets/empty-shot.png")} />
-                )}
-                <Text>2샷</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.optionAlign}
-                onPress={() => {
-                  setOneShot(false);
-                  setTwoShot(false);
-                  setThreeShot(true);
-                }}
-              >
-                {threeShot ? (
-                  <Image style={styles.optionImg} source={require("@assets/3shot.png")} />
-                ) : (
-                  <Image style={styles.optionImg} source={require("@assets/empty-shot.png")} />
-                )}
-                <Text>3샷</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-          {/* base option container */}
-          <View style={styles.eachOptionContainer}>
-            <Text style={styles.baseTitle}>베이스</Text>
-            <View style={styles.flexDirRow}>
-              <TouchableOpacity
-                style={styles.optionAlign}
-                onPress={() => {
-                  setWater(true);
-                  setMilk(false);
-                }}
-              >
-                {water && !milk ? (
-                  <Image style={styles.optionImg} source={require("@assets/water-selected.png")} />
-                ) : (
-                  <Image style={styles.optionImg} source={require("@assets/empty-base.png")} />
-                )}
-                <Text>물</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.optionAlign}
-                onPress={() => {
-                  setWater(false);
-                  setMilk(true);
-                }}
-              >
-                {milk && !water ? (
-                  <Image style={styles.optionImg} source={require("@assets/milk-selected.png")} />
-                ) : (
-                  <Image style={styles.optionImg} source={require("@assets/empty-base.png")} />
-                )}
-                <Text>우유</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-          {/* else option container */}
-          <View style={styles.eachOptionContainer}>
-            <Text style={styles.elseTitle}>추가</Text>
-            <View style={styles.flexDirRow}>
-              <TouchableOpacity style={styles.optionAlign} onPress={() => setSyrup(!syrup)}>
-                {syrup ? (
-                  <Image style={styles.optionImg} source={require("@assets/syrup-selected.png")} />
-                ) : (
-                  <Image style={styles.optionImg} source={require("@assets/empty-base.png")} />
-                )}
-                <Text>시럽</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.optionAlign} onPress={() => setCream(!cream)}>
-                {cream ? (
-                  <Image style={styles.optionImg} source={require("@assets/cream-selected.png")} />
-                ) : (
-                  <Image style={styles.optionImg} source={require("@assets/empty-cream.png")} />
-                )}
-                <Text>크림</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
+          <OptionContainer
+            oneShot={oneShot}
+            twoShot={twoShot}
+            threeShot={threeShot}
+            setOneShot={setOneShot}
+            setTwoShot={setTwoShot}
+            setThreeShot={setThreeShot}
+            milk={milk}
+            water={water}
+            setMilk={setMilk}
+            setWater={setWater}
+            cream={cream}
+            syrup={syrup}
+            setCream={setCream}
+            setSyrup={setSyrup}
+          />
         </View>
-        <ButtonGradient style={{ height: 48 }} title="완료" />
+        {/* 11월 셋째 주 스프린트 [11/5 - 11/21] #44 댓글 참고 - 21.11.18 수연 */}
+        <ButtonGradient style={{ marginBottom: "auto", maxHeight: 48 }} title="완료" />
       </View>
     </>
   );
