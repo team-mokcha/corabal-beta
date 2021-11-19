@@ -3,26 +3,36 @@ import { TouchableOpacity, View, Image } from "react-native";
 import { Text } from "@Components";
 import styles from "./pickingRow.style";
 
-type PickingRowProps = {
-  type: "shot" | "base" | "option";
-  oneShot?: boolean;
-  twoShot?: boolean;
-  threeShot?: boolean;
-  setOneShot?: (oneShot: boolean) => void;
-  setTwoShot?: (twoShot: boolean) => void;
-  setThreeShot?: (threeShot: boolean) => void;
-  milk?: boolean;
-  water?: boolean;
-  setMilk?: (milk: boolean) => void;
-  setWater?: (water: boolean) => void;
-  syrup?: boolean;
-  cream?: boolean;
-  setSyrup?: (syrup: boolean) => void;
-  setCream?: (cream: boolean) => void;
+type shotType = {
+  type: "shot";
+  oneShot: boolean;
+  twoShot: boolean;
+  threeShot: boolean;
+  setOneShot: (oneShot: boolean) => void;
+  setTwoShot: (twoShot: boolean) => void;
+  setThreeShot: (threeShot: boolean) => void;
 };
 
-const pickingRow = ({ type, ...props }: PickingRowProps): ReactElement => {
-  switch (type) {
+type baseType = {
+  type: "base";
+  milk: boolean;
+  water: boolean;
+  setMilk: (milk: boolean) => void;
+  setWater: (water: boolean) => void;
+};
+
+type optionType = {
+  type: "option";
+  syrup: boolean;
+  cream: boolean;
+  setSyrup: (syrup: boolean) => void;
+  setCream: (cream: boolean) => void;
+};
+
+type PickingRowProps = shotType | baseType | optionType;
+
+const pickingRow = ({ ...props }: PickingRowProps): ReactElement => {
+  switch (props.type) {
     case "shot": {
       const { oneShot, twoShot, threeShot, setOneShot, setTwoShot, setThreeShot } = props;
       return (
@@ -35,9 +45,9 @@ const pickingRow = ({ type, ...props }: PickingRowProps): ReactElement => {
             <TouchableOpacity
               style={styles.optionAlign}
               onPress={() => {
-                // setOneShot(true);
-                // setTwoShot(false);
-                // setThreeShot(false);
+                setOneShot(true);
+                setTwoShot(false);
+                setThreeShot(false);
               }}
             >
               {oneShot ? (
@@ -50,9 +60,9 @@ const pickingRow = ({ type, ...props }: PickingRowProps): ReactElement => {
             <TouchableOpacity
               style={styles.optionAlign}
               onPress={() => {
-                // setOneShot(false);
-                // setTwoShot(true);
-                // setThreeShot(false);
+                setOneShot(false);
+                setTwoShot(true);
+                setThreeShot(false);
               }}
             >
               {twoShot ? (
@@ -65,9 +75,9 @@ const pickingRow = ({ type, ...props }: PickingRowProps): ReactElement => {
             <TouchableOpacity
               style={styles.optionAlign}
               onPress={() => {
-                // setOneShot(false);
-                // setTwoShot(false);
-                // setThreeShot(true);
+                setOneShot(false);
+                setTwoShot(false);
+                setThreeShot(true);
               }}
             >
               {threeShot ? (
@@ -90,8 +100,8 @@ const pickingRow = ({ type, ...props }: PickingRowProps): ReactElement => {
             <TouchableOpacity
               style={styles.optionAlign}
               onPress={() => {
-                // setWater(true);
-                // setMilk(false);
+                setWater(true);
+                setMilk(false);
               }}
             >
               {water && !milk ? (
@@ -104,8 +114,8 @@ const pickingRow = ({ type, ...props }: PickingRowProps): ReactElement => {
             <TouchableOpacity
               style={styles.optionAlign}
               onPress={() => {
-                // setWater(false);
-                // setMilk(true);
+                setWater(false);
+                setMilk(true);
               }}
             >
               {milk && !water ? (
@@ -128,7 +138,7 @@ const pickingRow = ({ type, ...props }: PickingRowProps): ReactElement => {
             <TouchableOpacity
               style={styles.optionAlign}
               onPress={() => {
-                /*setSyrup(!syrup)*/
+                setSyrup(!syrup);
               }}
             >
               {syrup ? (
@@ -141,7 +151,7 @@ const pickingRow = ({ type, ...props }: PickingRowProps): ReactElement => {
             <TouchableOpacity
               style={styles.optionAlign}
               onPress={() => {
-                /*setCream(!cream)*/
+                setCream(!cream);
               }}
             >
               {cream ? (

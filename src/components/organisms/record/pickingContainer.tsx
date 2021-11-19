@@ -1,7 +1,4 @@
 import React, { ReactElement } from "react";
-import { TouchableOpacity, View, Image } from "react-native";
-import { Text } from "@Components";
-import styles from "./pickingContainer.style";
 import { PickingRow } from "../../molecules/index";
 
 type PickingContainerProps = {
@@ -39,7 +36,6 @@ const PickingContainer = ({
 }: PickingContainerProps): ReactElement => {
   return (
     <>
-      {/* shot option container */}
       <PickingRow
         type="shot"
         oneShot={oneShot}
