@@ -1,40 +1,18 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import { TouchableOpacity, View, Image } from "react-native";
 import { Text } from "@Components";
 import styles from "./pickingRow.style";
 
-type shotType = {
-  type: "shot";
-  oneShot: boolean;
-  twoShot: boolean;
-  threeShot: boolean;
-  setOneShot: (oneShot: boolean) => void;
-  setTwoShot: (twoShot: boolean) => void;
-  setThreeShot: (threeShot: boolean) => void;
-};
+type PickingRowProps = { type: "shot" | "base" | "option" };
 
-type baseType = {
-  type: "base";
-  milk: boolean;
-  water: boolean;
-  setMilk: (milk: boolean) => void;
-  setWater: (water: boolean) => void;
-};
+const pickingRow = ({ type }: PickingRowProps): ReactElement => {
+  // const [selectedCoffeeType, setSelectedCoffeeType] = useState([]); => 필요 없을 듯
+  const [shot, setShot] = useState(1);
+  const [base, setBase] = useState("water");
+  const [option, setOption] = useState("");
 
-type optionType = {
-  type: "option";
-  syrup: boolean;
-  cream: boolean;
-  setSyrup: (syrup: boolean) => void;
-  setCream: (cream: boolean) => void;
-};
-
-type PickingRowProps = shotType | baseType | optionType;
-
-const pickingRow = ({ ...props }: PickingRowProps): ReactElement => {
-  switch (props.type) {
+  switch (type) {
     case "shot": {
-      const { oneShot, twoShot, threeShot, setOneShot, setTwoShot, setThreeShot } = props;
       return (
         <View style={styles.eachOptionContainer}>
           <View style={styles.shotFontContainer}>
@@ -45,12 +23,10 @@ const pickingRow = ({ ...props }: PickingRowProps): ReactElement => {
             <TouchableOpacity
               style={styles.optionAlign}
               onPress={() => {
-                setOneShot(true);
-                setTwoShot(false);
-                setThreeShot(false);
+                setShot(1);
               }}
             >
-              {oneShot ? (
+              {shot === 1 ? (
                 <Image style={styles.optionImg} source={require("@assets/1shot.png")} />
               ) : (
                 <Image style={styles.optionImg} source={require("@assets/empty-shot.png")} />
@@ -60,12 +36,10 @@ const pickingRow = ({ ...props }: PickingRowProps): ReactElement => {
             <TouchableOpacity
               style={styles.optionAlign}
               onPress={() => {
-                setOneShot(false);
-                setTwoShot(true);
-                setThreeShot(false);
+                setShot(2);
               }}
             >
-              {twoShot ? (
+              {shot === 2 ? (
                 <Image style={styles.optionImg} source={require("@assets/2shot.png")} />
               ) : (
                 <Image style={styles.optionImg} source={require("@assets/empty-shot.png")} />
@@ -75,12 +49,10 @@ const pickingRow = ({ ...props }: PickingRowProps): ReactElement => {
             <TouchableOpacity
               style={styles.optionAlign}
               onPress={() => {
-                setOneShot(false);
-                setTwoShot(false);
-                setThreeShot(true);
+                setShot(3);
               }}
             >
-              {threeShot ? (
+              {shot === 3 ? (
                 <Image style={styles.optionImg} source={require("@assets/3shot.png")} />
               ) : (
                 <Image style={styles.optionImg} source={require("@assets/empty-shot.png")} />
@@ -92,7 +64,6 @@ const pickingRow = ({ ...props }: PickingRowProps): ReactElement => {
       );
     }
     case "base": {
-      const { milk, water, setMilk, setWater } = props;
       return (
         <View style={styles.eachOptionContainer}>
           <Text style={styles.baseTitle}>베이스</Text>
@@ -100,11 +71,10 @@ const pickingRow = ({ ...props }: PickingRowProps): ReactElement => {
             <TouchableOpacity
               style={styles.optionAlign}
               onPress={() => {
-                setWater(true);
-                setMilk(false);
+                setBase("water");
               }}
             >
-              {water && !milk ? (
+              {base === "water" ? (
                 <Image style={styles.optionImg} source={require("@assets/water-selected.png")} />
               ) : (
                 <Image style={styles.optionImg} source={require("@assets/empty-base.png")} />
@@ -114,11 +84,10 @@ const pickingRow = ({ ...props }: PickingRowProps): ReactElement => {
             <TouchableOpacity
               style={styles.optionAlign}
               onPress={() => {
-                setWater(false);
-                setMilk(true);
+                setBase("milk");
               }}
             >
-              {milk && !water ? (
+              {base === "milk" ? (
                 <Image style={styles.optionImg} source={require("@assets/milk-selected.png")} />
               ) : (
                 <Image style={styles.optionImg} source={require("@assets/empty-base.png")} />
@@ -130,7 +99,6 @@ const pickingRow = ({ ...props }: PickingRowProps): ReactElement => {
       );
     }
     case "option": {
-      const { syrup, cream, setSyrup, setCream } = props;
       return (
         <View style={styles.eachOptionContainer}>
           <Text style={styles.elseTitle}>추가</Text>
@@ -138,10 +106,10 @@ const pickingRow = ({ ...props }: PickingRowProps): ReactElement => {
             <TouchableOpacity
               style={styles.optionAlign}
               onPress={() => {
-                setSyrup(!syrup);
+                setOption("syrup");
               }}
             >
-              {syrup ? (
+              {option === "syrup" ? (
                 <Image style={styles.optionImg} source={require("@assets/syrup-selected.png")} />
               ) : (
                 <Image style={styles.optionImg} source={require("@assets/empty-base.png")} />
@@ -151,10 +119,10 @@ const pickingRow = ({ ...props }: PickingRowProps): ReactElement => {
             <TouchableOpacity
               style={styles.optionAlign}
               onPress={() => {
-                setCream(!cream);
+                setOption("cream");
               }}
             >
-              {cream ? (
+              {option === "cream" ? (
                 <Image style={styles.optionImg} source={require("@assets/cream-selected.png")} />
               ) : (
                 <Image style={styles.optionImg} source={require("@assets/empty-cream.png")} />
