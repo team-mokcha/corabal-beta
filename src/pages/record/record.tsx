@@ -3,7 +3,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { StackNavigatorParams } from "../navigator/index";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState, globalCoffeePickState } from "@stores/stores";
-import { addNormalCupRecord } from "@services/functions/handle-coffee-log";
+import { addNormalCupLog } from "@services/functions/handle-coffee-log";
 import Template from "./template/index";
 
 type NavigationProps = {
@@ -38,7 +38,7 @@ const Record = ({ navigation }: NavigationProps): ReactElement => {
   // 2) addNomalCupRecord 불러온 후 에러 처리 > 알럿 띄워주기
   const handleAddNormalCupBtn = async () => {
     const timestamp = new Date();
-    const [result, contents] = await addNormalCupRecord(
+    const [result, contents] = await addNormalCupLog(
       userEmail,
       pickedShot,
       pickedBase,
@@ -54,7 +54,7 @@ const Record = ({ navigation }: NavigationProps): ReactElement => {
         break;
       case "failed":
         {
-          console.log("Data was added successfully", contents);
+          console.log("An error occurred", contents);
         }
         break;
     }

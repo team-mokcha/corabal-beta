@@ -2,9 +2,9 @@ import React, { ReactElement, useState } from "react";
 import { View, Button } from "react-native";
 import { firebaseApp } from "@services/firebaseApp";
 import {
-  addNormalCupRecord,
-  addZeroCupRecord,
-  completeTodayRecord
+  // addNormalCupRecord,
+  addZeroCupRecord
+  // completeTodayRecord
 } from "@services/functions/handle-coffee-log";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState } from "@stores/stores";
@@ -32,13 +32,13 @@ export default function MonthlyRecord({ navigation }: NavigationProps): ReactEle
 
   const handleButtonComplete = async () => {
     const timestamp = new Date();
-    const [response, error] = await addNormalCupRecord(userEmail, shot, base, option, timestamp);
-    console.log(userEmail);
-    if (error) {
-      console.error(error);
-    } else {
-      console.log(response, "Adding coffee log succeed");
-    }
+    // const [response, error] = await addNormalCupRecord(userEmail, shot, base, option, timestamp);
+    // console.log(userEmail);
+    // if (error) {
+    //   console.error(error);
+    // } else {
+    //   console.log(response, "Adding coffee log succeed");
+    // }
   };
 
   const handleButtonZeroComplete = async () => {
@@ -54,12 +54,12 @@ export default function MonthlyRecord({ navigation }: NavigationProps): ReactEle
 
   const handleButtonRecordDone = async () => {
     const timestamp = new Date();
-    const [response, error] = await completeTodayRecord(userEmail, timestamp);
-    if (error) {
-      console.error(error);
-    } else {
-      console.log(response, "Adding coffee log succeed");
-    }
+    // const [response, error] = await completeTodayRecord(userEmail, timestamp);
+    // if (error) {
+    //   console.error(error);
+    // } else {
+    //   console.log(response, "Adding coffee log succeed");
+    // }
   };
 
   return (
