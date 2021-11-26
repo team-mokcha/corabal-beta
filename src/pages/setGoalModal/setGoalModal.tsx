@@ -13,7 +13,7 @@ type GoalProps = {
 };
 
 // props 로 넘겨주기
-const setGoalModal = ({ isShowingGoal, setIsShowingGoal }: GoalProps): ReactElement => {
+const SetGoalModal = ({ isShowingGoal, setIsShowingGoal }: GoalProps): ReactElement => {
   const globalEmail = HSUseState(globalUserState).userEmail.get();
   const userRef = db.collection("users").doc(globalEmail);
   const globalGoal = HSUseState(globalGoalState);
@@ -74,4 +74,4 @@ const setGoalModal = ({ isShowingGoal, setIsShowingGoal }: GoalProps): ReactElem
   );
 };
 
-export default setGoalModal;
+export default SetGoalModal;
