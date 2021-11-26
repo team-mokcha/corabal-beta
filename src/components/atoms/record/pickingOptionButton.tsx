@@ -17,6 +17,8 @@ type pickingOptionButtonProps = {
 
 const PickingOptionButton = ({ type }: pickingOptionButtonProps): ReactElement => {
   const globalOptionState = HSUseState(globalCoffeePickState).option;
+  const globalSyrupState = globalOptionState.get().syrup;
+  const globalCreamState = globalOptionState.get().cream;
 
   switch (type) {
     case "syrup": {
@@ -24,10 +26,10 @@ const PickingOptionButton = ({ type }: pickingOptionButtonProps): ReactElement =
         <TouchableOpacity
           style={styles.optionAlign}
           onPress={() => {
-            globalOptionState.set("syrup");
+            globalOptionState.syrup.set(!globalSyrupState);
           }}
         >
-          {globalOptionState.get() === "syrup" ? (
+          {globalSyrupState ? (
             <>
               <PressedOptionIcon imageStyle={styles.optionImg} type="syrupPressed" />
               <Text weight="400">{PICKING_OPTION_TEXT.syrup}</Text>
@@ -48,10 +50,10 @@ const PickingOptionButton = ({ type }: pickingOptionButtonProps): ReactElement =
         <TouchableOpacity
           style={styles.optionAlign}
           onPress={() => {
-            globalOptionState.set("cream");
+            globalOptionState.cream.set(!globalCreamState);
           }}
         >
-          {globalOptionState.get() === "cream" ? (
+          {globalCreamState ? (
             <>
               <PressedOptionIcon imageStyle={styles.optionImg} type="creamPressed" />
               <Text weight="400">{PICKING_OPTION_TEXT.cream}</Text>
