@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import { View } from "react-native";
 import Text from "../../atoms/text/text";
 import RNModal from "react-native-modal";
-import styles from "./modal.style";
+import styles from "./modal.styles";
 
 type ModalProps = {
   isVisible: boolean;
