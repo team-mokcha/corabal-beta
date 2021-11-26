@@ -1,7 +1,7 @@
 export { default as AppBootstrap } from "./app-bootstrap/app-bootstrap";
 export { default as Text } from "./text/text";
-export { default as ButtonNormal } from "./button/button-normal";
-export { default as ButtonGradient } from "./button/button-gradient";
+export { default as ButtonNormal } from "./atoms/button/buttonNormal";
+export { default as ButtonGradient } from "./atoms/button/buttonGradient";
 export { default as Modal } from "./modal/modal";
 // export { default as Form } from "./molecules/auth/form";
 // export { default as FormField } from "./molecules/auth/inputField";

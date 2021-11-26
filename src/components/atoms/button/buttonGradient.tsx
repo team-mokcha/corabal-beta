@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { TouchableOpacity, TouchableOpacityProps } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import Text from "../text/text";
+import Text from "../../text/text";
 import styles from "./button.styles";
 
 type ButtonProps = {
