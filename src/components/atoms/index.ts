@@ -6,4 +6,4 @@ export { default as StorageIcon } from "./icons/storageIcon";
 export { default as ToExternalButton } from "./links/toExternalButton";
 export { default as ToSignUpButton } from "./routes/toSignUpButton";
 export { default as DateText } from "./record/dateText";
-export { default as ShotPickingButton } from "./record/shotPickingButton";
+export { default as ShotPickingButton } from "./icons/pressedShotIcon";
