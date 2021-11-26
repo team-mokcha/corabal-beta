@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, ReactElement } from "react";
 import { TouchableOpacity } from "react-native";
 import { Text } from "@Components";
 import styles from "./goalSetting.style";
-import Goal from "../../../pages/goal/goal";
+import Goal from "../../../pages/setGoalModal/setGoalModal";
 
 type GoalControlParams = {
   isShowingGoal: boolean;

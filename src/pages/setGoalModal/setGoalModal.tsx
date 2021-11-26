@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import { Text, Modal, ButtonGradient } from "@Components";
-import styles from "./goal.style";
+import styles from "./setGoalModal.style";
 import { Dispatch, SetStateAction } from "react";
 import { db, firebaseApp } from "@services/firebaseApp";
 import { useState as HSUseState } from "@hookstate/core";
@@ -13,7 +13,7 @@ type GoalProps = {
 };
 
 // props 로 넘겨주기
-const Goal = ({ isShowingGoal, setIsShowingGoal }: GoalProps): ReactElement => {
+const setGoalModal = ({ isShowingGoal, setIsShowingGoal }: GoalProps): ReactElement => {
   const globalEmail = HSUseState(globalUserState).userEmail.get();
   const userRef = db.collection("users").doc(globalEmail);
   const globalGoal = HSUseState(globalGoalState);
@@ -74,4 +74,4 @@ const Goal = ({ isShowingGoal, setIsShowingGoal }: GoalProps): ReactElement => {
   );
 };
 
-export default Goal;
+export default setGoalModal;

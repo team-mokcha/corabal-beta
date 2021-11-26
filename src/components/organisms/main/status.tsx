@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Image } from "react-native";
 import { Aim, Point, RecordsOfMonth } from "../../molecules/index";
-import Goal from "../../../pages/goal/goal";
+import Goal from "../../../pages/setGoalModal/setGoalModal";
 import styles from "./status.styles";
 
 const Status = ({
