@@ -1,7 +1,10 @@
 import firebase from "firebase";
 import { db } from "@services/firebaseApp";
 
-// 함수 안의 함수로 모듈화?
+const RESPONSE_TEXT = {
+  success: "succeed",
+  fail: "failed"
+};
 
 // 1. main의 플로팅 버튼으로 기록 생성 - 5잔 제한 보안 규칙에 추가되어야 함
 export async function addNormalCupRecord(
@@ -34,7 +37,7 @@ export async function addNormalCupRecord(
           option: option
         })
       });
-      return [response, null];
+      return [RESPONSE_TEXT.success, response];
     } else {
       const response = await logDocumentationRef.set({
         date: { year: year, month: month, day: day },
@@ -52,10 +55,10 @@ export async function addNormalCupRecord(
         ],
         watched_AD_counts: 0
       });
-      return [response, null];
+      return [RESPONSE_TEXT.success, response];
     }
   } catch (error) {
-    return [null, error];
+    return [RESPONSE_TEXT.fail, error];
   }
 }
 
