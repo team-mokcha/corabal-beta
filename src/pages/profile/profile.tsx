@@ -9,7 +9,7 @@ import {
 } from "@services/functions/handle-auth";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState, globalPointState } from "@stores/stores";
-import CallingCat from "../calling-cat/calling-cat";
+import CallingCat from "../changeCatStatusModal/changeCatStatusModal";
 // import { initRewardAds } from "@services/watching-ads-service";
 import { db } from "@services/firebaseApp";
 

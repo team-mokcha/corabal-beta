@@ -7,7 +7,7 @@ type CallingCatProps = {
   setIsCallingCat: Dispatch<SetStateAction<boolean>>;
 };
 
-const CallingCat = ({ isCallingCat, setIsCallingCat }: CallingCatProps): ReactElement => {
+const ChangeCatStatusModal = ({ isCallingCat, setIsCallingCat }: CallingCatProps): ReactElement => {
   return (
     <Modal isVisible={isCallingCat}>
       <Modal.Container>
@@ -27,4 +27,4 @@ const CallingCat = ({ isCallingCat, setIsCallingCat }: CallingCatProps): ReactEl
   );
 };
 
-export default CallingCat;
+export default ChangeCatStatusModal;
