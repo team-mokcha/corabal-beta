@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import { TouchableOpacity } from "react-native";
-import Text from "../../text/text";
+import Text from "../text/text";
 import { useNavigation } from "@react-navigation/core";
 import styles from "./toSignUpButton.style";
 

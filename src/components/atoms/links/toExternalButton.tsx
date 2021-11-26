@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { TouchableOpacity } from "react-native";
 import * as WebBrowser from "expo-web-browser";
-import Text from "../../text/text";
+import Text from "../text/text";
 import styles from "./toExternalButton.styles";
 
 type ToExternalButtonParams = {

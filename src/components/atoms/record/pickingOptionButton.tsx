@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import { TouchableOpacity } from "react-native";
-import Text from "../../text/text";
+import Text from "../text/text";
 import PressedOptionIcon from "../icons/pressedOptionIcon";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalCoffeePickState } from "@stores/stores";

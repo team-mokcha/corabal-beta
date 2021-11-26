@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import { View } from "react-native";
 import { Calendar as RNCalendar, LocaleConfig } from "react-native-calendars";
 import { KR_MONTH_NAMES, KR_DAY_NAMES } from "./date_constants";
-import Text from "../../text/text";
+import Text from "../../atoms/text/text";
 import styles from "./calendar.styles";
 
 // 1. arrow는 커스텀한 컴포넌트로 아예 교체를 해야함// custom arrow는 드롭박스를 보여주나..?

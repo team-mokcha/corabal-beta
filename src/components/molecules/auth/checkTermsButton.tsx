@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { TouchableOpacity, View } from "react-native";
 import { FormikContextType, useFormikContext } from "formik";
-import Text from "../../text/text";
+import Text from "../../atoms/text/text";
 import style from "./checkTermsButton.style";
 
 type Values = {

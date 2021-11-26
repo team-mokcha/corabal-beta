@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import { View, TextInput } from "react-native";
-import Text from "../../text/text";
+import Text from "../../atoms/text/text";
 import style from "./inputField.style";
 
 const InputField = (props: any): ReactElement => {

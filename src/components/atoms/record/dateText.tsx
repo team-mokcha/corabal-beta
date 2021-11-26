@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import Text from "../../text/text";
+import Text from "../text/text";
 import styles from "./dateText.style";
 
 type DateTextProps = {
