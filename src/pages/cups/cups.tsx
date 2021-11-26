@@ -1,0 +1,42 @@
+import React, { ReactElement, useState } from "react";
+import { View, Image, ScrollView } from "react-native";
+import { Text, Header } from "@Components";
+import styles from "./cups.style";
+import firebase from "firebase";
+
+const Cups = (): ReactElement => {
+  const [test, setTest] = useState();
+  // 구글 클라우드나 파이어베이스 스토리지 둘 다 안 쓰기로 했음
+  // 이 부분 삭제할 것 : 21-11-15 수연
+  // Points to the root reference
+  // const storageRef = firebase.storage().ref();
+  // Points to 'images/space.jpg'
+  // const testImgRef = storageRef.child("cups/1shot.png");
+  // testImgRef
+  //   .getDownloadURL()
+  //   .then(url => {
+  //     setTest(url);
+  //   })
+  //   .catch(error => console.error("error occurs:", error));
+
+  // console.log(test);
+
+  return (
+    <>
+      <Header back={true} close={false} />
+      <ScrollView>
+        <Text style={styles.myCupFont}>내 텀블러</Text>
+        <View style={styles.presentCupContainer}>
+          <Text style={styles.presentCupFont}>현재 텀블러</Text>
+          <Image source={require("@assets/empty-cup.png")} />
+        </View>
+        <Text style={styles.cupsIHave}>보유 텀블러</Text>
+        {/* 이거 정렬 어떻게 할지 생각해봐야 한다. */}
+
+        <Image source={{ uri: test }} />
+      </ScrollView>
+    </>
+  );
+};
+
+export default Cups;
