@@ -5,6 +5,11 @@ import { useState as HSUseState } from "@hookstate/core";
 import { globalCoffeePickState } from "@stores/stores";
 import styles from "./pickingButton.style";
 
+const PICKING_BASE_TEXT = {
+  water: "물",
+  milk: "우유"
+};
+
 type pickingBaseButtonProps = {
   type: "water" | "milk";
 };
@@ -26,7 +31,7 @@ const PickingBaseButton = ({ type }: pickingBaseButtonProps): ReactElement => {
           ) : (
             <PressedBaseIcon type="unPressed" />
           )}
-          <Text>물</Text>
+          <Text>{PICKING_BASE_TEXT.water}</Text>
         </TouchableOpacity>
       );
     }
@@ -43,7 +48,7 @@ const PickingBaseButton = ({ type }: pickingBaseButtonProps): ReactElement => {
           ) : (
             <PressedBaseIcon type="unPressed" />
           )}
-          <Text>우유</Text>
+          <Text>{PICKING_BASE_TEXT.milk}</Text>
         </TouchableOpacity>
       );
     }

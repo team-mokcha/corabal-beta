@@ -5,6 +5,12 @@ import { useState as HSUseState } from "@hookstate/core";
 import { globalCoffeePickState } from "@stores/stores";
 import styles from "./pickingButton.style";
 
+const PICKING_SHOT_TEXT = {
+  one: "1샷",
+  two: "2샷",
+  three: "3샷"
+};
+
 type pickingShotButtonProps = {
   type: "one" | "two" | "three";
 };
@@ -26,7 +32,7 @@ const PickingShotButton = ({ type }: pickingShotButtonProps): ReactElement => {
           ) : (
             <PressedShotIcon type="unPressed" />
           )}
-          <Text>1샷</Text>
+          <Text>{PICKING_SHOT_TEXT.one}</Text>
         </TouchableOpacity>
       );
     }
@@ -43,7 +49,7 @@ const PickingShotButton = ({ type }: pickingShotButtonProps): ReactElement => {
           ) : (
             <PressedShotIcon type="unPressed" />
           )}
-          <Text>2샷</Text>
+          <Text>{PICKING_SHOT_TEXT.two}</Text>
         </TouchableOpacity>
       );
     }
@@ -60,7 +66,7 @@ const PickingShotButton = ({ type }: pickingShotButtonProps): ReactElement => {
           ) : (
             <PressedShotIcon type="unPressed" />
           )}
-          <Text>3샷</Text>
+          <Text>{PICKING_SHOT_TEXT.three}</Text>
         </TouchableOpacity>
       );
     }

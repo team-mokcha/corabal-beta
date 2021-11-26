@@ -6,6 +6,12 @@ import PickingBaseButton from "../../atoms/record/pickingBaseButton";
 import PickingOptionButton from "../../atoms/record/pickingOptionButton";
 import styles from "./pickingRow.style";
 
+const ROW_TEXT = {
+  shot: "샷",
+  base: "베이스",
+  option: "추가"
+};
+
 type PickingRowProps = { type: "shot" | "base" | "option" };
 
 const pickingRow = ({ type }: PickingRowProps): ReactElement => {
@@ -14,7 +20,7 @@ const pickingRow = ({ type }: PickingRowProps): ReactElement => {
       return (
         <View style={styles.eachOptionContainer}>
           <View style={styles.shotFontContainer}>
-            <Text>샷</Text>
+            <Text>{ROW_TEXT.shot}</Text>
             <Image style={styles.shotIcon} source={require("@assets/shot-of-today.png")} />
           </View>
           <View style={styles.flexDirRow}>
@@ -28,7 +34,7 @@ const pickingRow = ({ type }: PickingRowProps): ReactElement => {
     case "base": {
       return (
         <View style={styles.eachOptionContainer}>
-          <Text style={styles.baseTitle}>베이스</Text>
+          <Text style={styles.baseTitle}>{ROW_TEXT.base}</Text>
           <View style={styles.flexDirRow}>
             <PickingBaseButton type="water" />
             <PickingBaseButton type="milk" />
@@ -39,7 +45,7 @@ const pickingRow = ({ type }: PickingRowProps): ReactElement => {
     case "option": {
       return (
         <View style={styles.eachOptionContainer}>
-          <Text style={styles.elseTitle}>추가</Text>
+          <Text style={styles.elseTitle}>{ROW_TEXT.option}</Text>
           <View style={styles.flexDirRow}>
             <PickingOptionButton type="syrup" />
             <PickingOptionButton type="cream" />
