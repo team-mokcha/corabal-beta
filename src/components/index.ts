@@ -9,7 +9,7 @@ export { default as Modal } from "./organisms/modal/modal";
 // export { default as CheckTermsButton } from "./molecules/auth/checkTermsButton";
 // export { default as LinkToTerms } from "./link-to-terms/link-to-terms";
 export { default as Calendar } from "./organisms/calendar/calendar";
-export { default as RecordList } from "./record-list/record-list";
+export { default as RecordList } from "./organisms/recordList/recordList";
 export { default as Header } from "./organisms/header/header";
 export { default as MainHeader } from "./organisms/header/mainHeader";
 // export { default as Status } from "./organisms/main/status";
