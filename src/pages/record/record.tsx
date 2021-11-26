@@ -1,4 +1,4 @@
-import React, { useEffect, ReactElement, useState } from "react";
+import React, { useEffect, ReactElement } from "react";
 import styles from "./record.style";
 import { View, Image } from "react-native";
 import { ButtonGradient, Header } from "@Components";
@@ -29,8 +29,8 @@ const Record = ({ navigation }: NavigationProps): ReactElement => {
 
   return (
     <>
-      <Header back={false} close={true} />
       <View style={styles.container}>
+        <Header back={false} close={true} />
         <DateText type="present" />
         <Image style={styles.cupImage} source={require("@assets/cup-of-today.png")} />
         {/* total option container */}
