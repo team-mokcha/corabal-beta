@@ -6,7 +6,5 @@ export { default as Main } from "./main";
 export { default as Profile } from "./profile/profile";
 export { default as Shop } from "./shop/shop";
 export { default as Cups } from "./cups/cups";
-export { default as Goal } from "./setGoalModal/setGoalModal";
 export { default as MonthlyRecord } from "./monthlyRecord/monthlyRecord";
 export { default as Record } from "./record/record";
-export { default as ErrorModal } from "./errorModal/errorModal";

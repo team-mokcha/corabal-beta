@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Image } from "react-native";
 import { Aim, Point, RecordsOfMonth } from "../../molecules/index";
-import Goal from "../../../pages/setGoalModal/setGoalModal";
+import SetGoalModal from "../../../pages/setGoalModal/setGoalModal";
 import styles from "./status.styles";
 
 const Status = ({
@@ -16,7 +16,7 @@ const Status = ({
   return (
     <View style={styles.aimContainer}>
       <Aim setIsShowingGoal={setIsShowingGoal} globalGoal={globalGoal} />
-      <Goal isShowingGoal={isShowingGoal} setIsShowingGoal={setIsShowingGoal} />
+      <SetGoalModal isShowingGoal={isShowingGoal} setIsShowingGoal={setIsShowingGoal} />
       <View style={styles.mainContainer}>
         <Image style={styles.mainCatImg} source={require("@assets/main-cat.png")} />
         <View style={{ flex: 1 }}>
