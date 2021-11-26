@@ -25,3 +25,9 @@ export const globalGoalState = createState({
 export const globalPointState = createState({
   current: 0
 });
+
+export const globalCoffeePickState = createState({
+  shot: 2,
+  base: "water",
+  option: { syrup: false, cream: false }
+});

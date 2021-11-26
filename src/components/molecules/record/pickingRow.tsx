@@ -1,156 +1,54 @@
 import React, { ReactElement } from "react";
-import { TouchableOpacity, View, Image } from "react-native";
+import { View, Image } from "react-native";
 import { Text } from "@Components";
+import PickingShotButton from "../../atoms/record/pickingShotButton";
+import PickingBaseButton from "../../atoms/record/pickingBaseButton";
+import PickingOptionButton from "../../atoms/record/pickingOptionButton";
 import styles from "./pickingRow.style";
 
-type PickingRowProps = {
-  type: "shot" | "base" | "option";
-  oneShot?: boolean;
-  twoShot?: boolean;
-  threeShot?: boolean;
-  setOneShot?: (oneShot: boolean) => void;
-  setTwoShot?: (twoShot: boolean) => void;
-  setThreeShot?: (threeShot: boolean) => void;
-  milk?: boolean;
-  water?: boolean;
-  setMilk?: (milk: boolean) => void;
-  setWater?: (water: boolean) => void;
-  syrup?: boolean;
-  cream?: boolean;
-  setSyrup?: (syrup: boolean) => void;
-  setCream?: (cream: boolean) => void;
+const ROW_TEXT = {
+  shot: "샷",
+  base: "베이스",
+  option: "추가"
 };
 
-const pickingRow = ({ type, ...props }: PickingRowProps): ReactElement => {
+type PickingRowProps = { type: "shot" | "base" | "option" };
+
+const pickingRow = ({ type }: PickingRowProps): ReactElement => {
   switch (type) {
     case "shot": {
-      const { oneShot, twoShot, threeShot, setOneShot, setTwoShot, setThreeShot } = props;
       return (
         <View style={styles.eachOptionContainer}>
           <View style={styles.shotFontContainer}>
-            <Text>샷</Text>
+            <Text>{ROW_TEXT.shot}</Text>
             <Image style={styles.shotIcon} source={require("@assets/shot-of-today.png")} />
           </View>
           <View style={styles.flexDirRow}>
-            <TouchableOpacity
-              style={styles.optionAlign}
-              onPress={() => {
-                // setOneShot(true);
-                // setTwoShot(false);
-                // setThreeShot(false);
-              }}
-            >
-              {oneShot ? (
-                <Image style={styles.optionImg} source={require("@assets/1shot.png")} />
-              ) : (
-                <Image style={styles.optionImg} source={require("@assets/empty-shot.png")} />
-              )}
-              <Text>1샷</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.optionAlign}
-              onPress={() => {
-                // setOneShot(false);
-                // setTwoShot(true);
-                // setThreeShot(false);
-              }}
-            >
-              {twoShot ? (
-                <Image style={styles.optionImg} source={require("@assets/2shot.png")} />
-              ) : (
-                <Image style={styles.optionImg} source={require("@assets/empty-shot.png")} />
-              )}
-              <Text>2샷</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.optionAlign}
-              onPress={() => {
-                // setOneShot(false);
-                // setTwoShot(false);
-                // setThreeShot(true);
-              }}
-            >
-              {threeShot ? (
-                <Image style={styles.optionImg} source={require("@assets/3shot.png")} />
-              ) : (
-                <Image style={styles.optionImg} source={require("@assets/empty-shot.png")} />
-              )}
-              <Text>3샷</Text>
-            </TouchableOpacity>
+            <PickingShotButton type="one" />
+            <PickingShotButton type="two" />
+            <PickingShotButton type="three" />
           </View>
         </View>
       );
     }
     case "base": {
-      const { milk, water, setMilk, setWater } = props;
       return (
         <View style={styles.eachOptionContainer}>
-          <Text style={styles.baseTitle}>베이스</Text>
+          <Text style={styles.baseTitle}>{ROW_TEXT.base}</Text>
           <View style={styles.flexDirRow}>
-            <TouchableOpacity
-              style={styles.optionAlign}
-              onPress={() => {
-                // setWater(true);
-                // setMilk(false);
-              }}
-            >
-              {water && !milk ? (
-                <Image style={styles.optionImg} source={require("@assets/water-selected.png")} />
-              ) : (
-                <Image style={styles.optionImg} source={require("@assets/empty-base.png")} />
-              )}
-              <Text>물</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.optionAlign}
-              onPress={() => {
-                // setWater(false);
-                // setMilk(true);
-              }}
-            >
-              {milk && !water ? (
-                <Image style={styles.optionImg} source={require("@assets/milk-selected.png")} />
-              ) : (
-                <Image style={styles.optionImg} source={require("@assets/empty-base.png")} />
-              )}
-              <Text>우유</Text>
-            </TouchableOpacity>
+            <PickingBaseButton type="water" />
+            <PickingBaseButton type="milk" />
           </View>
         </View>
       );
     }
     case "option": {
-      const { syrup, cream, setSyrup, setCream } = props;
       return (
         <View style={styles.eachOptionContainer}>
-          <Text style={styles.elseTitle}>추가</Text>
+          <Text style={styles.elseTitle}>{ROW_TEXT.option}</Text>
           <View style={styles.flexDirRow}>
-            <TouchableOpacity
-              style={styles.optionAlign}
-              onPress={() => {
-                /*setSyrup(!syrup)*/
-              }}
-            >
-              {syrup ? (
-                <Image style={styles.optionImg} source={require("@assets/syrup-selected.png")} />
-              ) : (
-                <Image style={styles.optionImg} source={require("@assets/empty-base.png")} />
-              )}
-              <Text>시럽</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.optionAlign}
-              onPress={() => {
-                /*setCream(!cream)*/
-              }}
-            >
-              {cream ? (
-                <Image style={styles.optionImg} source={require("@assets/cream-selected.png")} />
-              ) : (
-                <Image style={styles.optionImg} source={require("@assets/empty-cream.png")} />
-              )}
-              <Text>크림</Text>
-            </TouchableOpacity>
+            <PickingOptionButton type="syrup" />
+            <PickingOptionButton type="cream" />
           </View>
         </View>
       );

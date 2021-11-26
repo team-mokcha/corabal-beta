@@ -4,11 +4,7 @@ const styles = StyleSheet.create({
   container: {
     marginLeft: 24,
     marginRight: 24,
-    marginTop: 1
-  },
-  dateFont: {
-    fontSize: 16,
-    lineHeight: 23.17
+    marginTop: 41
   },
   totalPickingContainer: {
     marginLeft: 71,
@@ -17,31 +13,6 @@ const styles = StyleSheet.create({
   eachPickingContainer: {
     flexDirection: "row",
     marginBottom: 32
-  },
-  shotFontContainer: {
-    flexDirection: "row",
-    marginRight: 41
-  },
-  shotIcon: {
-    width: 12,
-    height: 12
-  },
-  flexDirRow: {
-    flexDirection: "row"
-  },
-  optionAlign: {
-    marginRight: 30,
-    alignItems: "center"
-  },
-  optionImg: {
-    width: 27,
-    height: 27
-  },
-  baseTitle: {
-    marginRight: 27
-  },
-  elseTitle: {
-    marginRight: 40
   },
   cupImage: {
     marginTop: 28,
