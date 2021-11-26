@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity } from "react-native";
+import Text from "../../text/text";
 import PressedOptionIcon from "../icons/pressedOptionIcon";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalCoffeePickState } from "@stores/stores";
@@ -27,11 +28,18 @@ const PickingOptionButton = ({ type }: pickingOptionButtonProps): ReactElement =
           }}
         >
           {globalOptionState.get() === "syrup" ? (
-            <PressedOptionIcon imageStyle={styles.optionImg} type="syrupPressed" />
+            <>
+              <PressedOptionIcon imageStyle={styles.optionImg} type="syrupPressed" />
+              <Text weight="400">{PICKING_OPTION_TEXT.syrup}</Text>
+            </>
           ) : (
-            <PressedOptionIcon imageStyle={styles.optionImg} type="syrupUnPressed" />
+            <>
+              <PressedOptionIcon imageStyle={styles.optionImg} type="syrupUnPressed" />
+              <Text weight="400" style={styles.unPickedOption}>
+                {PICKING_OPTION_TEXT.syrup}
+              </Text>
+            </>
           )}
-          <Text>{PICKING_OPTION_TEXT.syrup}</Text>
         </TouchableOpacity>
       );
     }
@@ -44,11 +52,18 @@ const PickingOptionButton = ({ type }: pickingOptionButtonProps): ReactElement =
           }}
         >
           {globalOptionState.get() === "cream" ? (
-            <PressedOptionIcon imageStyle={styles.optionImg} type="creamPressed" />
+            <>
+              <PressedOptionIcon imageStyle={styles.optionImg} type="creamPressed" />
+              <Text weight="400">{PICKING_OPTION_TEXT.cream}</Text>
+            </>
           ) : (
-            <PressedOptionIcon imageStyle={styles.optionImg} type="creamUnPressed" />
+            <>
+              <PressedOptionIcon imageStyle={styles.optionImg} type="creamUnPressed" />
+              <Text weight="400" style={styles.unPickedOption}>
+                {PICKING_OPTION_TEXT.cream}
+              </Text>
+            </>
           )}
-          <Text>{PICKING_OPTION_TEXT.cream}</Text>
         </TouchableOpacity>
       );
     }

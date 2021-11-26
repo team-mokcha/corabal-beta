@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity } from "react-native";
+import Text from "../../text/text";
 import PressedBaseIcon from "../icons/pressedBaseIcon";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalCoffeePickState } from "@stores/stores";
@@ -27,11 +28,18 @@ const PickingBaseButton = ({ type }: pickingBaseButtonProps): ReactElement => {
           }}
         >
           {globalBaseState.get() === "water" ? (
-            <PressedBaseIcon imageStyle={styles.optionImg} type="waterPressed" />
+            <>
+              <PressedBaseIcon imageStyle={styles.optionImg} type="waterPressed" />
+              <Text weight="400">{PICKING_BASE_TEXT.water}</Text>
+            </>
           ) : (
-            <PressedBaseIcon imageStyle={styles.optionImg} type="unPressed" />
+            <>
+              <PressedBaseIcon imageStyle={styles.optionImg} type="unPressed" />
+              <Text weight="400" style={styles.unPickedOption}>
+                {PICKING_BASE_TEXT.water}
+              </Text>
+            </>
           )}
-          <Text>{PICKING_BASE_TEXT.water}</Text>
         </TouchableOpacity>
       );
     }
@@ -44,11 +52,18 @@ const PickingBaseButton = ({ type }: pickingBaseButtonProps): ReactElement => {
           }}
         >
           {globalBaseState.get() === "milk" ? (
-            <PressedBaseIcon imageStyle={styles.optionImg} type="milkPressed" />
+            <>
+              <PressedBaseIcon imageStyle={styles.optionImg} type="milkPressed" />
+              <Text weight="400">{PICKING_BASE_TEXT.milk}</Text>
+            </>
           ) : (
-            <PressedBaseIcon imageStyle={styles.optionImg} type="unPressed" />
+            <>
+              <PressedBaseIcon imageStyle={styles.optionImg} type="unPressed" />
+              <Text weight="400" style={styles.unPickedOption}>
+                {PICKING_BASE_TEXT.milk}
+              </Text>
+            </>
           )}
-          <Text>{PICKING_BASE_TEXT.milk}</Text>
         </TouchableOpacity>
       );
     }

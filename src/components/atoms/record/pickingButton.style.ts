@@ -7,7 +7,11 @@ const styles = StyleSheet.create({
   },
   optionImg: {
     width: 27,
-    height: 27
+    height: 27,
+    marginBottom: 4
+  },
+  unPickedOption: {
+    color: "#CECECE"
   }
 });
 
