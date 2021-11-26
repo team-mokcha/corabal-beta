@@ -1,23 +1,24 @@
 import React, { ReactElement } from "react";
-import { Image } from "react-native";
+import { Image, StyleProp, ImageStyle } from "react-native";
 
 type pressedOptionProps = {
   type: "syrupPressed" | "creamPressed" | "syrupUnPressed" | "creamUnPressed";
+  imageStyle: StyleProp<ImageStyle>;
 };
 
-const PressedOptionIcon = ({ type }: pressedOptionProps): ReactElement => {
+const PressedOptionIcon = ({ type, imageStyle }: pressedOptionProps): ReactElement => {
   switch (type) {
     case "syrupPressed": {
-      return <Image source={require("@assets/syrup-selected.png")} />;
+      return <Image style={imageStyle} source={require("@assets/syrup-selected.png")} />;
     }
     case "syrupUnPressed": {
-      return <Image source={require("@assets/empty-base.png")} />;
+      return <Image style={imageStyle} source={require("@assets/empty-base.png")} />;
     }
     case "creamPressed": {
-      return <Image source={require("@assets/cream-selected.png")} />;
+      return <Image style={imageStyle} source={require("@assets/cream-selected.png")} />;
     }
     case "creamUnPressed": {
-      return <Image source={require("@assets/empty-cream.png")} />;
+      return <Image style={imageStyle} source={require("@assets/empty-cream.png")} />;
     }
   }
 };

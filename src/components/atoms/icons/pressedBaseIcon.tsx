@@ -1,20 +1,21 @@
 import React, { ReactElement } from "react";
-import { Image } from "react-native";
+import { Image, StyleProp, ImageStyle } from "react-native";
 
 type pressedBaseIconProps = {
   type: "waterPressed" | "milkPressed" | "unPressed";
+  imageStyle: StyleProp<ImageStyle>;
 };
 
-const PressedBaseIcon = ({ type }: pressedBaseIconProps): ReactElement => {
+const PressedBaseIcon = ({ type, imageStyle }: pressedBaseIconProps): ReactElement => {
   switch (type) {
     case "waterPressed": {
-      return <Image source={require("@assets/water-selected.png")} />;
+      return <Image style={imageStyle} source={require("@assets/water-selected.png")} />;
     }
     case "milkPressed": {
-      return <Image source={require("@assets/milk-selected.png")} />;
+      return <Image style={imageStyle} source={require("@assets/milk-selected.png")} />;
     }
     case "unPressed": {
-      return <Image source={require("@assets/empty-base.png")} />;
+      return <Image style={imageStyle} source={require("@assets/empty-base.png")} />;
     }
   }
 };

@@ -28,9 +28,9 @@ const PickingShotButton = ({ type }: pickingShotButtonProps): ReactElement => {
           }}
         >
           {globalShotState.get() === 1 ? (
-            <PressedShotIcon type="onePressed" />
+            <PressedShotIcon imageStyle={styles.optionImg} type="onePressed" />
           ) : (
-            <PressedShotIcon type="unPressed" />
+            <PressedShotIcon imageStyle={styles.optionImg} type="unPressed" />
           )}
           <Text>{PICKING_SHOT_TEXT.one}</Text>
         </TouchableOpacity>
@@ -45,9 +45,9 @@ const PickingShotButton = ({ type }: pickingShotButtonProps): ReactElement => {
           }}
         >
           {globalShotState.get() === 2 ? (
-            <PressedShotIcon type="twoPressed" />
+            <PressedShotIcon imageStyle={styles.optionImg} type="twoPressed" />
           ) : (
-            <PressedShotIcon type="unPressed" />
+            <PressedShotIcon imageStyle={styles.optionImg} type="unPressed" />
           )}
           <Text>{PICKING_SHOT_TEXT.two}</Text>
         </TouchableOpacity>
@@ -62,9 +62,9 @@ const PickingShotButton = ({ type }: pickingShotButtonProps): ReactElement => {
           }}
         >
           {globalShotState.get() === 3 ? (
-            <PressedShotIcon type="threePressed" />
+            <PressedShotIcon imageStyle={styles.optionImg} type="threePressed" />
           ) : (
-            <PressedShotIcon type="unPressed" />
+            <PressedShotIcon imageStyle={styles.optionImg} type="unPressed" />
           )}
           <Text>{PICKING_SHOT_TEXT.three}</Text>
         </TouchableOpacity>

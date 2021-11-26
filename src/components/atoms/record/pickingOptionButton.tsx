@@ -27,9 +27,9 @@ const PickingOptionButton = ({ type }: pickingOptionButtonProps): ReactElement =
           }}
         >
           {globalOptionState.get() === "syrup" ? (
-            <PressedOptionIcon type="syrupPressed" />
+            <PressedOptionIcon imageStyle={styles.optionImg} type="syrupPressed" />
           ) : (
-            <PressedOptionIcon type="syrupUnPressed" />
+            <PressedOptionIcon imageStyle={styles.optionImg} type="syrupUnPressed" />
           )}
           <Text>{PICKING_OPTION_TEXT.syrup}</Text>
         </TouchableOpacity>
@@ -44,9 +44,9 @@ const PickingOptionButton = ({ type }: pickingOptionButtonProps): ReactElement =
           }}
         >
           {globalOptionState.get() === "cream" ? (
-            <PressedOptionIcon type="creamPressed" />
+            <PressedOptionIcon imageStyle={styles.optionImg} type="creamPressed" />
           ) : (
-            <PressedOptionIcon type="creamUnPressed" />
+            <PressedOptionIcon imageStyle={styles.optionImg} type="creamUnPressed" />
           )}
           <Text>{PICKING_OPTION_TEXT.cream}</Text>
         </TouchableOpacity>

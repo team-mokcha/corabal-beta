@@ -27,9 +27,9 @@ const PickingBaseButton = ({ type }: pickingBaseButtonProps): ReactElement => {
           }}
         >
           {globalBaseState.get() === "water" ? (
-            <PressedBaseIcon type="waterPressed" />
+            <PressedBaseIcon imageStyle={styles.optionImg} type="waterPressed" />
           ) : (
-            <PressedBaseIcon type="unPressed" />
+            <PressedBaseIcon imageStyle={styles.optionImg} type="unPressed" />
           )}
           <Text>{PICKING_BASE_TEXT.water}</Text>
         </TouchableOpacity>
@@ -44,9 +44,9 @@ const PickingBaseButton = ({ type }: pickingBaseButtonProps): ReactElement => {
           }}
         >
           {globalBaseState.get() === "milk" ? (
-            <PressedBaseIcon type="milkPressed" />
+            <PressedBaseIcon imageStyle={styles.optionImg} type="milkPressed" />
           ) : (
-            <PressedBaseIcon type="unPressed" />
+            <PressedBaseIcon imageStyle={styles.optionImg} type="unPressed" />
           )}
           <Text>{PICKING_BASE_TEXT.milk}</Text>
         </TouchableOpacity>
