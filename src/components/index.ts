@@ -1,4 +1,4 @@
-export { default as AppBootstrap } from "./app-bootstrap/app-bootstrap";
+export { default as AppBootstrap } from "./appBootstrap/appBootstrap";
 export { default as Text } from "./atoms/text/text";
 export { default as ButtonNormal } from "./atoms/button/buttonNormal";
 export { default as ButtonGradient } from "./atoms/button/buttonGradient";
