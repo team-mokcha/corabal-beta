@@ -12,20 +12,12 @@ type NavigationProps = {
 };
 
 const Record = ({ navigation }: NavigationProps): ReactElement => {
-  // 2021.11.26 - 아래 unsubscribe는 수연이 리팩 시 살펴보고 바꾸기로
-  // useEffect(() => {
-  //   const unsubscribe = navigation.addListener("focus", () => {
-  //     //
-  //   });
-  //   return unsubscribe;
-  // }, []);
-
   const userEmail = HSUseState(globalUserState).userEmail.get();
-  const pickedShot = HSUseState(globalCoffeePickState).shot.get();
-  const pickedBase = HSUseState(globalCoffeePickState).base.get();
-  const currentOptionState = HSUseState(globalCoffeePickState).option.get();
+  const pickedShot = HSUseState(globalCoffeePickState).shot;
+  const pickedBase = HSUseState(globalCoffeePickState).base;
+  const currentOptionState = HSUseState(globalCoffeePickState).option;
   let pickedOption = [""];
-  if (currentOptionState.syrup && currentOptionState.cream) {
+  if (currentOptionState.get().syrup && currentOptionState.get().cream) {
     pickedOption = ["syrup", "cream"];
   } else if (currentOptionState.syrup) {
     pickedOption = ["syrup"];
@@ -35,12 +27,21 @@ const Record = ({ navigation }: NavigationProps): ReactElement => {
     pickedOption = [];
   }
 
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("focus", () => {
+      pickedShot.set(2);
+      pickedBase.set("water");
+      currentOptionState.set({ syrup: false, cream: false });
+    });
+    return unsubscribe;
+  }, []);
+
   const handleAddNormalCupBtn = async () => {
     const timestamp = new Date();
     const [result, contents] = await addNormalCupLog(
       userEmail,
-      pickedShot,
-      pickedBase,
+      pickedShot.get(),
+      pickedBase.get(),
       pickedOption,
       timestamp
     );
@@ -51,7 +52,7 @@ const Record = ({ navigation }: NavigationProps): ReactElement => {
           type: "info",
           text1: "커피 기록 저장 완료!"
         });
-        navigation.navigate("Index"); // 네비게이션 미작동 원인 알아보기
+        navigation.navigate("Main");
       } else if (result === "failed") {
         Toast.show({
           type: "error",

@@ -33,6 +33,7 @@ export type StackNavigatorParams = {
   SignUp: undefined;
   Nickname: undefined;
   Index: undefined;
+  Main: undefined;
   Profile: undefined;
   Shop: undefined;
   Cups: undefined;
