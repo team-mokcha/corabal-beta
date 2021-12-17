@@ -1,9 +1,14 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import { ButtonGradient, Text } from "@Components";
 import styles from "./today.styles";
 
-const Today = ({ isEmpty }: any) => {
+type TodayProps = {
+  isEmpty: boolean;
+  handleAddZeroCupBtn: () => Promise<void>;
+};
+
+const Today = ({ isEmpty, handleAddZeroCupBtn }: TodayProps): ReactElement => {
   return (
     <View style={styles.todayContainer}>
       <View style={styles.todayFontWrapper}>
@@ -21,7 +26,11 @@ const Today = ({ isEmpty }: any) => {
             <Text style={styles.emptyCupSaying}>오늘 한 잔도 마시지 않았어요!</Text>
             <Text style={styles.emptyCupSaying}>마감을 누르면 포인트가 바로 적립됩니다.↓</Text>
           </View>
-          <ButtonGradient style={styles.emptyCupRecordingBtn} title="오늘 0잔 기록" />
+          <ButtonGradient
+            onPress={() => handleAddZeroCupBtn()}
+            style={styles.emptyCupRecordingBtn}
+            title="오늘 0잔 기록"
+          />
         </>
       ) : (
         <View>

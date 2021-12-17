@@ -7,7 +7,6 @@ const RESPONSE_TEXT = {
 };
 
 // 1. main의 플로팅 버튼으로 기록 생성 - 5잔 제한 보안 규칙에 추가되어야 함
-// 마감 누를 때(다른 함수) 잔, 샷, 우유, 시럽, 크림 계산해서 DB 올리기
 export async function addNormalCupLog(
   email: string,
   shot: number,
@@ -81,16 +80,25 @@ export async function addZeroCupRecord(email: string, timestamp: Date): Promise<
     const yearAndMonthDocumentationRef = userDocumentationRef
       .collection("logs")
       .doc(`${year}-${month}`);
-    batch.update(yearAndMonthDocumentationRef, {
-      is_succeed_counts: firebase.firestore.FieldValue.increment(1),
-      is_recorded_counts: firebase.firestore.FieldValue.increment(1)
-    });
+
+    const yearAndMonthDoc = yearAndMonthDocumentationRef.get();
+    if ((await yearAndMonthDoc).exists) {
+      batch.update(yearAndMonthDocumentationRef, {
+        is_succeed_counts: firebase.firestore.FieldValue.increment(1),
+        is_recorded_counts: firebase.firestore.FieldValue.increment(1)
+      });
+    } else {
+      batch.set(yearAndMonthDocumentationRef, {
+        is_succeed_counts: 1,
+        is_recorded_counts: 1
+      });
+    }
 
     const dateDocumentationRef = yearAndMonthDocumentationRef
       .collection("date")
       .doc(`${year}-${month}-${day}`);
-    const doc = await dateDocumentationRef.get();
-    if (doc.exists) {
+    const dateDoc = await dateDocumentationRef.get();
+    if (dateDoc.exists) {
       batch.update(dateDocumentationRef, {
         is_succeed: true,
         "is_recorded.is_zero_cup": true,
@@ -110,8 +118,10 @@ export async function addZeroCupRecord(email: string, timestamp: Date): Promise<
       });
     }
     const response = await batch.commit();
-    return [response, null];
+    return [RESPONSE_TEXT.success, response];
   } catch (error) {
-    return [null, error];
+    return [RESPONSE_TEXT.fail, error];
   }
 }
+
+// 3. 오늘 커피 마감 - 잔, 샷, 우유, 시럽, 크림 계산해서 DB 올리기
