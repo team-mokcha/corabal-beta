@@ -8,7 +8,7 @@ import { Divider } from "react-native-elements";
 
 export default function Template({
   navigation,
-  isEmpty,
+  cupRecordState,
   handleAddZeroCupBtn,
   isShowingGoal,
   setIsShowingGoal,
@@ -36,7 +36,7 @@ export default function Template({
           daysOfMonth={daysOfMonth}
         />
         <Divider orientation="horizontal" width={12} color="#EEEEEE" />
-        <Today isEmpty={isEmpty} handleAddZeroCupBtn={handleAddZeroCupBtn} />
+        <Today cupRecordState={cupRecordState} handleAddZeroCupBtn={handleAddZeroCupBtn} />
         <Divider orientation="horizontal" width={12} color="#EEEEEE" />
         <Month month={month} totalCups={totalCups} />
         <Banner />

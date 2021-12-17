@@ -4,15 +4,20 @@ import { DrawerNavigationParams } from "../navigator/index";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalGoalState, globalPointState, globalUserState } from "@stores/stores";
 import { db } from "@services/firebaseApp";
-import { addZeroCupRecord } from "@services/functions/handle-coffee-log";
+import { getCupRecord, addZeroCupRecord } from "@services/functions/handle-coffee-log";
 import Toast from "react-native-toast-message";
 import Template from "./template";
 
 type NavigationProps = {
   navigation: DrawerNavigationProp<DrawerNavigationParams, "Main">;
 };
+
 export default function Main({ navigation }: NavigationProps): ReactElement {
-  const [isEmpty, setIsEmpty] = useState(false);
+  const [cupRecordState, setCupRecordState] = useState({
+    isRecorded: false,
+    isNormalCup: false,
+    isZeroCup: false
+  });
   const [isShowingGoal, setIsShowingGoal] = useState(false);
   const globalPoint = HSUseState(globalPointState);
   const globalEmail = HSUseState(globalUserState).userEmail.get();
@@ -43,7 +48,45 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
     return unsubscribe;
   }, []);
 
-  // 1. isEmpty 결정 - 커피 기록 여부가 DB에서 불러와진 후 동적으로 결정되어야 함
+  useEffect(() => {
+    const setCupRecordStatus = async () => {
+      const timestamp = new Date();
+      const [result, contents] = await getCupRecord(globalEmail, timestamp);
+      try {
+        switch (result) {
+          case "fail": {
+            Toast.show({
+              type: "error",
+              text1: "서버와의 통신 실패",
+              text2: `${contents}로 인해 서버와의 통신이 실패했습니다. 다시 시도해주세요.`
+            });
+            break;
+          }
+          case "succeed": {
+            if (contents === "No record Today.") {
+              setCupRecordState({ isRecorded: false, isNormalCup: false, isZeroCup: false });
+            } else {
+              const recordType = contents.is_recorded;
+              if (recordType.is_normal_cup) {
+                setCupRecordState({ isRecorded: true, isNormalCup: true, isZeroCup: false });
+              } else if (recordType.is_zero_cup) {
+                setCupRecordState({ isRecorded: true, isNormalCup: false, isZeroCup: true });
+              }
+            }
+            break;
+          }
+        }
+      } catch (error) {
+        Toast.show({
+          type: "error",
+          text1: "알 수 없는 오류",
+          text2: `${error}로 인해 오류가 발생했습니다. 다시 시도해주세요.`
+        });
+      }
+    };
+    setCupRecordStatus();
+  }, []);
+
   const handleAddZeroCupBtn = async () => {
     const timestamp = new Date();
     const [result, contents] = await addZeroCupRecord(globalEmail, timestamp);
@@ -73,7 +116,7 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
     <>
       <Template
         navigation={navigation}
-        isEmpty={!isEmpty} // 동적으로 결정되어야 함
+        cupRecordState={cupRecordState}
         handleAddZeroCupBtn={handleAddZeroCupBtn}
         isShowingGoal={isShowingGoal}
         setIsShowingGoal={setIsShowingGoal}

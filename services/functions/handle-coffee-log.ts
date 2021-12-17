@@ -6,6 +6,33 @@ const RESPONSE_TEXT = {
   fail: "failed"
 };
 
+// 0. main에서 '오늘'의 커피 기록 상태를 파악하는 함수
+export async function getCupRecord(email: string, timestamp: Date): Promise<any> {
+  const year = timestamp.getFullYear();
+  const month = timestamp.getMonth() + 1;
+  const day = timestamp.getDate();
+
+  try {
+    const dateDocumentationRef = db
+      .collection("users")
+      .doc(email)
+      .collection("logs")
+      .doc(`${year}-${month}`)
+      .collection("date")
+      .doc(`${year}-${month}-${day}`);
+
+    const doc = await dateDocumentationRef.get();
+    if (doc.exists) {
+      const data = doc.data();
+      return [RESPONSE_TEXT.success, data];
+    } else {
+      return [RESPONSE_TEXT.success, "No record Today."];
+    }
+  } catch (error) {
+    return [RESPONSE_TEXT.fail, error];
+  }
+}
+
 // 1. main의 플로팅 버튼으로 기록 생성 - 5잔 제한 보안 규칙에 추가되어야 함
 export async function addNormalCupLog(
   email: string,
