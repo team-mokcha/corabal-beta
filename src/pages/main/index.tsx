@@ -91,17 +91,22 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
     const timestamp = new Date();
     const [result, contents] = await addZeroCupRecord(globalEmail, timestamp);
     try {
-      if (result === "succeed") {
-        Toast.show({
-          type: "info",
-          text1: "커피 기록 저장 완료!"
-        });
-      } else if (result === "failed") {
-        Toast.show({
-          type: "error",
-          text1: "서버와의 통신 실패",
-          text2: `${contents}로 인해 서버와의 통신이 실패했습니다. 다시 시도해주세요.`
-        });
+      switch (result) {
+        case "succeed": {
+          Toast.show({
+            type: "info",
+            text1: "오늘 0잔 기록 완료!"
+          });
+          break;
+        }
+        case "failed": {
+          Toast.show({
+            type: "error",
+            text1: "서버와의 통신 실패",
+            text2: `${contents}로 인해 서버와의 통신이 실패했습니다. 다시 시도해주세요.`
+          });
+          break;
+        }
       }
     } catch (error) {
       Toast.show({
