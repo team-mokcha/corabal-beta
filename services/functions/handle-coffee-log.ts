@@ -1,5 +1,7 @@
 import firebase from "firebase";
 import { db } from "@services/firebaseApp";
+import "react-native-get-random-values";
+import { v1 as uuidv1 } from "uuid";
 
 const RESPONSE_TEXT = {
   success: "succeed",
@@ -63,6 +65,7 @@ export async function addNormalCupLog(
         "is_recorded.is_zero_cup": false,
         "is_recorded.is_normal_cup": false,
         normal_cup_record: firebase.firestore.FieldValue.arrayUnion({
+          id: uuidv1(),
           shot: shot,
           base: base,
           option: option
@@ -151,4 +154,6 @@ export async function addZeroCupRecord(email: string, timestamp: Date): Promise<
   }
 }
 
-// 3. 오늘 커피 마감 - 잔, 샷, 우유, 시럽, 크림 계산해서 DB 올리기
+// 3. 오늘 커피 기록 수정 - UX 상, 정확히는 수정이 아니고 개별 커피 기록 삭제
+
+// 4. 오늘 커피 마감 - 잔, 샷, 우유, 시럽, 크림 계산해서 DB 올리기
