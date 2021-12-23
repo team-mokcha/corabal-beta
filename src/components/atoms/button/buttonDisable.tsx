@@ -7,7 +7,7 @@ type ButtonProps = {
   title: string;
 } & TouchableOpacityProps;
 
-export default function ButtonNormal({ title, style, ...props }: ButtonProps): ReactElement {
+export default function ButtonDisable({ title, style, ...props }: ButtonProps): ReactElement {
   return (
     <TouchableOpacity {...props} style={[styles.buttonContainer, styles.buttonNormalBorder, style]}>
       <Text style={(styles.buttonText, { color: "#C4C4C4" })} weight="400">

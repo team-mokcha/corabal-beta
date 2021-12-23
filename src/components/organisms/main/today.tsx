@@ -1,15 +1,16 @@
-import React, { ReactElement } from "react";
+import React, { useEffect, ReactElement } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import { ButtonDisable, ButtonGradient, Text } from "@Components";
 import styles from "./today.styles";
 
 type TodayProps = {
   cupRecordState: Record<string, unknown>;
+  normalCups: Record<string, unknown>[];
   handleAddZeroCupBtn: () => Promise<void>;
 };
 
-const Today = ({ cupRecordState, handleAddZeroCupBtn }: TodayProps): ReactElement => {
-  const NotRecordedView = () => {
+const Today = ({ cupRecordState, normalCups, handleAddZeroCupBtn }: TodayProps): ReactElement => {
+  const NoRecordView = () => {
     return (
       <>
         <View style={styles.emptyCupContainer}>
@@ -26,14 +27,20 @@ const Today = ({ cupRecordState, handleAddZeroCupBtn }: TodayProps): ReactElemen
     );
   };
 
-  const NormalCupView = () => {
-    // state를 받아와서, 컵 수에 따라서 돌려줘야 함
+  const DuringRecordView = ({ normalCups }: any) => {
+    console.log(normalCups);
     return (
       <>
         <View style={styles.recordedCupContainer}>
-          <Image style={styles.recordedCupImg} source={require("@assets/recorded-cup.png")} />
+          {normalCups.map((item: any) => (
+            <Image
+              key={item.id}
+              style={styles.recordedCupImg}
+              source={require("@assets/recorded-cup.png")}
+            />
+          ))}
         </View>
-        <ButtonDisable style={styles.recordingFinishBtn} title="기록 완료" />
+        <ButtonGradient style={styles.recordingFinishBtn} title="기록 완료" />
       </>
     );
   };
@@ -57,12 +64,12 @@ const Today = ({ cupRecordState, handleAddZeroCupBtn }: TodayProps): ReactElemen
           </TouchableOpacity>
         )}
       </View>
-      {!cupRecordState.isRecorded ? (
-        <NotRecordedView />
+      {!cupRecordState.isRecorded && normalCups.length === 0 ? (
+        <NoRecordView />
+      ) : !cupRecordState.isRecorded && normalCups.length >= 1 ? (
+        <DuringRecordView normalCups={normalCups} />
       ) : cupRecordState.isZeroCup ? (
         <CompleteZeroCupView />
-      ) : cupRecordState.isNormalCup ? (
-        <NormalCupView />
       ) : null}
     </View>
   );

@@ -4,7 +4,13 @@ import { DrawerNavigationParams } from "../navigator/index";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalGoalState, globalPointState, globalUserState } from "@stores/stores";
 import { db } from "@services/firebaseApp";
-import { getCupRecord, addZeroCupRecord } from "@services/functions/handle-coffee-log";
+import {
+  getTodayCupLogs,
+  addTodayNormalCupLog,
+  updateTodayNormalCupLog,
+  endTodayNormalCupRecord,
+  endTodayZeroCupRecord
+} from "@services/functions/handle-coffee-log";
 import Toast from "react-native-toast-message";
 import Template from "./template";
 
@@ -18,6 +24,8 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
     isNormalCup: false,
     isZeroCup: false
   });
+  const [normalCups, setNormalCups] = useState([{}]);
+
   const [isShowingGoal, setIsShowingGoal] = useState(false);
   const globalPoint = HSUseState(globalPointState);
   const globalEmail = HSUseState(globalUserState).userEmail.get();
@@ -49,9 +57,10 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
   }, []);
 
   useEffect(() => {
+    // coffee가 포함된 상태를 globalState에 넣어두거나, DB에서 불러올 때 onSnapshot을 써야 할 것
     const setCupRecordStatus = async () => {
       const timestamp = new Date();
-      const [result, contents] = await getCupRecord(globalEmail, timestamp);
+      const [result, contents] = await getTodayCupLogs(globalEmail, timestamp);
       try {
         switch (result) {
           case "fail": {
@@ -66,11 +75,16 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
             if (contents === "No record Today.") {
               setCupRecordState({ isRecorded: false, isNormalCup: false, isZeroCup: false });
             } else {
-              const recordType = contents.is_recorded;
-              if (recordType.is_normal_cup) {
+              const isRecorded = await contents.is_recorded;
+              const isNormalCup = await isRecorded.is_normal_cup;
+              const isZeroCup = await isRecorded.is_zero_cup;
+              const normalCupRecord = await contents.normal_cup_record;
+              if (isRecorded && isNormalCup) {
                 setCupRecordState({ isRecorded: true, isNormalCup: true, isZeroCup: false });
-              } else if (recordType.is_zero_cup) {
+              } else if (isRecorded && isZeroCup) {
                 setCupRecordState({ isRecorded: true, isNormalCup: false, isZeroCup: true });
+              } else if (normalCupRecord.length > 0) {
+                setNormalCups(normalCupRecord);
               }
             }
             break;
@@ -89,7 +103,7 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
 
   const handleAddZeroCupBtn = async () => {
     const timestamp = new Date();
-    const [result, contents] = await addZeroCupRecord(globalEmail, timestamp);
+    const [result, contents] = await endTodayZeroCupRecord(globalEmail, timestamp);
     try {
       switch (result) {
         case "succeed": {
@@ -122,6 +136,7 @@ export default function Main({ navigation }: NavigationProps): ReactElement {
       <Template
         navigation={navigation}
         cupRecordState={cupRecordState}
+        normalCups={normalCups}
         handleAddZeroCupBtn={handleAddZeroCupBtn}
         isShowingGoal={isShowingGoal}
         setIsShowingGoal={setIsShowingGoal}

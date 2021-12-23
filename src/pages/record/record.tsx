@@ -3,7 +3,10 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { StackNavigatorParams } from "../navigator/index";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState, globalCoffeePickState } from "@stores/stores";
-import { addNormalCupLog } from "@services/functions/handle-coffee-log";
+import {
+  addTodayNormalCupLog,
+  updateTodayNormalCupLog
+} from "@services/functions/handle-coffee-log";
 import Toast from "react-native-toast-message";
 import Template from "./template/index";
 
@@ -38,7 +41,7 @@ const Record = ({ navigation }: NavigationProps): ReactElement => {
 
   const handleAddNormalCupBtn = async () => {
     const timestamp = new Date();
-    const [result, contents] = await addNormalCupLog(
+    const [result, contents] = await addTodayNormalCupLog(
       userEmail,
       pickedShot.get(),
       pickedBase.get(),
