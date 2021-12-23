@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import Template from "./template";
 
 type ModalProps = {
-  type: "auth" | "profile" | "goal" | "shop" | "calendar";
+  type: "auth" | "profile" | "goal" | "shop" | "previousRecord" | "todayRecord";
 };
 
 const Modal = ({ type }: ModalProps): ReactElement => {
@@ -20,8 +20,10 @@ const Modal = ({ type }: ModalProps): ReactElement => {
       return <Template type="goal" />;
     case "shop":
       return <Template type="shop" />;
-    case "calendar":
-      return <Template type="calendar" />;
+    case "previousRecord":
+      return <Template type="previousRecord" />;
+    case "todayRecord":
+      return <Template type="todayRecord" />;
   }
 };
 
