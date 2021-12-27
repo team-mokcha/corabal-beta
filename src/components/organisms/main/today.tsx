@@ -31,6 +31,7 @@ const Today = ({ cupRecordState, normalCups, handleAddZeroCupBtn }: TodayProps):
     console.log(normalCups);
     return (
       <>
+        {/* 키가 없으면 에러가 뜸 */}
         <View style={styles.recordedCupContainer}>
           {normalCups.map((item: any) => (
             <Image
