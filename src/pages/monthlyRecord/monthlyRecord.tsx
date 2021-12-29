@@ -1,11 +1,7 @@
 import React, { ReactElement, useState } from "react";
 import { View, Button } from "react-native";
 import { firebaseApp } from "@services/firebaseApp";
-import {
-  addNormalCupRecord,
-  addZeroCupRecord,
-  completeTodayRecord
-} from "@services/functions/handle-coffee-log";
+import { getTodayCupLogs } from "@services/functions/handle-coffee-log";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState } from "@stores/stores";
 import { Calendar, RecordList } from "@Components";
@@ -30,38 +26,6 @@ export default function MonthlyRecord({ navigation }: NavigationProps): ReactEle
   const [base, setBase] = useState("");
   const [option, setOption] = useState(["none"]);
 
-  const handleButtonComplete = async () => {
-    const timestamp = new Date();
-    const [response, error] = await addNormalCupRecord(userEmail, shot, base, option, timestamp);
-    console.log(userEmail);
-    if (error) {
-      console.error(error);
-    } else {
-      console.log(response, "Adding coffee log succeed");
-    }
-  };
-
-  const handleButtonZeroComplete = async () => {
-    console.log(userEmail);
-    const timestamp = new Date();
-    const [response, error] = await addZeroCupRecord(userEmail, timestamp);
-    if (error) {
-      console.error(error);
-    } else {
-      console.log(response, "Adding coffee log succeed");
-    }
-  };
-
-  const handleButtonRecordDone = async () => {
-    const timestamp = new Date();
-    const [response, error] = await completeTodayRecord(userEmail, timestamp);
-    if (error) {
-      console.error(error);
-    } else {
-      console.log(response, "Adding coffee log succeed");
-    }
-  };
-
   return (
     <View style={styles.container}>
       <Button title="shot1" onPress={() => setShot(1)} />
@@ -71,15 +35,6 @@ export default function MonthlyRecord({ navigation }: NavigationProps): ReactEle
       <Button title="baseMilk" onPress={() => setBase("milk")} />
       <Button title="optionCream" onPress={() => setOption([...option, "cream"])} />
       <Button title="optionSyrup" onPress={() => setOption([...option, "syrup"])} />
-      <View style={{ marginTop: 10 }}>
-        <Button title="complete" onPress={handleButtonComplete} />
-      </View>
-      <View style={{ marginTop: 10 }}>
-        <Button title="0잔 기록" onPress={handleButtonZeroComplete} />
-      </View>
-      <View style={{ marginTop: 10 }}>
-        <Button title="오늘 마감" onPress={handleButtonRecordDone} />
-      </View>
 
       {/* <Calendar />
       <View style={styles.recordBackground}>

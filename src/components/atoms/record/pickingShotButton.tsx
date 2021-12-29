@@ -1,16 +1,9 @@
 import React, { ReactElement } from "react";
 import { TouchableOpacity } from "react-native";
-import Text from "../text/text";
-import PressedShotIcon from "../icons/pressedShotIcon";
+import ShotIcon from "../icons/record/shotIcon";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalCoffeePickState } from "@stores/stores";
 import styles from "./pickingButton.style";
-
-const PICKING_SHOT_TEXT = {
-  one: "1샷",
-  two: "2샷",
-  three: "3샷"
-};
 
 type pickingShotButtonProps = {
   type: "one" | "two" | "three";
@@ -19,75 +12,40 @@ type pickingShotButtonProps = {
 const PickingShotButton = ({ type }: pickingShotButtonProps): ReactElement => {
   const globalShotState = HSUseState(globalCoffeePickState).shot;
 
+  function setGlobalShotState(shot: 1 | 2 | 3) {
+    globalShotState.set(shot);
+  }
+
   switch (type) {
     case "one": {
       return (
-        <TouchableOpacity
-          style={styles.optionAlign}
-          onPress={() => {
-            globalShotState.set(1);
-          }}
-        >
+        <TouchableOpacity style={styles.optionAlign} onPress={() => setGlobalShotState(1)}>
           {globalShotState.get() === 1 ? (
-            <>
-              <PressedShotIcon imageStyle={styles.optionImg} type="onePressed" />
-              <Text weight="400">{PICKING_SHOT_TEXT.one}</Text>
-            </>
+            <ShotIcon imageStyle={styles.optionImg} type="oneActivated" />
           ) : (
-            <>
-              <PressedShotIcon imageStyle={styles.optionImg} type="unPressed" />
-              <Text weight="400" style={styles.unPickedOption}>
-                {PICKING_SHOT_TEXT.one}
-              </Text>
-            </>
+            <ShotIcon imageStyle={styles.optionImg} type="oneDeactivated" />
           )}
         </TouchableOpacity>
       );
     }
     case "two": {
       return (
-        <TouchableOpacity
-          style={styles.optionAlign}
-          onPress={() => {
-            globalShotState.set(2);
-          }}
-        >
+        <TouchableOpacity style={styles.optionAlign} onPress={() => setGlobalShotState(2)}>
           {globalShotState.get() === 2 ? (
-            <>
-              <PressedShotIcon imageStyle={styles.optionImg} type="twoPressed" />
-              <Text weight="400">{PICKING_SHOT_TEXT.two}</Text>
-            </>
+            <ShotIcon imageStyle={styles.optionImg} type="twoActivated" />
           ) : (
-            <>
-              <PressedShotIcon imageStyle={styles.optionImg} type="unPressed" />
-              <Text weight="400" style={styles.unPickedOption}>
-                {PICKING_SHOT_TEXT.two}
-              </Text>
-            </>
+            <ShotIcon imageStyle={styles.optionImg} type="twoDeactivated" />
           )}
         </TouchableOpacity>
       );
     }
     case "three": {
       return (
-        <TouchableOpacity
-          style={styles.optionAlign}
-          onPress={() => {
-            globalShotState.set(3);
-          }}
-        >
+        <TouchableOpacity style={styles.optionAlign} onPress={() => setGlobalShotState(3)}>
           {globalShotState.get() === 3 ? (
-            <>
-              <PressedShotIcon imageStyle={styles.optionImg} type="threePressed" />
-              <Text weight="400">{PICKING_SHOT_TEXT.three}</Text>
-            </>
+            <ShotIcon imageStyle={styles.optionImg} type="threeActivated" />
           ) : (
-            <>
-              <PressedShotIcon imageStyle={styles.optionImg} type="unPressed" />
-              <Text weight="400" style={styles.unPickedOption}>
-                {PICKING_SHOT_TEXT.three}
-              </Text>
-            </>
+            <ShotIcon imageStyle={styles.optionImg} type="threeDeactivated" />
           )}
         </TouchableOpacity>
       );

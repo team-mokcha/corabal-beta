@@ -5,7 +5,11 @@ import { DateText } from "../../../components/atoms/index";
 import { PickingContainer } from "../../../components/organisms/index";
 import styles from "./record.style";
 
-const Template = (): ReactElement => {
+type templateProps = {
+  handleAddNormalCupBtn: () => Promise<void>;
+};
+
+const Template = ({ handleAddNormalCupBtn }: templateProps): ReactElement => {
   return (
     <>
       <View style={styles.container}>
@@ -17,7 +21,11 @@ const Template = (): ReactElement => {
           <PickingContainer />
         </View>
         {/* 11월 셋째 주 스프린트 [11/5 - 11/21] #44 댓글 참고 - 21.11.18 수연 */}
-        <ButtonGradient style={{ marginBottom: "auto", maxHeight: 48 }} title="완료" />
+        <ButtonGradient
+          onPress={() => handleAddNormalCupBtn()}
+          style={{ marginBottom: "auto", maxHeight: 48 }}
+          title="완료"
+        />
       </View>
     </>
   );

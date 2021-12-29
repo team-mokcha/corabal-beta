@@ -12,3 +12,4 @@ export { default as CupButton } from "./navigator/cupButton";
 export { default as GoalADay } from "./navigator/goalADay";
 export { default as GoalSetting } from "./navigator/goalSetting";
 export { default as PickingRow } from "./record/pickingRow";
+export { default as PickedRow } from "./record/pickedRow";

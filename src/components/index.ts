@@ -2,6 +2,7 @@ export { default as AppBootstrap } from "./appBootstrap/appBootstrap";
 export { default as Text } from "./atoms/text/text";
 export { default as ButtonNormal } from "./atoms/button/buttonNormal";
 export { default as ButtonGradient } from "./atoms/button/buttonGradient";
+export { default as ButtonDisable } from "./atoms/button/buttonDisable";
 export { default as Modal } from "./organisms/modal/modal";
 export { default as Calendar } from "./organisms/calendar/calendar";
 export { default as RecordList } from "./organisms/recordList/recordList";
