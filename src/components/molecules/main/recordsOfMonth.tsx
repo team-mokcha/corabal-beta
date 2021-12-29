@@ -16,8 +16,8 @@ const RecordsOfMonth = ({ title, daysOfSuccess, daysOfRecords, daysOfMonth }: an
         unfilledColor="#DDDDDD"
         borderWidth={0}
       />
-      <Text style={styles.statusByMonthFont}>
-        <Text style={styles.pointFont} weight="400">
+      <Text style={styles.statusByMonthFont} weight="400">
+        <Text style={styles.pointFont} weight="700">
           {daysOfSuccess ? daysOfSuccess : daysOfRecords}
         </Text>
         /{daysOfMonth}
