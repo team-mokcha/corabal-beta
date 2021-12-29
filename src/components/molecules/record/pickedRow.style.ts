@@ -1,17 +1,42 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  container: {
-    marginBottom: 32
+  rowContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 12,
+    minWidth: 263,
+    height: 71
   },
   cupIcon: {
-    marginBottom: 32
+    resizeMode: "contain",
+    width: 43,
+    marginBottom: 12,
+    marginLeft: 12,
+    marginRight: "auto"
   },
-  pickedIcon: {
-    marginBottom: 32
+  coffeeTypeContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    marginLeft: 20,
+    marginRight: 59
+  },
+  coffeeTypeItem: {
+    marginRight: 16,
+    height: 46,
+    width: 28
+  },
+  coffeeTypeIcon: {
+    resizeMode: "contain",
+    width: 28,
+    height: 46
   },
   deleteIcon: {
-    marginBottom: 32
+    resizeMode: "contain",
+    width: 24
   }
 });
 

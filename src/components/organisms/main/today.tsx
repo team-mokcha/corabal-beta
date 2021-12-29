@@ -1,6 +1,7 @@
-import React, { useEffect, ReactElement } from "react";
+import React, { useState, ReactElement } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import { ButtonDisable, ButtonGradient, Text } from "@Components";
+import Modal from "../../../pages/modal";
 import styles from "./today.styles";
 
 type TodayProps = {
@@ -10,6 +11,11 @@ type TodayProps = {
 };
 
 const Today = ({ cupRecordState, normalCups, handleAddZeroCupBtn }: TodayProps): ReactElement => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  function closeModal() {
+    setIsModalVisible(false);
+  }
+
   const NoRecordView = () => {
     return (
       <>
@@ -57,10 +63,11 @@ const Today = ({ cupRecordState, normalCups, handleAddZeroCupBtn }: TodayProps):
 
   return (
     <View style={styles.todayContainer}>
+      <Modal type="todayRecord" isVisible={isModalVisible} handleModalVisibility={closeModal} />
       <View style={styles.todayFontWrapper}>
         <Text style={styles.todayFont}>Today</Text>
         {cupRecordState.isRecorded ? null : (
-          <TouchableOpacity activeOpacity={0.5}>
+          <TouchableOpacity activeOpacity={0.5} onPress={() => setIsModalVisible(true)}>
             <Text style={styles.cupUpdatingBtn}>수정</Text>
           </TouchableOpacity>
         )}
