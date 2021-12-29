@@ -20,7 +20,10 @@ const Today = ({ cupRecordState, normalCups, handleAddZeroCupBtn }: TodayProps):
     return (
       <>
         <View style={styles.emptyCupContainer}>
-          <Image style={styles.emptyCupImg} source={require("@assets/recorded-empty-cup.png")} />
+          <Image
+            style={styles.emptyCupImg}
+            source={require("@assets/main/today-icon-unrecorded.png")}
+          />
           <Text style={styles.emptyCupSaying}>오늘 한 잔도 마시지 않았어요!</Text>
           <Text style={styles.emptyCupSaying}>마감을 누르면 포인트가 바로 적립됩니다.↓</Text>
         </View>
@@ -43,7 +46,7 @@ const Today = ({ cupRecordState, normalCups, handleAddZeroCupBtn }: TodayProps):
             <Image
               key={item.id}
               style={styles.recordedCupImg}
-              source={require("@assets/recorded-cup.png")}
+              source={require("@assets/main/today-recorded-cup.png")}
             />
           ))}
         </View>
@@ -55,6 +58,10 @@ const Today = ({ cupRecordState, normalCups, handleAddZeroCupBtn }: TodayProps):
   const CompleteZeroCupView = () => {
     return (
       <>
+        <Image
+          // style={styles.emptyCupImg}
+          source={require("@assets/main/today-bg-complete-zero.png")}
+        />
         <View style={styles.recordedCupContainer}></View>
         <ButtonDisable style={styles.recordingFinishBtn} title="오늘 0잔 기록 완료" />
       </>

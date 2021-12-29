@@ -121,7 +121,8 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
     marginBottom: 48,
     zIndex: 200
-  }
+  },
+  bannerContainer: {}
 });
 
 export default styles;

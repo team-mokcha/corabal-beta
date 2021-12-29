@@ -4,6 +4,12 @@ import { RightArrowIcon } from "../../atoms/index";
 import { Text } from "@Components";
 import styles from "./aim.styles";
 
+const AIM_TEXT = {
+  goal: "목표",
+  day: "일",
+  cup: "잔"
+};
+
 const Aim = ({ setIsShowingGoal, globalGoal }: any) => {
   return (
     <TouchableOpacity
@@ -12,8 +18,10 @@ const Aim = ({ setIsShowingGoal, globalGoal }: any) => {
       onPress={() => setIsShowingGoal(true)}
     >
       <Text style={styles.aim}>
-        목표 <Text style={styles.pointFont}>1</Text>일{" "}
-        <Text style={styles.pointFont}>{globalGoal.goal.get()}</Text>잔
+        {AIM_TEXT.goal} <Text style={styles.pointFont}>1</Text>
+        {AIM_TEXT.day}
+        <Text style={styles.pointFont}>{globalGoal.goal.get()}</Text>
+        {AIM_TEXT.cup}
       </Text>
       <RightArrowIcon style={styles.aimNextBtn} />
     </TouchableOpacity>

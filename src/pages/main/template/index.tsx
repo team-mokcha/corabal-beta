@@ -3,8 +3,8 @@ import { ScrollView } from "react-native";
 import { Status, Today, Month } from "../../../components/organisms";
 import { FloatingButton, Banner } from "../../../components/molecules";
 import { MainHeader } from "@Components";
-// Divider -> atoms로 바꾸기, button gradient에 안 쓰면 라이브러리 삭제
 import { Divider } from "react-native-elements";
+import styles from "./main.style";
 
 export default function Template({
   navigation,
@@ -44,7 +44,7 @@ export default function Template({
         />
         <Divider orientation="horizontal" width={12} color="#EEEEEE" />
         <Month month={month} totalCups={totalCups} />
-        <Banner />
+        <Banner style={styles.bannerContainer} />
       </ScrollView>
     </>
   );
