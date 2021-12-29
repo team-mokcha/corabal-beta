@@ -122,7 +122,11 @@ const styles = StyleSheet.create({
     marginBottom: 48,
     zIndex: 200
   },
-  bannerContainer: {}
+  bannerContainer: {
+    // marginLeft: 24,
+    // marginRight: 24,
+    // marginBottom: 60
+  }
 });
 
 export default styles;

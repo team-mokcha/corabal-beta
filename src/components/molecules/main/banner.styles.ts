@@ -2,7 +2,12 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   banner: {
-    width: "100%"
+    resizeMode: "contain",
+    height: 170,
+    alignSelf: "center",
+    // marginLeft: 24,
+    // marginRight: 24,
+    marginBottom: 60
   }
 });
 

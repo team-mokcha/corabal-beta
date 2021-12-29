@@ -5,11 +5,7 @@ import styles from "./banner.styles";
 const Banner = (style: any): ReactElement => {
   return (
     <View style={style}>
-      <Image
-        style={styles.banner}
-        source={require("@assets/main/banner-poster.png")}
-        resizeMode="contain"
-      />
+      <Image style={styles.banner} source={require("@assets/main/banner-poster.png")} />
     </View>
   );
 };
