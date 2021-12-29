@@ -17,9 +17,9 @@ const Status = ({
     <View style={styles.statusContainer}>
       <Aim setIsShowingGoal={setIsShowingGoal} globalGoal={globalGoal} />
       <SetGoalModal isShowingGoal={isShowingGoal} setIsShowingGoal={setIsShowingGoal} />
-      <View style={styles.mainContainer}>
-        <Image style={styles.mainCatImg} source={require("@assets/main/illust-cat.png")} />
-        <View style={{ flex: 1 }}>
+      <View style={styles.rowContainer}>
+        <Image style={styles.catImg} source={require("@assets/main/illust-cat.png")} />
+        <View style={styles.monthRecordContainer}>
           <RecordsOfMonth
             title="이번달 목표 성공일"
             daysOfSuccess={daysOfSuccess}

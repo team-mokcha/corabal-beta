@@ -7,52 +7,16 @@ const styles = StyleSheet.create({
     marginRight: 24,
     marginBottom: 27
   },
-  aimBtnContainer: {
-    flexDirection: "row",
-    marginRight: 170,
-    alignItems: "center"
-  },
-  aim: {
-    fontSize: 24
-  },
-  pointFont: {
-    fontWeight: "bold",
-    color: "#2B8CFF"
-  },
-  aimNextBtn: {
-    marginLeft: 8,
-    width: 8,
-    height: 14
-  },
-  mainContainer: {
+  rowContainer: {
     flexDirection: "row"
   },
-  mainCatImg: {
-    width: 128,
+  catImg: {
+    resizeMode: "contain",
+    maxWidth: 128,
     height: 128,
-    marginRight: 28
+    marginRight: 22
   },
-  statusTitleFont: {
-    fontSize: 13
-  },
-  statusByMonthFont: {
-    fontSize: 11,
-    fontWeight: "400",
-    color: "#757474"
-  },
-  myPointContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-end"
-  },
-  myPointImg: {
-    width: 12,
-    height: 12,
-    marginRight: 4
-  },
-  myPointFont: {
-    fontSize: 11
-  }
+  monthRecordContainer: {}
 });
 
 export default styles;

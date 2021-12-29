@@ -1,14 +1,21 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { View } from "react-native";
 import { Text } from "@Components";
 import { CoinIcon } from "../../atoms/index";
 import styles from "./point.style";
 
-const Point = ({ globalPoint }: any) => {
+const POINT_TEXT = {
+  point: "p"
+};
+
+const Point = ({ globalPoint }: any): ReactElement => {
   return (
     <View style={styles.myPointContainer}>
       <CoinIcon style={styles.myPointImg} />
-      <Text style={styles.myPointFont}>{globalPoint.current.get()}p</Text>
+      <Text style={styles.myPointFont} weight="500">
+        {globalPoint.current.get()}
+        {POINT_TEXT.point}
+      </Text>
     </View>
   );
 };
