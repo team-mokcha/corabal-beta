@@ -10,29 +10,26 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   todayFont: {
-    fontSize: 18,
-    fontWeight: "500"
+    fontSize: 18
   },
   cupUpdatingBtn: {
     fontSize: 14,
-    fontWeight: "400",
     color: "#878787"
   },
-  emptyCupContainer: {
+  recordWrapper: {
     alignItems: "center"
   },
-  emptyCupImg: {
-    width: 24,
-    height: 24
+  noRecordImg: {
+    resizeMode: "contain",
+    width: 26,
+    height: 24,
+    marginBottom: 4
   },
-  emptyCupSaying: {
+  recordComment: {
     fontSize: 10,
     color: "#878787",
-    marginBottom: -15
-  },
-  emptyCupRecordingBtn: {
-    marginTop: 20,
-    height: 50
+    textAlign: "center",
+    marginBottom: 12
   },
   recordedCupContainer: {
     flexDirection: "row",
@@ -46,6 +43,20 @@ const styles = StyleSheet.create({
   },
   recordingFinishBtn: {
     height: 50
+  },
+  zeroCupCompleteImg: {
+    zIndex: -1,
+    position: "absolute",
+    top: -1
+  },
+  zeroCupCompleteFont: {
+    color: "#76B5FF",
+    fontSize: 18,
+    marginTop: 12,
+    marginBottom: 10
+  },
+  disableBtn: {
+    width: 300
   }
 });
 
