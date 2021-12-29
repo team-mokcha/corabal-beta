@@ -3,8 +3,10 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   aimBtnContainer: {
     flexDirection: "row",
-    marginRight: 170,
-    alignItems: "center"
+    alignItems: "center",
+    marginLeft: 0,
+    marginRight: "auto",
+    marginBottom: 12
   },
   aim: {
     fontSize: 24

@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  aimContainer: {
+  statusContainer: {
     marginTop: 12,
     marginLeft: 24,
     marginRight: 24,
-    marginBottom: 28
+    marginBottom: 27
   },
   aimBtnContainer: {
     flexDirection: "row",

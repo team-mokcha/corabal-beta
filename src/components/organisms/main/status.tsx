@@ -14,7 +14,7 @@ const Status = ({
   daysOfMonth
 }: any) => {
   return (
-    <View style={styles.aimContainer}>
+    <View style={styles.statusContainer}>
       <Aim setIsShowingGoal={setIsShowingGoal} globalGoal={globalGoal} />
       <SetGoalModal isShowingGoal={isShowingGoal} setIsShowingGoal={setIsShowingGoal} />
       <View style={styles.mainContainer}>
