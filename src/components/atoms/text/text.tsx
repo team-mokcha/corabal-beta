@@ -2,7 +2,7 @@ import React, { ReactNode, ReactElement } from "react";
 import { Text as NativeText, TextProps as NativeTextProps } from "react-native";
 
 type TextProps = {
-  weight: "300" | "400" | "500" | "700";
+  weight: "300" | "400" | "500" | "700" | "900";
   children: ReactNode;
 } & NativeTextProps;
 
@@ -12,6 +12,9 @@ const defaultProps = {
 
 export default function Text({ children, style, weight, ...props }: TextProps): ReactElement {
   let fontFamily;
+  if (weight === "900") {
+    fontFamily = "NotoSansKR_900Black";
+  }
   if (weight === "700") {
     fontFamily = "NotoSansKR_700Bold";
   }
