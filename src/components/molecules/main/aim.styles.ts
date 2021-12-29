@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
     fontSize: 24
   },
   pointFont: {
-    fontWeight: "bold",
     color: "#2B8CFF"
   },
   aimNextBtn: {
