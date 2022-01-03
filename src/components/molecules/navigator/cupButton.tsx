@@ -16,9 +16,9 @@ const BUTTON_TEXT = {
 const SwitchRoute = (type: string): string => {
   switch (type) {
     case "shop":
-      return "shop";
+      return "Shop";
     case "storage":
-      return "storage";
+      return "Storage";
     default:
       throw new Error("invalid type.");
   }
