@@ -30,7 +30,7 @@ const Status = ({
             daysOfRecords={daysOfRecords}
             daysOfMonth={daysOfMonth}
           />
-          <Point globalPoint={globalPoint} />
+          <Point points={11} style={styles.pointWrapper} fontSize="small" />
         </View>
       </View>
     </View>

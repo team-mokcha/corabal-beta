@@ -16,7 +16,10 @@ const styles = StyleSheet.create({
     height: 128,
     marginRight: 22
   },
-  monthRecordContainer: {}
+  monthRecordContainer: {},
+  pointWrapper: {
+    alignSelf: "flex-end"
+  }
 });
 
 export default styles;

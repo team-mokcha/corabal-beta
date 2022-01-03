@@ -22,19 +22,7 @@ const styles = StyleSheet.create({
     height: 40,
     marginRight: 8
   },
-  pointWrapper: {
-    flexDirection: "row"
-  },
-  pointFont: {
-    fontSize: 11
-  },
-  pointIcon: {
-    resizeMode: "contain",
-    width: 12,
-    height: 12,
-    marginTop: 4,
-    marginRight: 3
-  },
+
   watchingAdBtn: {
     width: 100,
     height: 40

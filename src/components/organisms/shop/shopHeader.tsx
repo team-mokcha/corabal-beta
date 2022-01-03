@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import { View, Image } from "react-native";
 import { ButtonGradient, Text } from "@Components";
+import Point from "../../atoms/icons/point";
 import styles from "./shopHeader.style";
 
 type ShopHeaderProps = {
@@ -25,13 +26,7 @@ const ShopHeader = ({ nickname, points }: ShopHeaderProps): ReactElement => {
             <Text weight="700">{nickname}</Text>
             {SHOP_HEADER_TEXT.sir}
           </Text>
-          <View style={styles.pointWrapper}>
-            <Image style={styles.pointIcon} source={require("@assets/btn_point.png")} />
-            <Text style={styles.pointFont}>
-              {points}
-              {SHOP_HEADER_TEXT.pointCriteria}
-            </Text>
-          </View>
+          <Point points={points} fontSize="small" />
         </View>
       </View>
       <ButtonGradient
