@@ -12,6 +12,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 20
   },
+  buttonTextSmall: {
+    fontSize: 11,
+    lineHeight: 13
+  },
   buttonNormalBorder: {
     borderRadius: 100,
     borderWidth: 1,

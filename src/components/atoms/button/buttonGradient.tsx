@@ -6,9 +6,10 @@ import styles from "./button.styles";
 
 type ButtonProps = {
   title: string;
+  smallType?: boolean;
 } & TouchableOpacityProps;
 
-export default function Button({ title, style, ...props }: ButtonProps): ReactElement {
+export default function Button({ title, smallType, style, ...props }: ButtonProps): ReactElement {
   return (
     <TouchableOpacity {...props} style={[styles.ButtonGradientRadius, style]}>
       <LinearGradient
@@ -17,9 +18,15 @@ export default function Button({ title, style, ...props }: ButtonProps): ReactEl
         end={{ x: 1, y: 1 }}
         style={[styles.buttonContainer]}
       >
-        <Text style={(styles.buttonText, { color: "#FFFFFF" })} weight="400">
-          {title}
-        </Text>
+        {smallType ? (
+          <Text style={{ color: "#FFFFFF", fontSize: 11, lineHeight: 13 }} weight="400">
+            {title}
+          </Text>
+        ) : (
+          <Text style={(styles.buttonText, { color: "#FFFFFF" })} weight="400">
+            {title}
+          </Text>
+        )}
       </LinearGradient>
     </TouchableOpacity>
   );
