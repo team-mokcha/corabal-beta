@@ -9,18 +9,16 @@ const POINT_TEXT = {
 
 type pointProps = {
   points: number;
-  fontSize: "small" | "medium" | "large";
+  fontSize: "small" | "medium";
 } & ViewProps;
 
 const Point = ({ points, style, fontSize }: pointProps): ReactElement => {
   const handleFontSize = (fontSize: string) => {
     switch (fontSize) {
-      case "large":
-        return { fontSize: 13 };
       case "medium":
-        return { fontSize: 12 };
+        return { fontSize: 14 };
       case "small":
-        return { fontSize: 11 };
+        return { fontSize: 12 };
     }
   };
 
