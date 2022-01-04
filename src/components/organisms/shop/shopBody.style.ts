@@ -3,20 +3,10 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   wrapper: {
     flexDirection: "row",
+    flexWrap: "wrap",
     justifyContent: "space-between",
-    marginHorizontal: 24,
+    marginHorizontal: 40,
     marginVertical: 40
-  },
-  cupWrapper: {
-    alignItems: "center"
-  },
-  point: {
-    width: 12,
-    height: 12
-  },
-  emptyCup: {
-    width: 72,
-    height: 72
   }
 });
 

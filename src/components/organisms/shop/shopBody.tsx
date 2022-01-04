@@ -1,23 +1,37 @@
 import React, { ReactElement } from "react";
-import { TouchableOpacity, View, Image } from "react-native";
-import Point from "../../atoms/icons/common/point";
+import { View } from "react-native";
+import CupContainer from "../../molecules/cup/cupContainer";
 import styles from "./shopBody.style";
 
-// 컵 가게의 컵은 고정되어 있음. 이미지만 달라짐. 통신해서 불러오는 것도 아님.
-// 단, 보유 중  여부가 문제.
-// 일단....
+const cups = [
+  { id: 1, thumbnail: require("@assets/cups/cup1.png"), price: 30 },
+  { id: 2, thumbnail: require("@assets/cups/cup2.png"), price: 50 },
+  { id: 3, thumbnail: require("@assets/cups/cup3.png"), price: 100 },
+  { id: 4, thumbnail: require("@assets/cups/cup4.png"), price: 100 },
+  { id: 5, thumbnail: require("@assets/cups/cup5.png"), price: 100 },
+  { id: 6, thumbnail: require("@assets/cups/cup6.png"), price: 200 },
+  { id: 7, thumbnail: require("@assets/cups/cup7-temp.png"), price: 200 },
+  { id: 8, thumbnail: require("@assets/cups/cup8-temp.png"), price: 300 },
+  { id: 9, thumbnail: require("@assets/cups/cup9-temp.png"), price: 500 }
+];
 
 const ShopBody = (): ReactElement => {
+  function callPurchaseCupModal() {
+    console.log("call modal.");
+  }
+
   return (
     <View style={styles.wrapper}>
-      <TouchableOpacity
-        // onPress={() => setWantToBuy(!wantToBuy)}
-        activeOpacity={0.5}
-        style={styles.cupWrapper}
-      >
-        <Image style={styles.emptyCup} source={require("@assets/cups/cup1.png")} />
-        <Point points={30} fontSize="medium" style={{ marginTop: 10 }} />
-      </TouchableOpacity>
+      {cups.map(cup => {
+        return (
+          <CupContainer
+            key={cup.id}
+            thumbnail={cup.thumbnail}
+            callPurchaseCupModal={callPurchaseCupModal}
+            price={cup.price}
+          />
+        );
+      })}
     </View>
   );
 };
