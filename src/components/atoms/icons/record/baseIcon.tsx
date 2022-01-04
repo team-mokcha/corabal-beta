@@ -18,7 +18,7 @@ const BaseIcon = ({ type, imageStyle }: baseIconProps): ReactElement => {
     case "waterActivated": {
       return (
         <View style={styles.columnContainer}>
-          <Image style={imageStyle} source={require("@assets/water-selected.png")} />
+          <Image style={imageStyle} source={require("@assets/record/water-selected.png")} />
           <Text weight="400">{BASE_TEXT.water}</Text>
         </View>
       );
@@ -26,7 +26,7 @@ const BaseIcon = ({ type, imageStyle }: baseIconProps): ReactElement => {
     case "waterDeactivated": {
       return (
         <View style={styles.columnContainer}>
-          <Image style={imageStyle} source={require("@assets/empty-base.png")} />
+          <Image style={imageStyle} source={require("@assets/record/empty-base.png")} />
           <Text weight="400" style={styles.deactivatedText}>
             {BASE_TEXT.water}
           </Text>
@@ -36,7 +36,7 @@ const BaseIcon = ({ type, imageStyle }: baseIconProps): ReactElement => {
     case "milkActivated": {
       return (
         <View style={styles.columnContainer}>
-          <Image style={imageStyle} source={require("@assets/milk-selected.png")} />
+          <Image style={imageStyle} source={require("@assets/record/milk-selected.png")} />
           <Text weight="400">{BASE_TEXT.milk}</Text>
         </View>
       );
@@ -44,7 +44,7 @@ const BaseIcon = ({ type, imageStyle }: baseIconProps): ReactElement => {
     case "milkDeactivated": {
       return (
         <View style={styles.columnContainer}>
-          <Image style={imageStyle} source={require("@assets/empty-base.png")} />
+          <Image style={imageStyle} source={require("@assets/record/empty-base.png")} />
           <Text weight="400" style={styles.deactivatedText}>
             {BASE_TEXT.milk}
           </Text>

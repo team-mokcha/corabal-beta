@@ -31,7 +31,7 @@ const Template = ({ type, isVisible, handleModalVisibility }: TemplateProps): Re
           <Modal.Container>
             <View style={styles.headerContainer}>
               <DateText type="present" />
-              <Image source={require("@assets/btn_plus.png")} style={styles.plusBtn} />
+              <Image source={require("@assets/modal/btn_plus.png")} style={styles.plusBtn} />
             </View>
             <Modal.Body>
               <PickedRow shot="oneActivated" base="waterActivated" option="creamActivated" />

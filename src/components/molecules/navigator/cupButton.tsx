@@ -1,7 +1,6 @@
 import React, { ReactElement } from "react";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, Image } from "react-native";
 import { Text } from "@Components";
-import { ShopIcon, StorageIcon } from "../../atoms/index";
 import { DrawerContentComponentProps } from "@react-navigation/drawer";
 
 type CupButtonParams = {
@@ -29,12 +28,12 @@ const CupButton = ({ navigation, type }: CupButtonParams): ReactElement => {
     <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate(SwitchRoute(type))}>
       {type === "shop" ? (
         <>
-          <ShopIcon />
+          <Image source={require("@assets/nav/shop.png")} resizeMode="contain" />
           <Text>{BUTTON_TEXT.shop}</Text>
         </>
       ) : (
         <>
-          <StorageIcon />
+          <Image source={require("@assets/nav/cups.png")} resizeMode="contain" />
           <Text>{BUTTON_TEXT.storage}</Text>
         </>
       )}

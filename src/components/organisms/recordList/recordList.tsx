@@ -35,10 +35,13 @@ export default function RecordList(): ReactElement {
           </View>
           <View style={styles.separatingLine} />
           <View style={styles.cupsContainer}>
-            <Image style={styles.cupImage} source={require("@assets/icon_cup_basic_empty.png")} />
+            <Image
+              style={styles.cupImage}
+              source={require("@assets/record/icon_cup_basic_empty.png")}
+            />
           </View>
           <View style={styles.buttonMore}>
-            <Image source={require("@assets/btn_more.png")} />
+            <Image source={require("@assets/record/btn_more.png")} />
           </View>
         </TouchableOpacity>
       )}

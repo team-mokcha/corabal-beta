@@ -43,9 +43,9 @@ const SetGoalModal = ({ isShowingGoal, setIsShowingGoal }: GoalProps): ReactElem
                   onPress={() => setSelectedBtn(radioBtn)}
                 >
                   {radioBtn === selectedBtn ? (
-                    <Image source={require("@assets/radio-selected.png")} />
+                    <Image source={require("@assets/modal/radio-selected.png")} />
                   ) : (
-                    <Image source={require("@assets/radio.png")} />
+                    <Image source={require("@assets/modal/radio.png")} />
                   )}
                   <Text style={styles.radioBtnFont}> {radioBtn}잔</Text>
                 </TouchableOpacity>

@@ -18,7 +18,7 @@ const OptionIcon = ({ type, imageStyle }: OptionIconProps): ReactElement => {
     case "syrupActivated": {
       return (
         <View style={styles.columnContainer}>
-          <Image style={imageStyle} source={require("@assets/water-selected.png")} />
+          <Image style={imageStyle} source={require("@assets/record/water-selected.png")} />
           <Text weight="400">{OPTION_TEXT.syrup}</Text>
         </View>
       );
@@ -26,7 +26,7 @@ const OptionIcon = ({ type, imageStyle }: OptionIconProps): ReactElement => {
     case "syrupDeactivated": {
       return (
         <View style={styles.columnContainer}>
-          <Image style={imageStyle} source={require("@assets/empty-base.png")} />
+          <Image style={imageStyle} source={require("@assets/record/empty-base.png")} />
           <Text weight="400" style={styles.deactivatedText}>
             {OPTION_TEXT.syrup}
           </Text>
@@ -36,7 +36,7 @@ const OptionIcon = ({ type, imageStyle }: OptionIconProps): ReactElement => {
     case "creamActivated": {
       return (
         <View style={styles.columnContainer}>
-          <Image style={imageStyle} source={require("@assets/cream-selected.png")} />
+          <Image style={imageStyle} source={require("@assets/record/cream-selected.png")} />
           <Text weight="400">{OPTION_TEXT.cream}</Text>
         </View>
       );
@@ -44,7 +44,7 @@ const OptionIcon = ({ type, imageStyle }: OptionIconProps): ReactElement => {
     case "creamDeactivated": {
       return (
         <View style={styles.columnContainer}>
-          <Image style={imageStyle} source={require("@assets/empty-cream.png")} />
+          <Image style={imageStyle} source={require("@assets/record/empty-cream.png")} />
           <Text weight="400" style={styles.deactivatedText}>
             {OPTION_TEXT.cream}
           </Text>

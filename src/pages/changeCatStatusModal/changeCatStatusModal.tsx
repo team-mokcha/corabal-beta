@@ -12,7 +12,7 @@ const ChangeCatStatusModal = ({ isCallingCat, setIsCallingCat }: CallingCatProps
     <Modal isVisible={isCallingCat}>
       <Modal.Container>
         <Modal.Body>
-          <Image source={require("@assets/cat-in-the-cup.png")} />
+          <Image source={require("@assets/common/cat-in-the-cup.png")} />
           <Text>준비 중인 서비스입니다.</Text>
         </Modal.Body>
         <Modal.Footer>

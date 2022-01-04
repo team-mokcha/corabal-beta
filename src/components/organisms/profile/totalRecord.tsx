@@ -47,7 +47,7 @@ export const TotalRecord = ({ records, points, catStatus }: totalRecordProps): R
         <Text weight="300" style={styles.recordTitle}>
           {TOTAL_RECORD_TEXT.myCup}
         </Text>
-        <Image style={styles.myCupIcon} source={require("@assets/cat-in-the-cup.png")} />
+        <Image style={styles.myCupIcon} source={require("@assets/common/cat-in-the-cup.png")} />
         <ButtonGradient
           // onPress={() => setIsCallingCat(true)}
           title={TOTAL_RECORD_TEXT.callCatBtn}

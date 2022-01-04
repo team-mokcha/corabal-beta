@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import { TouchableOpacity, View, Image } from "react-native";
-import Point from "../../atoms/icons/point";
+import Point from "../../atoms/icons/common/point";
 import styles from "./shopBody.style";
 
 // 컵 가게의 컵은 고정되어 있음. 이미지만 달라짐. 통신해서 불러오는 것도 아님.

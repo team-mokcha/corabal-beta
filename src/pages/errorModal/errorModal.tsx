@@ -30,7 +30,7 @@ export default function ErrorModal(): ReactElement {
                 errorStateDuringAuth.nicknameError.set(false);
               }}
             >
-              <Image source={require("@assets/btn_x.png")} style={styles.closeButtonImage} />
+              <Image source={require("@assets/modal/btn_x.png")} style={styles.closeButtonImage} />
             </TouchableOpacity>
           </View>
           <Modal.Body>

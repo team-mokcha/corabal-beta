@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { View, Image } from "react-native";
 import { ButtonGradient, Text } from "@Components";
-import Point from "../../atoms/icons/point";
+import Point from "../../atoms/icons/common/point";
 import styles from "./shopHeader.style";
 
 type ShopHeaderProps = {

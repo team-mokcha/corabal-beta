@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
-import { View } from "react-native";
-import { CupIcon, DeleteIcon, ShotIcon, BaseIcon, OptionIcon } from "../../atoms/index";
+import { View, Image } from "react-native";
+import { ShotIcon, BaseIcon, OptionIcon } from "../../atoms/index";
 import styles from "./pickedRow.style";
 
 type PickedRowProps = {
@@ -13,7 +13,7 @@ const PickedRow = ({ shot, base, option }: PickedRowProps): ReactElement => {
   return (
     <>
       <View style={styles.rowContainer}>
-        <CupIcon imageStyle={styles.cupIcon} />
+        <Image source={require("@assets/record/icon_cup_basic_empty.png")} style={styles.cupIcon} />
         <View style={styles.coffeeTypeContainer}>
           <View style={styles.coffeeTypeItem}>
             <ShotIcon imageStyle={styles.coffeeTypeIcon} type={shot} />
@@ -25,7 +25,7 @@ const PickedRow = ({ shot, base, option }: PickedRowProps): ReactElement => {
             <OptionIcon imageStyle={styles.coffeeTypeIcon} type={option} />
           </View>
         </View>
-        <DeleteIcon />
+        <Image source={require("@assets/record/icon_delete_lightgrey.png")} />
       </View>
     </>
   );

@@ -1,6 +1,5 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
-import { RightArrowIcon } from "../../atoms/index";
+import { TouchableOpacity, Image } from "react-native";
 import { Text } from "@Components";
 import styles from "./aim.styles";
 
@@ -31,7 +30,7 @@ const Aim = ({ setIsShowingGoal, globalGoal }: any) => {
         </Text>
         {AIM_TEXT.cup}
       </Text>
-      <RightArrowIcon style={styles.aimNextBtn} />
+      <Image style={styles.aimNextBtn} source={require("@assets/main/btn_next.png")} />
     </TouchableOpacity>
   );
 };

@@ -22,7 +22,10 @@ export const AccountInfo = ({ nickname, email }: AccountInfoProps): ReactElement
           {nickname}
           {ACCOUNT_INFO_TEXT.sir}
         </Text>
-        <Image source={require("@assets/updating-user-name.png")} style={styles.nicknameEditIcon} />
+        <Image
+          source={require("@assets/others/updating-user-name.png")}
+          style={styles.nicknameEditIcon}
+        />
       </TouchableOpacity>
       <Text weight="300" style={styles.emailFont}>
         {email}
