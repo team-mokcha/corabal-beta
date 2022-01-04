@@ -4,6 +4,10 @@ import { Text } from "@Components";
 import styles from "./navigator.style";
 import { GoalControl, CupControl, LinkControl } from "../../../components/organisms/index";
 
+const VERSION_TEXT = {
+  zero: "v1.0.0"
+};
+
 function Template(props: DrawerContentComponentProps): ReactElement {
   const [isShowingGoal, setIsShowingGoal] = useState(false);
   return (
@@ -11,7 +15,9 @@ function Template(props: DrawerContentComponentProps): ReactElement {
       <GoalControl isShowingGoal={isShowingGoal} setIsShowingGoal={setIsShowingGoal} />
       <CupControl {...props} />
       <LinkControl />
-      <Text style={styles.version}>v1.0.0</Text>
+      <Text weight="400" style={styles.version}>
+        {VERSION_TEXT.zero}
+      </Text>
     </DrawerContentScrollView>
   );
 }

@@ -14,9 +14,15 @@ const GoalADay = (): ReactElement => {
   const globalGoal = HSUseState(globalGoalState);
 
   return (
-    <Text style={styles.aim}>
-      {GOAL_TEXT.goal} <Text style={styles.aimStrong}>1</Text>
-      {GOAL_TEXT.day} <Text style={styles.aimStrong}>{globalGoal.goal.get()}</Text>
+    <Text weight="500" style={styles.aim}>
+      {GOAL_TEXT.goal}{" "}
+      <Text weight="900" style={styles.aimStrong}>
+        1
+      </Text>
+      {GOAL_TEXT.day}{" "}
+      <Text weight="900" style={styles.aimStrong}>
+        {globalGoal.goal.get()}
+      </Text>
       {GOAL_TEXT.cup}
     </Text>
   );
