@@ -1,18 +1,23 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  storageContainer: {
+    marginTop: 40
+  },
   myCupFont: {
     marginLeft: 24,
-    marginBottom: 17,
+    marginVertical: 24,
     fontSize: 18,
     lineHeight: 21
   },
-  presentCupContainer: {
+  ownedCupContainer: {
     alignItems: "center",
     marginBottom: 40
   },
-  presentCupFont: {
-    marginBottom: 15,
+  ownedCupFont: {
+    marginLeft: 44,
+    marginRight: "auto",
+    marginBottom: 0,
     fontSize: 16,
     lineHeight: 19
   },

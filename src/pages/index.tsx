@@ -5,6 +5,6 @@ export { default as Nickname } from "./nickname/nickname";
 export { default as Main } from "./main";
 export { default as Profile } from "./profile/profile";
 export { default as Shop } from "./shop/shop";
-export { default as Storage } from "./cups/storage";
+export { default as Storage } from "./storage/storage";
 export { default as MonthlyRecord } from "./monthlyRecord/monthlyRecord";
 export { default as Record } from "./record/record";

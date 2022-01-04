@@ -27,6 +27,7 @@ const ShopBody = (): ReactElement => {
           <CupContainer
             key={cup.id}
             thumbnail={cup.thumbnail}
+            thumbnailSize="small"
             callPurchaseCupModal={callPurchaseCupModal}
             price={cup.price}
           />
