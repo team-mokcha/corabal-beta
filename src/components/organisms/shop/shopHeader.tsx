@@ -20,7 +20,7 @@ const ShopHeader = ({ nickname, points }: ShopHeaderProps): ReactElement => {
   return (
     <View style={styles.shopHeaderContainer}>
       <View style={styles.profileWrapper}>
-        <Image style={styles.profileIcon} source={require("@assets/profile.png")} />
+        <Image style={styles.profileIcon} source={require("@assets/common/profile.png")} />
         <View style={styles.userWrapper}>
           <Text weight="500">
             <Text weight="700">{nickname}</Text>

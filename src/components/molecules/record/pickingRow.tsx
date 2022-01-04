@@ -21,7 +21,7 @@ const pickingRow = ({ type }: PickingRowProps): ReactElement => {
         <View style={styles.eachOptionContainer}>
           <View style={styles.shotFontContainer}>
             <Text>{ROW_TEXT.shot}</Text>
-            <Image style={styles.shotIcon} source={require("@assets/shot-of-today.png")} />
+            <Image style={styles.shotIcon} source={require("@assets/record/shot-of-today.png")} />
           </View>
           <View style={styles.flexDirRow}>
             <PickingShotButton type="one" />

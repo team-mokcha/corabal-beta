@@ -30,7 +30,10 @@ const ProfileIcon = ({ size, style }: ProfileIconProps): ReactElement => {
   };
 
   return (
-    <Image style={[handleProfileIconCss(size), style]} source={require("@assets/profile.png")} />
+    <Image
+      style={[handleProfileIconCss(size), style]}
+      source={require("@assets/common/profile.png")}
+    />
   );
 };
 

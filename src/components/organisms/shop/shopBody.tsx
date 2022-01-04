@@ -15,7 +15,7 @@ const ShopBody = (): ReactElement => {
         activeOpacity={0.5}
         style={styles.cupWrapper}
       >
-        <Image style={styles.emptyCup} source={require("@assets/empty-cup.png")} />
+        <Image style={styles.emptyCup} source={require("@assets/cups/cup1.png")} />
         <Point points={30} fontSize="large" style={{ marginTop: 10 }} />
       </TouchableOpacity>
     </View>

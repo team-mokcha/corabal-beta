@@ -35,7 +35,10 @@ export default function ErrorModal(): ReactElement {
           </View>
           <Modal.Body>
             <View style={styles.modalBodyContainer}>
-              <Image source={require("@assets/cat-in-the-cup.png")} style={styles.catInCupImage} />
+              <Image
+                source={require("@assets/common/cat-in-the-cup.png")}
+                style={styles.catInCupImage}
+              />
               <Text weight="400" style={styles.errorText}>
                 {signUpError
                   ? signUpErrorMessage

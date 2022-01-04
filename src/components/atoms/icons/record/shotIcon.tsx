@@ -25,7 +25,7 @@ const ShotIcon = ({ type, imageStyle }: shotIconProps): ReactElement => {
     case "oneActivated": {
       return (
         <View style={styles.columnContainer}>
-          <Image style={imageStyle} source={require("@assets/1shot.png")} />
+          <Image style={imageStyle} source={require("@assets/record/1shot.png")} />
           <Text weight="400">{SHOT_TEXT.one}</Text>
         </View>
       );
@@ -33,7 +33,7 @@ const ShotIcon = ({ type, imageStyle }: shotIconProps): ReactElement => {
     case "oneDeactivated": {
       return (
         <View style={styles.columnContainer}>
-          <Image style={imageStyle} source={require("@assets/empty-shot.png")} />
+          <Image style={imageStyle} source={require("@assets/record/empty-shot.png")} />
           <Text weight="400" style={styles.deactivatedText}>
             {SHOT_TEXT.one}
           </Text>
@@ -43,7 +43,7 @@ const ShotIcon = ({ type, imageStyle }: shotIconProps): ReactElement => {
     case "twoActivated": {
       return (
         <View style={styles.columnContainer}>
-          <Image style={imageStyle} source={require("@assets/2shot.png")} />
+          <Image style={imageStyle} source={require("@assets/record/2shot.png")} />
           <Text weight="400">{SHOT_TEXT.two}</Text>
         </View>
       );
@@ -51,7 +51,7 @@ const ShotIcon = ({ type, imageStyle }: shotIconProps): ReactElement => {
     case "twoDeactivated": {
       return (
         <View style={styles.columnContainer}>
-          <Image style={imageStyle} source={require("@assets/empty-shot.png")} />
+          <Image style={imageStyle} source={require("@assets/record/empty-shot.png")} />
           <Text weight="400" style={styles.deactivatedText}>
             {SHOT_TEXT.two}
           </Text>
@@ -61,7 +61,7 @@ const ShotIcon = ({ type, imageStyle }: shotIconProps): ReactElement => {
     case "threeActivated": {
       return (
         <View style={styles.columnContainer}>
-          <Image style={imageStyle} source={require("@assets/3shot.png")} />
+          <Image style={imageStyle} source={require("@assets/record/3shot.png")} />
           <Text weight="400">{SHOT_TEXT.three}</Text>
         </View>
       );
@@ -69,7 +69,7 @@ const ShotIcon = ({ type, imageStyle }: shotIconProps): ReactElement => {
     case "threeDeactivated": {
       return (
         <View style={styles.columnContainer}>
-          <Image style={imageStyle} source={require("@assets/empty-shot.png")} />
+          <Image style={imageStyle} source={require("@assets/record/empty-shot.png")} />
           <Text weight="400" style={styles.deactivatedText}>
             {SHOT_TEXT.three}
           </Text>

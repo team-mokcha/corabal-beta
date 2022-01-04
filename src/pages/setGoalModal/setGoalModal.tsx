@@ -29,7 +29,7 @@ const SetGoalModal = ({ isShowingGoal, setIsShowingGoal }: GoalProps): ReactElem
             <Text style={styles.settingGoalDescriptionFont}>일일 목표를 설정해보세요.</Text>
           </View>
           <TouchableOpacity activeOpacity={0.5} onPress={() => setIsShowingGoal(false)}>
-            <Image source={require("@assets/btn_x.png")} />
+            <Image source={require("@assets/modal/btn_x.png")} />
           </TouchableOpacity>
         </View>
         <Modal.Body>

@@ -26,7 +26,7 @@ const Point = ({ points, style, fontSize }: pointProps): ReactElement => {
 
   return (
     <View style={[styles.pointWrapper, style]}>
-      <Image style={styles.pointIcon} source={require("@assets/btn_point.png")} />
+      <Image style={styles.pointIcon} source={require("@assets/common/btn_point.png")} />
       <Text weight="500" style={handleFontSize(fontSize)}>
         {points}
         {POINT_TEXT.point}
