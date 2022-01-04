@@ -22,26 +22,15 @@ type NavigationProps = {
 export default function MonthlyRecord({ navigation }: NavigationProps): ReactElement {
   const currentUserState = HSUseState(globalUserState);
   const userEmail = currentUserState.userEmail.get();
-  const [shot, setShot] = useState(0);
-  const [base, setBase] = useState("");
-  const [option, setOption] = useState(["none"]);
 
   return (
     <View style={styles.container}>
-      <Button title="shot1" onPress={() => setShot(1)} />
-      <Button title="shot2" onPress={() => setShot(2)} />
-      <Button title="shot3" onPress={() => setShot(3)} />
-      <Button title="baseWater" onPress={() => setBase("water")} />
-      <Button title="baseMilk" onPress={() => setBase("milk")} />
-      <Button title="optionCream" onPress={() => setOption([...option, "cream"])} />
-      <Button title="optionSyrup" onPress={() => setOption([...option, "syrup"])} />
-
-      {/* <Calendar />
+      <Calendar />
       <View style={styles.recordBackground}>
         <View style={styles.recordContainer}>
           <RecordList />
         </View>
-      </View> */}
+      </View>
     </View>
   );
 }

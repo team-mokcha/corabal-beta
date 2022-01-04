@@ -13,7 +13,10 @@ const MainHeader = (): ReactElement => {
         <TouchableOpacity style={styles.profileIcon} onPress={() => navigation.navigate("Profile")}>
           <Image resizeMode="contain" source={require("@assets/main/header-profile.png")} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.calendarIcon}>
+        <TouchableOpacity
+          style={styles.calendarIcon}
+          onPress={() => navigation.navigate("MonthlyRecord")}
+        >
           <Image source={require("@assets/main/header-calendar.png")} />
         </TouchableOpacity>
         <TouchableOpacity
