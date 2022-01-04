@@ -12,7 +12,9 @@ const styles = StyleSheet.create({
     height: 72
   },
   point: {
-    marginTop: 10
+    marginTop: 10,
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
 
