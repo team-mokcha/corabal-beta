@@ -3,8 +3,6 @@ import { View, FlatList, Image, TouchableOpacity } from "react-native";
 import Text from "../../atoms/text/text";
 import styles from "./recordList.styles";
 
-// calender 양 옆에 마진 값을 줘야 함... 헤더 스타일 고치고, 어떻게 하면 마킹할 수 있는지 알아보기
-
 export default function RecordList(): ReactElement {
   return (
     <FlatList

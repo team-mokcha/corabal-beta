@@ -1,15 +1,14 @@
 import React, { ReactElement } from "react";
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import { Calendar as RNCalendar, LocaleConfig } from "react-native-calendars";
 import { KR_MONTH_NAMES, KR_DAY_NAMES } from "./date_constants";
 import Text from "../../atoms/text/text";
 import styles from "./calendar.styles";
 
-// 1. arrow는 커스텀한 컴포넌트로 아예 교체를 해야함// custom arrow는 드롭박스를 보여주나..?
-// 특정 날짜 클릭 > 모달 등장 >
-// 2. render header로 커스텀한 달을 보여줘야 함
-// 3. 날짜 클릭 시 어떤 걸 보여줄지는 콘솔에.. 근데 뭔가를 보여주는 게 맞나.?
-// 4. 날짜 표시.. 어렵겠지만 해보자. 시작일과 끝일을 구분해야 함
+const CALENDAR_TEXT = {
+  zeroCupIndex: "0잔",
+  normalCupsIndex: "1잔 이상"
+};
 
 LocaleConfig.locales["KoreanCalendar"] = {
   monthNames: KR_MONTH_NAMES,
@@ -21,23 +20,70 @@ LocaleConfig.locales["KoreanCalendar"] = {
 LocaleConfig.defaultLocale = "KoreanCalendar";
 
 export default function Calendar(): ReactElement {
+  const ArrowLeft = () => {
+    return (
+      <Image
+        style={styles.monthArrowLeft}
+        source={require("@assets/others/calendar-arrow-left.png")}
+      />
+    );
+  };
+  const ArrowRight = () => {
+    return (
+      <Image
+        style={styles.monthArrowRight}
+        source={require("@assets/others/calendar-arrow-right.png")}
+      />
+    );
+  };
+
+  const CustomHeader = (props: Record<string, Date>) => {
+    return (
+      <Text weight="400" style={styles.customHeader}>
+        {props.date.getMonth() + 1 + "월"}
+      </Text>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <RNCalendar
         style={{ paddingLeft: 27, paddingRight: 25 }}
-        monthFormat={"M월"}
         enableSwipeMonths={true}
         hideExtraDays={true}
-        // hideArrows={true}
+        renderArrow={direction => (direction === "left" ? <ArrowLeft /> : <ArrowRight />)}
+        renderHeader={date => <CustomHeader date={date} />}
+        headerStyle={{ justifyContent: "center" }}
+        onDayPress={day => {
+          console.log("selected day", day);
+        }}
+        markingType="multi-period"
+        markedDates={{
+          "2022-01-14": {
+            periods: [{ startingDay: true, endingDay: false, color: "#76B5FF" }]
+          },
+          "2022-01-15": {
+            periods: [{ startingDay: false, endingDay: true, color: "#76B5FF" }]
+          },
+          "2022-01-17": {
+            periods: [{ startingDay: true, endingDay: false, color: "#8E6655" }]
+          },
+          "2022-01-18": {
+            periods: [{ startingDay: false, endingDay: false, color: "#8E6655" }]
+          },
+          "2022-01-19": {
+            periods: [{ startingDay: false, endingDay: true, color: "#8E6655" }]
+          }
+        }}
       />
       <View style={styles.indexContainer}>
         <View style={[styles.indexIcon, styles.indexIconZero]} />
-        <Text style={styles.indexIconText} weight="400">
-          {"0잔"}
+        <Text weight="400" style={styles.indexIconText}>
+          {CALENDAR_TEXT.zeroCupIndex}
         </Text>
         <View style={[styles.indexIcon, styles.indexIconMoreThanOne]} />
-        <Text style={styles.indexIconText} weight="400">
-          {"1잔 이상"}
+        <Text weight="400" style={styles.indexIconText}>
+          {CALENDAR_TEXT.normalCupsIndex}
         </Text>
       </View>
     </View>
