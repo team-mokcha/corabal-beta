@@ -49,6 +49,16 @@ export default function Calendar(): ReactElement {
     <View style={styles.container}>
       <RNCalendar
         style={{ paddingLeft: 27, paddingRight: 25 }}
+        theme={{
+          todayTextColor: "#76B5FF",
+          textDayFontFamily: "NotoSansKR_400Regular",
+          textMonthFontFamily: "NotoSansKR_400Regular",
+          textDayHeaderFontFamily: "NotoSansKR_400Regular",
+          textSectionTitleColor: "#000000",
+          textDayHeaderFontSize: 14,
+          textDayFontSize: 14,
+          dayTextColor: "#000000"
+        }}
         enableSwipeMonths={true}
         hideExtraDays={true}
         renderArrow={direction => (direction === "left" ? <ArrowLeft /> : <ArrowRight />)}
