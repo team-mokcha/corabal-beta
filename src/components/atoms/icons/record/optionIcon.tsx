@@ -18,7 +18,7 @@ const OptionIcon = ({ type, imageStyle }: OptionIconProps): ReactElement => {
     case "syrupActivated": {
       return (
         <View style={styles.columnContainer}>
-          <Image style={imageStyle} source={require("@assets/record/water-selected.png")} />
+          <Image style={imageStyle} source={require("@assets/record/syrup-selected.png")} />
           <Text weight="400">{OPTION_TEXT.syrup}</Text>
         </View>
       );
