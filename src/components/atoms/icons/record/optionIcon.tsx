@@ -1,10 +1,12 @@
 import React, { ReactElement } from "react";
 import { Image, StyleProp, ImageStyle, View } from "react-native";
 import Text from "../../text/text";
+import { SmallFont, MediumFont } from "./recordFont";
 import styles from "./recordIcon.style";
 
 type OptionIconProps = {
   type: "syrupActivated" | "creamActivated" | "syrupDeactivated" | "creamDeactivated" | "none";
+  fontSize: "medium" | "small";
   imageStyle: StyleProp<ImageStyle>;
 };
 
@@ -13,13 +15,17 @@ const OPTION_TEXT = {
   cream: "크림"
 };
 
-const OptionIcon = ({ type, imageStyle }: OptionIconProps): ReactElement => {
+const OptionIcon = ({ type, fontSize, imageStyle }: OptionIconProps): ReactElement => {
   switch (type) {
     case "syrupActivated": {
       return (
         <View style={styles.columnContainer}>
           <Image style={imageStyle} source={require("@assets/record/syrup-selected.png")} />
-          <Text weight="400">{OPTION_TEXT.syrup}</Text>
+          {fontSize === "small" ? (
+            <SmallFont text={OPTION_TEXT.syrup} />
+          ) : (
+            <MediumFont text={OPTION_TEXT.syrup} />
+          )}
         </View>
       );
     }
@@ -37,7 +43,11 @@ const OptionIcon = ({ type, imageStyle }: OptionIconProps): ReactElement => {
       return (
         <View style={styles.columnContainer}>
           <Image style={imageStyle} source={require("@assets/record/cream-selected.png")} />
-          <Text weight="400">{OPTION_TEXT.cream}</Text>
+          {fontSize === "small" ? (
+            <SmallFont text={OPTION_TEXT.cream} />
+          ) : (
+            <MediumFont text={OPTION_TEXT.cream} />
+          )}
         </View>
       );
     }

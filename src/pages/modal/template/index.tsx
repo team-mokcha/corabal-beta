@@ -35,8 +35,8 @@ const Template = ({ type, isVisible, handleModalVisibility }: TemplateProps): Re
             </View>
             <Modal.Body>
               <PickedRow shot="oneActivated" base="waterActivated" option="creamActivated" />
-              <PickedRow shot="oneActivated" base="waterActivated" option="creamActivated" />
-              <PickedRow shot="oneActivated" base="waterActivated" option="creamActivated" />
+              <PickedRow shot="twoActivated" base="waterActivated" option="creamActivated" />
+              <PickedRow shot="oneActivated" base="milkActivated" option="creamActivated" />
             </Modal.Body>
             <Modal.Footer>
               <ButtonDisable

@@ -7,8 +7,22 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
+  smallFont: {
+    color: "#000000",
+    textAlign: "center",
+    fontSize: 12,
+    lineHeight: 13
+  },
+  mediumFont: {
+    color: "#000000",
+    textAlign: "center",
+    fontSize: 14,
+    lineHeight: 20.27
+  },
   deactivatedText: {
-    color: "#CECECE"
+    color: "#C4C4C4",
+    fontSize: 14,
+    lineHeight: 20.27
   }
 });
 

@@ -1,10 +1,12 @@
 import React, { ReactElement } from "react";
 import { Image, StyleProp, ImageStyle, View } from "react-native";
 import Text from "../../text/text";
+import { SmallFont, MediumFont } from "./recordFont";
 import styles from "./recordIcon.style";
 
 type baseIconProps = {
   type: "waterActivated" | "milkActivated" | "waterDeactivated" | "milkDeactivated";
+  fontSize: "medium" | "small";
   imageStyle: StyleProp<ImageStyle>;
 };
 
@@ -13,13 +15,17 @@ const BASE_TEXT = {
   milk: "우유"
 };
 
-const BaseIcon = ({ type, imageStyle }: baseIconProps): ReactElement => {
+const BaseIcon = ({ type, fontSize, imageStyle }: baseIconProps): ReactElement => {
   switch (type) {
     case "waterActivated": {
       return (
         <View style={styles.columnContainer}>
           <Image style={imageStyle} source={require("@assets/record/water-selected.png")} />
-          <Text weight="400">{BASE_TEXT.water}</Text>
+          {fontSize === "small" ? (
+            <SmallFont text={BASE_TEXT.water} />
+          ) : (
+            <MediumFont text={BASE_TEXT.water} />
+          )}
         </View>
       );
     }
@@ -37,7 +43,11 @@ const BaseIcon = ({ type, imageStyle }: baseIconProps): ReactElement => {
       return (
         <View style={styles.columnContainer}>
           <Image style={imageStyle} source={require("@assets/record/milk-selected.png")} />
-          <Text weight="400">{BASE_TEXT.milk}</Text>
+          {fontSize === "small" ? (
+            <SmallFont text={BASE_TEXT.milk} />
+          ) : (
+            <MediumFont text={BASE_TEXT.milk} />
+          )}
         </View>
       );
     }

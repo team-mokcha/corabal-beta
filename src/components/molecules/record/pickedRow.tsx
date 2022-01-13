@@ -16,13 +16,13 @@ const PickedRow = ({ shot, base, option }: PickedRowProps): ReactElement => {
         <Image source={require("@assets/record/icon_cup_basic_empty.png")} style={styles.cupIcon} />
         <View style={styles.coffeeTypeContainer}>
           <View style={styles.coffeeTypeItem}>
-            <ShotIcon imageStyle={styles.coffeeTypeIcon} type={shot} />
+            <ShotIcon imageStyle={styles.coffeeTypeIcon} type={shot} fontSize="small" />
           </View>
           <View style={styles.coffeeTypeItem}>
-            <BaseIcon imageStyle={styles.coffeeTypeIcon} type={base} />
+            <BaseIcon imageStyle={styles.coffeeTypeIcon} type={base} fontSize="small" />
           </View>
           <View style={styles.coffeeTypeItem}>
-            <OptionIcon imageStyle={styles.coffeeTypeIcon} type={option} />
+            <OptionIcon imageStyle={styles.coffeeTypeIcon} type={option} fontSize="small" />
           </View>
         </View>
         <Image source={require("@assets/record/icon_delete_lightgrey.png")} />

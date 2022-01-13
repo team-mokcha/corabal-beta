@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
   rowContainer: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
     marginBottom: 12,
     minWidth: 263,
@@ -13,6 +12,7 @@ const styles = StyleSheet.create({
   cupIcon: {
     resizeMode: "contain",
     width: 43,
+    marginTop: 25,
     marginBottom: 12,
     marginLeft: 12,
     marginRight: "auto"

@@ -24,9 +24,9 @@ const PickingOptionButton = ({ type }: pickingOptionButtonProps): ReactElement =
           }}
         >
           {globalSyrupState ? (
-            <OptionIcon imageStyle={styles.optionImg} type="syrupActivated" />
+            <OptionIcon imageStyle={styles.optionImg} type="syrupActivated" fontSize="medium" />
           ) : (
-            <OptionIcon imageStyle={styles.optionImg} type="syrupDeactivated" />
+            <OptionIcon imageStyle={styles.optionImg} type="syrupDeactivated" fontSize="medium" />
           )}
         </TouchableOpacity>
       );
@@ -40,9 +40,9 @@ const PickingOptionButton = ({ type }: pickingOptionButtonProps): ReactElement =
           }}
         >
           {globalCreamState ? (
-            <OptionIcon imageStyle={styles.optionImg} type="creamActivated" />
+            <OptionIcon imageStyle={styles.optionImg} type="creamActivated" fontSize="medium" />
           ) : (
-            <OptionIcon imageStyle={styles.optionImg} type="creamDeactivated" />
+            <OptionIcon imageStyle={styles.optionImg} type="creamDeactivated" fontSize="medium" />
           )}
         </TouchableOpacity>
       );

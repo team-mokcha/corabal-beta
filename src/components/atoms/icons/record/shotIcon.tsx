@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import { Image, StyleProp, ImageStyle, View } from "react-native";
 import Text from "../../text/text";
+import { SmallFont, MediumFont } from "./recordFont";
 import styles from "./recordIcon.style";
 
 type shotIconProps = {
@@ -11,6 +12,7 @@ type shotIconProps = {
     | "oneDeactivated"
     | "twoDeactivated"
     | "threeDeactivated";
+  fontSize: "medium" | "small";
   imageStyle: StyleProp<ImageStyle>;
 };
 
@@ -20,13 +22,17 @@ const SHOT_TEXT = {
   three: "3샷"
 };
 
-const ShotIcon = ({ type, imageStyle }: shotIconProps): ReactElement => {
+const ShotIcon = ({ type, imageStyle, fontSize }: shotIconProps): ReactElement => {
   switch (type) {
     case "oneActivated": {
       return (
         <View style={styles.columnContainer}>
           <Image style={imageStyle} source={require("@assets/record/1shot.png")} />
-          <Text weight="400">{SHOT_TEXT.one}</Text>
+          {fontSize === "small" ? (
+            <SmallFont text={SHOT_TEXT.one} />
+          ) : (
+            <MediumFont text={SHOT_TEXT.one} />
+          )}
         </View>
       );
     }
@@ -44,7 +50,11 @@ const ShotIcon = ({ type, imageStyle }: shotIconProps): ReactElement => {
       return (
         <View style={styles.columnContainer}>
           <Image style={imageStyle} source={require("@assets/record/2shot.png")} />
-          <Text weight="400">{SHOT_TEXT.two}</Text>
+          {fontSize === "small" ? (
+            <SmallFont text={SHOT_TEXT.two} />
+          ) : (
+            <MediumFont text={SHOT_TEXT.two} />
+          )}
         </View>
       );
     }
@@ -62,7 +72,11 @@ const ShotIcon = ({ type, imageStyle }: shotIconProps): ReactElement => {
       return (
         <View style={styles.columnContainer}>
           <Image style={imageStyle} source={require("@assets/record/3shot.png")} />
-          <Text weight="400">{SHOT_TEXT.three}</Text>
+          {fontSize === "small" ? (
+            <SmallFont text={SHOT_TEXT.three} />
+          ) : (
+            <MediumFont text={SHOT_TEXT.three} />
+          )}
         </View>
       );
     }
