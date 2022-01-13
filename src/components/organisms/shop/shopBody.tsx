@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, SetStateAction } from "react";
 import { View } from "react-native";
 import CupContainer from "../../molecules/cup/cupContainer";
 import styles from "./shopBody.style";
@@ -15,17 +15,18 @@ const cups = [
   { id: 9, thumbnail: require("@assets/cups/cup9.png"), price: 500 }
 ];
 
-const ShopBody = (): ReactElement => {
-  function callPurchaseCupModal() {
-    console.log("call modal.");
-  }
-
+const ShopBody = ({
+  callPurchaseCupModal
+}: {
+  callPurchaseCupModal: React.Dispatch<SetStateAction<boolean>>;
+}): ReactElement => {
   return (
     <View style={styles.wrapper}>
       {cups.map(cup => {
         return (
           <CupContainer
             key={cup.id}
+            type="shop"
             thumbnail={cup.thumbnail}
             thumbnailSize="small"
             callPurchaseCupModal={callPurchaseCupModal}

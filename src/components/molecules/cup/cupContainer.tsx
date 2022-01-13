@@ -1,16 +1,18 @@
-import React, { ReactElement } from "react";
-import { TouchableOpacity, Image } from "react-native";
+import React, { ReactElement, SetStateAction } from "react";
+import { TouchableOpacity, Image, View } from "react-native";
 import Point from "../../atoms/icons/common/point";
 import styles from "./cupContainer.style";
 
 type cupContainerProps = {
+  type: "shop" | "modal";
   thumbnail: any;
   thumbnailSize: "small" | "large";
   price: number;
-  callPurchaseCupModal?: () => void;
+  callPurchaseCupModal?: React.Dispatch<SetStateAction<boolean>>;
 };
 
 const CupContainer = ({
+  type,
   thumbnail,
   thumbnailSize,
   price,
@@ -31,16 +33,36 @@ const CupContainer = ({
     }
   };
 
-  return (
-    <TouchableOpacity
-      // onPress={() =>  callPurchaseCupModal()}
-      activeOpacity={0.5}
-      style={styles.cupWrapper}
-    >
-      <Image source={thumbnail} style={[styles.thumbnail, handleThumbnailSize(thumbnailSize)]} />
-      <Point points={price} fontSize="medium" style={styles.point} />
-    </TouchableOpacity>
-  );
+  switch (type) {
+    case "modal":
+      return (
+        <View style={styles.cupWrapper}>
+          <Image
+            source={thumbnail}
+            style={[styles.thumbnail, handleThumbnailSize(thumbnailSize)]}
+          />
+          <Point points={price} fontSize="medium" style={styles.point} />
+        </View>
+      );
+    case "shop":
+      if (callPurchaseCupModal) {
+        return (
+          <TouchableOpacity
+            onPress={() => callPurchaseCupModal(true)}
+            activeOpacity={0.5}
+            style={styles.cupWrapper}
+          >
+            <Image
+              source={thumbnail}
+              style={[styles.thumbnail, handleThumbnailSize(thumbnailSize)]}
+            />
+            <Point points={price} fontSize="medium" style={styles.point} />
+          </TouchableOpacity>
+        );
+      } else {
+        throw new Error("When type is 'shop, there should be a function 'callPurchaseModal'.");
+      }
+  }
 };
 
 export default CupContainer;
