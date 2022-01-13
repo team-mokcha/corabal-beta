@@ -25,7 +25,10 @@ const PickedRow = ({ shot, base, option }: PickedRowProps): ReactElement => {
             <OptionIcon imageStyle={styles.coffeeTypeIcon} type={option} fontSize="small" />
           </View>
         </View>
-        <Image source={require("@assets/record/icon_delete_lightgrey.png")} />
+        <Image
+          style={styles.deleteIcon}
+          source={require("@assets/record/icon_delete_lightgrey.png")}
+        />
       </View>
     </>
   );

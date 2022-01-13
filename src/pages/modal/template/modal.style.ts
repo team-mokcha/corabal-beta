@@ -15,8 +15,11 @@ const styles = StyleSheet.create({
   bodyContainer: {
     display: "flex",
     flexDirection: "column"
-    // width: "0px",
-    // height: "0px"
+  },
+  pickedRowContainer: {
+    borderBottomWidth: 1,
+    borderStyle: "solid",
+    borderBottomColor: "#E5E5E5"
   },
   completeBtn: {
     width: 264,

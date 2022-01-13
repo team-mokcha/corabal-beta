@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   cupIcon: {
     resizeMode: "contain",
     width: 43,
-    marginTop: 25,
+    marginTop: 21,
     marginBottom: 12,
     marginLeft: 12,
     marginRight: "auto"
@@ -21,6 +21,8 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+    marginTop: 12,
+    marginBottom: 13,
     marginLeft: 20,
     marginRight: 59
   },
@@ -35,6 +37,8 @@ const styles = StyleSheet.create({
     height: 46
   },
   deleteIcon: {
+    marginTop: 21,
+    marginBottom: 15,
     resizeMode: "contain",
     width: 24
   }

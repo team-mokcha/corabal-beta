@@ -7,6 +7,7 @@ import styles from "./modal.style";
 
 type TemplateProps = {
   type: "auth" | "profile" | "goal" | "shop" | "previousRecord" | "todayRecord";
+  todayRecordProps?: { totalCups: number };
   isVisible: boolean;
   handleModalVisibility: () => void;
 };
@@ -34,8 +35,12 @@ const Template = ({ type, isVisible, handleModalVisibility }: TemplateProps): Re
               <Image source={require("@assets/modal/btn_plus.png")} style={styles.plusBtn} />
             </View>
             <Modal.Body>
-              <PickedRow shot="oneActivated" base="waterActivated" option="creamActivated" />
-              <PickedRow shot="twoActivated" base="waterActivated" option="creamActivated" />
+              <View style={styles.pickedRowContainer}>
+                <PickedRow shot="oneActivated" base="waterActivated" option="creamActivated" />
+              </View>
+              <View style={styles.pickedRowContainer}>
+                <PickedRow shot="oneActivated" base="waterActivated" option="creamActivated" />
+              </View>
               <PickedRow shot="oneActivated" base="milkActivated" option="creamActivated" />
             </Modal.Body>
             <Modal.Footer>
