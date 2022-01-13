@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import { View } from "react-native";
-import ErrorModal from "../../../pages/errorModal/errorModal";
+import ErrorModal from "../../../pages/modals/errorModal/errorModal";
 import { Field } from "formik";
 import { Form, InputField, SubmitButton, CheckTermsButton } from "../../molecules";
 import styles from "./body.style";
