@@ -10,9 +10,9 @@ const cups = [
   { id: 4, thumbnail: require("@assets/cups/cup4.png"), price: 100 },
   { id: 5, thumbnail: require("@assets/cups/cup5.png"), price: 100 },
   { id: 6, thumbnail: require("@assets/cups/cup6.png"), price: 200 },
-  { id: 7, thumbnail: require("@assets/cups/cup7-temp.png"), price: 200 },
-  { id: 8, thumbnail: require("@assets/cups/cup8-temp.png"), price: 300 },
-  { id: 9, thumbnail: require("@assets/cups/cup9-temp.png"), price: 500 }
+  { id: 7, thumbnail: require("@assets/cups/cup7.png"), price: 200 },
+  { id: 8, thumbnail: require("@assets/cups/cup8.png"), price: 300 },
+  { id: 9, thumbnail: require("@assets/cups/cup9.png"), price: 500 }
 ];
 
 const ShopBody = (): ReactElement => {
