@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import { ScrollView, View, Image } from "react-native";
-import { ButtonDisable, ButtonGradient, DateText } from "../../../../components/atoms/index";
+import { ButtonNormal, ButtonGradient, DateText } from "../../../../components/atoms/index";
 import { PickedRow } from "../../../../components/molecules";
 import { Modal } from "../../../../components/organisms";
 import styles from "./records.style";
@@ -48,11 +48,16 @@ const Template = ({ type, isVisible, handleModalVisibility }: TemplateProps): Re
               />
             </Modal.Body>
             <Modal.Footer>
-              <ButtonDisable
+              <ButtonNormal
                 title="확인"
                 style={styles.completeBtn}
                 onPress={handleModalVisibility}
               />
+              {/* <ButtonGradient
+                title="수정 완료"
+                style={styles.completeBtn}
+                // onPress={() => console.log("추가")}
+              /> */}
             </Modal.Footer>
           </Modal.Container>
         </Modal>
@@ -89,7 +94,7 @@ const Template = ({ type, isVisible, handleModalVisibility }: TemplateProps): Re
               />
             </Modal.Body>
             <Modal.Footer>
-              <ButtonDisable
+              <ButtonNormal
                 title="확인"
                 style={styles.completeBtn}
                 onPress={handleModalVisibility}
