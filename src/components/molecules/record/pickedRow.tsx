@@ -4,12 +4,13 @@ import { ShotIcon, BaseIcon, OptionIcon } from "../../atoms/index";
 import styles from "./pickedRow.style";
 
 type PickedRowProps = {
+  type: "todayRecords" | "previousRecords";
   shot: "oneActivated" | "twoActivated" | "threeActivated";
   base: "waterActivated" | "milkActivated";
   option: "syrupActivated" | "creamActivated" | "none";
 };
 
-const PickedRow = ({ shot, base, option }: PickedRowProps): ReactElement => {
+const PickedRow = ({ type, shot, base, option }: PickedRowProps): ReactElement => {
   return (
     <>
       <View style={styles.rowContainer}>
@@ -25,10 +26,12 @@ const PickedRow = ({ shot, base, option }: PickedRowProps): ReactElement => {
             <OptionIcon imageStyle={styles.coffeeTypeIcon} type={option} fontSize="small" />
           </View>
         </View>
-        <Image
-          style={styles.deleteIcon}
-          source={require("@assets/record/icon_delete_lightgrey.png")}
-        />
+        {type === "todayRecords" ? (
+          <Image
+            style={styles.deleteIcon}
+            source={require("@assets/record/icon_delete_lightgrey.png")}
+          />
+        ) : null}
       </View>
     </>
   );

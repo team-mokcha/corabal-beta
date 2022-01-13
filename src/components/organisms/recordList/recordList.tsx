@@ -1,9 +1,13 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, SetStateAction } from "react";
 import { View, FlatList, Image, TouchableOpacity } from "react-native";
 import Text from "../../atoms/text/text";
 import styles from "./recordList.styles";
 
-export default function RecordList(): ReactElement {
+type RecordListProps = {
+  setModalVisible: React.Dispatch<SetStateAction<boolean>>;
+};
+
+export default function RecordList({ setModalVisible }: RecordListProps): ReactElement {
   return (
     <FlatList
       data={[
@@ -22,7 +26,12 @@ export default function RecordList(): ReactElement {
         }
       ]}
       renderItem={({ item }) => (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity
+          style={styles.container}
+          onPress={() => {
+            setModalVisible(true);
+          }}
+        >
           <View style={styles.dateContainer}>
             <Text weight="700" style={styles.dateTextNumber}>
               {item.date[0]}

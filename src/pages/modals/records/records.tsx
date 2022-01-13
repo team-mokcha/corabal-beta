@@ -7,7 +7,7 @@ type ModalProps = {
   handleModalVisibility: () => void;
 };
 
-const Modal = ({ type, isVisible, handleModalVisibility }: ModalProps): ReactElement => {
+const RecordsModal = ({ type, isVisible, handleModalVisibility }: ModalProps): ReactElement => {
   //   const callErrorState = () => {
   //     console.log("Authentication 페이지 내 에러 핸들링 함수입니다.");
   //   };
@@ -32,4 +32,4 @@ const Modal = ({ type, isVisible, handleModalVisibility }: ModalProps): ReactEle
   }
 };
 
-export default Modal;
+export default RecordsModal;

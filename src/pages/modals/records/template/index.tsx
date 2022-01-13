@@ -3,7 +3,7 @@ import { ScrollView, View, Image } from "react-native";
 import { ButtonDisable, ButtonGradient, DateText } from "../../../../components/atoms/index";
 import { PickedRow } from "../../../../components/molecules";
 import { Modal } from "../../../../components/organisms";
-import styles from "./modal.style";
+import styles from "./records.style";
 
 type TemplateProps = {
   type: "previous" | "today";
@@ -14,9 +14,6 @@ type TemplateProps = {
 
 const Template = ({ type, isVisible, handleModalVisibility }: TemplateProps): ReactElement => {
   switch (type) {
-    // 참고 - Today와 PreviousRecord는 거의 비슷한 템플릿이지만, 이전 기록의 경우 삭제 및 추가 버튼이 존재하지 않음
-    // 1) 모달 마크업
-    // 2) 데이터 불러오기 - 일단 불러와지는지만 확인. 삭제 등은 이 브랜치에서 하면 좋지 않을 듯.
     // 3) 바꾼 로그가 있을 경우에만(삭제) 버튼 활성화
     case "today":
       return (
@@ -28,12 +25,27 @@ const Template = ({ type, isVisible, handleModalVisibility }: TemplateProps): Re
             </View>
             <Modal.Body>
               <View style={styles.pickedRowContainer}>
-                <PickedRow shot="oneActivated" base="waterActivated" option="creamActivated" />
+                <PickedRow
+                  type="todayRecords"
+                  shot="oneActivated"
+                  base="waterActivated"
+                  option="creamActivated"
+                />
               </View>
               <View style={styles.pickedRowContainer}>
-                <PickedRow shot="oneActivated" base="waterActivated" option="creamActivated" />
+                <PickedRow
+                  type="todayRecords"
+                  shot="oneActivated"
+                  base="waterActivated"
+                  option="creamActivated"
+                />
               </View>
-              <PickedRow shot="oneActivated" base="milkActivated" option="creamActivated" />
+              <PickedRow
+                type="todayRecords"
+                shot="oneActivated"
+                base="milkActivated"
+                option="creamActivated"
+              />
             </Modal.Body>
             <Modal.Footer>
               <ButtonDisable
@@ -46,7 +58,46 @@ const Template = ({ type, isVisible, handleModalVisibility }: TemplateProps): Re
         </Modal>
       );
     case "previous":
-      return <></>;
+      return (
+        <Modal isVisible={isVisible}>
+          <Modal.Container edgeStyle="round">
+            <View style={styles.headerContainer}>
+              <DateText type="previous" previousDate="2001-01-05" />
+            </View>
+            <Modal.Body>
+              <View style={styles.pickedRowContainer}>
+                <PickedRow
+                  type="previousRecords"
+                  shot="oneActivated"
+                  base="waterActivated"
+                  option="creamActivated"
+                />
+              </View>
+              <View style={styles.pickedRowContainer}>
+                <PickedRow
+                  type="previousRecords"
+                  shot="oneActivated"
+                  base="waterActivated"
+                  option="creamActivated"
+                />
+              </View>
+              <PickedRow
+                type="previousRecords"
+                shot="oneActivated"
+                base="milkActivated"
+                option="creamActivated"
+              />
+            </Modal.Body>
+            <Modal.Footer>
+              <ButtonDisable
+                title="확인"
+                style={styles.completeBtn}
+                onPress={handleModalVisibility}
+              />
+            </Modal.Footer>
+          </Modal.Container>
+        </Modal>
+      );
   }
 };
 

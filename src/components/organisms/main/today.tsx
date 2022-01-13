@@ -1,7 +1,7 @@
 import React, { useState, ReactElement } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import { ButtonDisable, ButtonGradient, Text } from "@Components";
-import Modal from "../../../pages/modals/records/records";
+import RecordsModal from "../../../pages/modals/records/records";
 import styles from "./today.styles";
 
 type TodayProps = {
@@ -81,7 +81,7 @@ const Today = ({ cupRecordState, normalCups, handleAddZeroCupBtn }: TodayProps):
 
   return (
     <View style={styles.todayContainer}>
-      <Modal type="today" isVisible={isModalVisible} handleModalVisibility={closeModal} />
+      <RecordsModal type="today" isVisible={isModalVisible} handleModalVisibility={closeModal} />
       <View style={styles.todayFontWrapper}>
         <Text style={styles.todayFont} weight="500">
           {TODAY_TEXT.today}
