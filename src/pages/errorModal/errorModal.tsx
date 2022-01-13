@@ -19,7 +19,7 @@ export default function ErrorModal(): ReactElement {
   return (
     <Modal isVisible={modalVisibility}>
       <View style={styles.modalContainer}>
-        <Modal.Container>
+        <Modal.Container edgeStyle="square">
           <View style={styles.closeButtonContainer}>
             <TouchableOpacity
               activeOpacity={0.5}

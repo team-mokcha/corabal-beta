@@ -22,7 +22,7 @@ const SetGoalModal = ({ isShowingGoal, setIsShowingGoal }: GoalProps): ReactElem
 
   return (
     <Modal isVisible={isShowingGoal}>
-      <Modal.Container>
+      <Modal.Container edgeStyle="square">
         <View style={styles.headerContainer}>
           <View style={styles.headerFontContainer}>
             <Text style={styles.settingGoalFont}>목표 설정</Text>

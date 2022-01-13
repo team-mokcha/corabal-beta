@@ -25,9 +25,26 @@ export default function Modal({ isVisible = false, children, ...props }: ModalPr
   );
 }
 
-const ModalContainer = ({ children }: { children: React.ReactNode }) => (
-  <View style={styles.container}>{children}</View>
-);
+type ModalContainerProps = {
+  children: React.ReactNode;
+  edgeStyle: "square" | "round";
+};
+
+const ModalContainer = ({ children, edgeStyle }: ModalContainerProps) => {
+  let border;
+  switch (edgeStyle) {
+    case "square":
+      border = { borderRadius: 10 };
+      break;
+    case "round":
+      border = { borderRadius: 20 };
+      break;
+    default:
+      border = { borderRadius: 10 };
+      break;
+  }
+  return <View style={[styles.container, border]}>{children}</View>;
+};
 
 const ModalHeader = ({ title }: { title: string }) => (
   <View style={styles.header}>

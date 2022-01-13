@@ -28,7 +28,7 @@ const Template = ({ type, isVisible, handleModalVisibility }: TemplateProps): Re
     case "todayRecord":
       return (
         <Modal isVisible={isVisible}>
-          <Modal.Container>
+          <Modal.Container edgeStyle="round">
             <View style={styles.headerContainer}>
               <DateText type="present" />
               <Image source={require("@assets/modal/btn_plus.png")} style={styles.plusBtn} />
