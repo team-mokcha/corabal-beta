@@ -7,21 +7,19 @@ import CupContainer from "../../../../components/molecules/cup/cupContainer";
 import ConfirmMessage from "../../../../components/molecules/purchase/confirmMessage";
 import MyPoints from "../../../../components/molecules/purchase/myPoints";
 import ButtonArea from "../../../../components/molecules/purchase/buttonArea";
+import CloseModal from "../../../../components/atoms/icons/common/closeModal";
 import styles from "./purchase.style";
 
 type PurchaseModalProps = {
   type: "callCat" | "purchaseCup";
-  callCatText?: Record<string, string>;
-  buyCupText?: Record<string, string>;
-  boughtCupText?: Record<string, string>;
+  texts: {
+    confirmMessage: string;
+    normalBtn: string;
+    gradientBtn: string;
+  };
 };
 
-const Template = ({
-  type,
-  callCatText,
-  buyCupText,
-  boughtCupText
-}: PurchaseModalProps): ReactElement => {
+const Template = ({ type, texts }: PurchaseModalProps): ReactElement => {
   const currentModalState = HSUseState(globalPurchaseModalState).modalVisibility.get();
   return (
     <Modal isVisible={currentModalState}>
@@ -29,7 +27,13 @@ const Template = ({
         <Modal.Body>
           <View style={styles.bodyWrapper}>
             {type === "callCat" ? (
-              <Image source={require("@assets/common/cat-in-the-cup.png")} />
+              <>
+                <CloseModal type="callCat" />
+                <Image
+                  style={styles.callCatImage}
+                  source={require("@assets/common/cat-in-the-cup.png")}
+                />
+              </>
             ) : (
               <CupContainer
                 type="modal"
@@ -38,23 +42,17 @@ const Template = ({
                 price={30}
               />
             )}
-            {buyCupText && (
-              <>
-                <ConfirmMessage text={buyCupText && buyCupText.confirmPurchaseMessage} />
-                <MyPoints text={buyCupText && buyCupText.myPoint} points={551} />
-              </>
-            )}
+            <ConfirmMessage text={texts.confirmMessage} />
+            <MyPoints text={"내 포인트"} points={551} />
           </View>
         </Modal.Body>
         <Modal.Footer>
-          {buyCupText && (
-            <ButtonArea
-              // handleButtonNormal={closeModal}
-              handleButtonGradient={() => console.log("button normal")}
-              buttonNormalText={buyCupText.cancel}
-              buttonGradientText={buyCupText.purchase}
-            />
-          )}
+          <ButtonArea
+            // handleButtonNormal={closeModal}
+            handleButtonGradient={() => console.log("button normal")}
+            buttonNormalText={texts.normalBtn}
+            buttonGradientText={texts.gradientBtn}
+          />
         </Modal.Footer>
       </Modal.Container>
     </Modal>

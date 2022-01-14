@@ -5,6 +5,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     alignItems: "center",
     marginTop: 52
+  },
+  callCatImage: {
+    marginTop: -8,
+    marginBottom: 50
   }
 });
 
