@@ -1,6 +1,9 @@
 import React, { ReactElement } from "react";
+import { useState as HSUseState } from "@hookstate/core";
+import { globalPurchaseModalState } from "@stores/stores";
 import { View, Image } from "react-native";
 import { Text, ButtonGradient } from "@Components";
+import PurchaseModal from "../../../pages/modals/purchase/purchase";
 import styles from "./totalRecord.style";
 
 type totalRecordProps = {
@@ -19,6 +22,10 @@ const TOTAL_RECORD_TEXT = {
 };
 
 export const TotalRecord = ({ records, points, catStatus }: totalRecordProps): ReactElement => {
+  const modalState = HSUseState(globalPurchaseModalState);
+  function openModal() {
+    modalState.modalVisibility.set(true);
+  }
   return (
     <View style={styles.recordContainer}>
       <View style={styles.recordWrapper}>
@@ -49,12 +56,12 @@ export const TotalRecord = ({ records, points, catStatus }: totalRecordProps): R
         </Text>
         <Image style={styles.myCupIcon} source={require("@assets/common/cat-in-the-cup.png")} />
         <ButtonGradient
-          // onPress={() => setIsCallingCat(true)}
+          onPress={openModal}
           title={TOTAL_RECORD_TEXT.callCatBtn}
           smallType={true}
           style={styles.btn}
         />
-        {/* <CallingCat isCallingCat={isCallingCat} setIsCallingCat={setIsCallingCat} /> */}
+        <PurchaseModal type="callCat" />
       </View>
     </View>
   );
