@@ -1,6 +1,7 @@
 import React, { ReactElement, useCallback, useState } from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { View, Image } from "react-native";
 import { Text } from "@Components";
+import { styles } from "./circleProgress.style";
 interface circleProgressProps {
   name: string;
   source: any;
@@ -53,8 +54,10 @@ const CircleProgress = (): JSX.Element => {
                 <Image source={source} />
               </View>
             </View>
-            <Text style={styles.recordName}>{record.name}</Text>
-            <Text style={styles.recordPart}>
+            <Text weight="400" style={styles.recordName}>
+              {record.name}
+            </Text>
+            <Text weight="400" style={styles.recordPart}>
               {record.part}
               {record.total && <Text style={styles.recordTotal}>/{record.total}</Text>}
             </Text>
@@ -66,49 +69,3 @@ const CircleProgress = (): JSX.Element => {
 };
 
 export default CircleProgress;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between"
-  },
-  eachRecordContainer: {
-    alignItems: "center"
-  },
-  circle: {
-    width: 70,
-    height: 70,
-    borderRadius: 70 / 2,
-    overflow: "hidden",
-    backgroundColor: "#DDDDDD"
-  },
-  circleFill: {
-    backgroundColor: "#76B5FF",
-    width: "100%",
-    bottom: 0,
-    position: "absolute"
-  },
-  centerContainer: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  recordName: {
-    fontSize: 15,
-    fontWeight: "500",
-    lineHeight: 22
-  },
-  recordPart: {
-    fontSize: 15,
-    fontWeight: "500",
-    lineHeight: 21.72
-  },
-  recordTotal: {
-    color: "#C4C4C4"
-  }
-});

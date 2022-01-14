@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
     marginBottom: 40
   },
   thisMonthFont: {
-    fontSize: 15,
+    fontSize: 16,
+    lineHeight: 23.17,
     color: "#000000",
     marginBottom: 0
   },
@@ -18,7 +19,6 @@ const styles = StyleSheet.create({
     marginBottom: 24
   },
   pointFont: {
-    fontWeight: "bold",
     color: "#2B8CFF"
   }
 });

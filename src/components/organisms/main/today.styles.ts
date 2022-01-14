@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
   },
   cupUpdatingBtn: {
     fontSize: 14,
-    color: "#878787"
+    lineHeight: 20.27,
+    color: "#757574"
   },
   recordWrapper: {
     alignItems: "center"
@@ -27,7 +28,8 @@ const styles = StyleSheet.create({
   },
   recordComment: {
     fontSize: 10,
-    color: "#878787",
+    lineHeight: 14.48,
+    color: "#757474",
     textAlign: "center",
     marginBottom: 12
   },
