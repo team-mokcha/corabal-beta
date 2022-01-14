@@ -31,3 +31,7 @@ export const globalCoffeePickState = createState({
   base: "water",
   option: { syrup: false, cream: false }
 });
+
+export const globalPurchaseModalState = createState({
+  modalVisibility: false
+});

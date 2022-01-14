@@ -30,10 +30,10 @@ const Template = (): ReactElement => {
         <Text weight="500" style={styles.myCupFont}>
           {CUP_STORAGE_TEXT.myCup}
         </Text>
-        <CupContainer thumbnail={cups[0].thumbnail} thumbnailSize="large" price={cups[0].price} />
+        {/* <CupContainer thumbnail={cups[0].thumbnail} thumbnailSize="large" price={cups[0].price} /> */}
         <View style={styles.ownedCupContainer}>
           <Text style={styles.ownedCupFont}>{CUP_STORAGE_TEXT.ownedCup}</Text>
-          <ShopBody />
+          {/* <ShopBody /> */}
         </View>
       </ScrollView>
     </View>

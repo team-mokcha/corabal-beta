@@ -1,4 +1,6 @@
-import React, { ReactElement, SetStateAction } from "react";
+import React, { ReactElement } from "react";
+import { useState as HSUseState } from "@hookstate/core";
+import { globalPurchaseModalState } from "@stores/stores";
 import { TouchableOpacity, Image, View } from "react-native";
 import Point from "../../atoms/icons/common/point";
 import styles from "./cupContainer.style";
@@ -8,15 +10,13 @@ type cupContainerProps = {
   thumbnail: any;
   thumbnailSize: "small" | "large";
   price: number;
-  callPurchaseCupModal?: React.Dispatch<SetStateAction<boolean>>;
 };
 
 const CupContainer = ({
   type,
   thumbnail,
   thumbnailSize,
-  price,
-  callPurchaseCupModal
+  price
 }: cupContainerProps): ReactElement => {
   const handleThumbnailSize = (size: "small" | "large") => {
     switch (size) {
@@ -33,6 +33,8 @@ const CupContainer = ({
     }
   };
 
+  const openModal = HSUseState(globalPurchaseModalState).modalVisibility;
+
   switch (type) {
     case "modal":
       return (
@@ -45,23 +47,19 @@ const CupContainer = ({
         </View>
       );
     case "shop":
-      if (callPurchaseCupModal) {
-        return (
-          <TouchableOpacity
-            onPress={() => callPurchaseCupModal(true)}
-            activeOpacity={0.5}
-            style={styles.cupWrapper}
-          >
-            <Image
-              source={thumbnail}
-              style={[styles.thumbnail, handleThumbnailSize(thumbnailSize)]}
-            />
-            <Point points={price} fontSize="medium" style={styles.point} />
-          </TouchableOpacity>
-        );
-      } else {
-        throw new Error("When type is 'shop, there should be a function 'callPurchaseModal'.");
-      }
+      return (
+        <TouchableOpacity
+          onPress={() => openModal.set(true)}
+          activeOpacity={0.5}
+          style={styles.cupWrapper}
+        >
+          <Image
+            source={thumbnail}
+            style={[styles.thumbnail, handleThumbnailSize(thumbnailSize)]}
+          />
+          <Point points={price} fontSize="medium" style={styles.point} />
+        </TouchableOpacity>
+      );
   }
 };
 
