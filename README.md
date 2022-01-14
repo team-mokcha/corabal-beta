@@ -49,15 +49,13 @@
 > 모두 삶을 긍정적으로 기록할 수 있도록 돕는 프로덕트를 만드는 팀 목차입니다.
 
 
-| [개인 사이트는 비밀!]() |[Github](https://github.com/alveloper) | [Github](https://github.com/HyejinYang) |
-| :--:| :--:|  :--:  | 
-| <img src="https://user-images.githubusercontent.com/73899253/141611653-2b550f5a-a7a2-4ed0-bfd0-6ceb7a5cf3d3.png" /> | <img src="https://user-images.githubusercontent.com/73899253/141611666-27256581-3b36-49a4-8783-228068ae2347.png" /> | <img src="https://user-images.githubusercontent.com/73899253/141611669-f117680d-149d-4bae-93d6-46c3339e0c24.png" />| 
-| **하마🐈** | **김수연🍻** | **양혜진🧊** | 
+| [개인 사이트는 비밀!]() | [Github](https://github.com/HyejinYang) |
+| :--:| :--:  | 
+| <img src="https://user-images.githubusercontent.com/73899253/141611653-2b550f5a-a7a2-4ed0-bfd0-6ceb7a5cf3d3.png" /> | <img src="https://user-images.githubusercontent.com/73899253/141611669-f117680d-149d-4bae-93d6-46c3339e0c24.png" />| 
+| **하마🐈** | **양혜진🧊** | 
 |**Designer 🖼️**|**Frontend Developer 🖥️**|**Frontend Developer 🖥️**|
 
    -  **하마** 🐈 : 고양이와 앱 디자인을 사랑하는 디자이너입니다.
-
-   -  **김수연** 🍻 : 재미있는 일을 할 때면 밥도 안 먹고 개발하는 프론트엔드 개발자입니다.
 
    -  **양혜진** 🧊 : 웹 개발 전반에 관심이 있지만 특히 프론트엔드를 좋아하는 얼죽아 회원입니다. 
 
