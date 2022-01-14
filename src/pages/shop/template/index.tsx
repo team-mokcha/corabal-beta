@@ -14,7 +14,7 @@ const Template = (): ReactElement => {
       <Header back={true} close={false} />
       <ShopHeader nickname="부부냥냥이이" points={30} />
       <ShopBody />
-      <PurchaseModal />
+      <PurchaseModal type="purchaseCup" />
     </ScrollView>
   );
 };
