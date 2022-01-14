@@ -1,11 +1,11 @@
-import React, { ReactElement, useState } from "react";
-import { View, Image, TouchableOpacity } from "react-native";
-import { Text, Modal, ButtonGradient } from "@Components";
-import styles from "./setGoalModal.style";
-import { Dispatch, SetStateAction } from "react";
+import React, { ReactElement, useState, Dispatch, SetStateAction } from "react";
 import { db, firebaseApp } from "@services/firebaseApp";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalGoalState, globalUserState } from "@stores/stores";
+import { View, Image, TouchableOpacity } from "react-native";
+import { Text, Modal, ButtonGradient } from "@Components";
+// import CloseModal from "../../../components/atoms/icons/common/closeModal";
+import styles from "./setGoals.style";
 
 type GoalProps = {
   isShowingGoal: boolean;
@@ -25,10 +25,23 @@ const SetGoalModal = ({ isShowingGoal, setIsShowingGoal }: GoalProps): ReactElem
       <Modal.Container edgeStyle="square">
         <View style={styles.headerContainer}>
           <View style={styles.headerFontContainer}>
-            <Text style={styles.settingGoalFont}>목표 설정</Text>
-            <Text style={styles.settingGoalDescriptionFont}>일일 목표를 설정해보세요.</Text>
+            <Text weight="400" style={styles.settingGoalFont}>
+              목표 설정
+            </Text>
+            <Text weight="400" style={styles.settingGoalDescriptionFont}>
+              일일 목표를 설정해보세요.
+            </Text>
           </View>
-          <TouchableOpacity activeOpacity={0.5} onPress={() => setIsShowingGoal(false)}>
+          {/* <CloseModal type="goal" /> */}
+          <TouchableOpacity
+            style={{
+              position: "absolute",
+              top: 0,
+              right: -5
+            }}
+            activeOpacity={0.5}
+            onPress={() => setIsShowingGoal(false)}
+          >
             <Image source={require("@assets/modal/btn_x.png")} />
           </TouchableOpacity>
         </View>
@@ -43,11 +56,19 @@ const SetGoalModal = ({ isShowingGoal, setIsShowingGoal }: GoalProps): ReactElem
                   onPress={() => setSelectedBtn(radioBtn)}
                 >
                   {radioBtn === selectedBtn ? (
-                    <Image source={require("@assets/modal/radio-selected.png")} />
+                    <Image
+                      style={styles.radioBtnIcon}
+                      source={require("@assets/modal/radio-selected.png")}
+                    />
                   ) : (
-                    <Image source={require("@assets/modal/radio.png")} />
+                    <Image
+                      style={styles.radioBtnIcon}
+                      source={require("@assets/modal/radio.png")}
+                    />
                   )}
-                  <Text style={styles.radioBtnFont}> {radioBtn}잔</Text>
+                  <Text weight="400" style={styles.radioBtnFont}>
+                    {radioBtn}잔
+                  </Text>
                 </TouchableOpacity>
               );
             })}
