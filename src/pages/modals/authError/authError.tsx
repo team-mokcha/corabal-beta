@@ -3,7 +3,7 @@ import { View, Image, TouchableOpacity } from "react-native";
 import { ButtonNormal, Modal, Text } from "@Components";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalErrorStateDuringAuth } from "@stores/stores";
-import { styles } from "./errorModal.styles";
+import { styles } from "./authError.styles";
 // Need to separate error message
 
 export default function ErrorModal(): ReactElement {
