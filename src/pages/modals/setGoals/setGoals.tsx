@@ -82,7 +82,6 @@ const SetGoalModal = ({ isShowingGoal, setIsShowingGoal }: GoalProps): ReactElem
               userRef
                 .set({ goal: selectedBtn }, { merge: true })
                 .then(() => {
-                  console.log("goal updated!");
                   globalGoal.goal.set(selectedBtn);
                 })
                 .catch(error => console.error(error));

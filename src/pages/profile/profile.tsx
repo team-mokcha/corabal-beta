@@ -6,7 +6,6 @@ import {
 } from "@services/functions/handle-auth";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState, globalPointState } from "@stores/stores";
-import CallingCat from "../modals/changeCatStatusModal/changeCatStatusModal";
 // import { initRewardAds } from "@services/watching-ads-service";
 import { db } from "@services/firebaseApp";
 import Template from "./template";
