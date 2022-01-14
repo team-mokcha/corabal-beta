@@ -8,25 +8,31 @@ const styles = StyleSheet.create({
     marginLeft: 24,
     marginVertical: 24,
     fontSize: 18,
-    lineHeight: 21
+    lineHeight: 21.09
+  },
+  myCupImage: {
+    resizeMode: "contain",
+    alignSelf: "center",
+    width: 132,
+    height: 92,
+    marginTop: 49,
+    marginBottom: 56
   },
   ownedCupContainer: {
-    alignItems: "center",
-    marginBottom: 40
+    marginBottom: 40,
+    marginLeft: 24
+  },
+  ownedCupsWrapper: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between"
   },
   ownedCupFont: {
-    marginLeft: 44,
+    marginBottom: 40,
+    marginLeft: 0,
     marginRight: "auto",
-    marginBottom: 0,
     fontSize: 16,
-    lineHeight: 19
-  },
-  cupsIHave: {
-    marginLeft: 44,
-    marginBottom: 35,
-    fontWeight: "300",
-    fontSize: 16,
-    lineHeight: 19
+    lineHeight: 18.75
   }
 });
 

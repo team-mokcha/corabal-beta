@@ -1,7 +1,6 @@
 import React, { ReactElement } from "react";
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, Image } from "react-native";
 import { Text, Header } from "@Components";
-import ShopBody from "../../../components/organisms/shop/shopBody";
 import CupContainer from "../../../components/molecules/cup/cupContainer";
 import styles from "./storage.style";
 
@@ -30,10 +29,22 @@ const Template = (): ReactElement => {
         <Text weight="500" style={styles.myCupFont}>
           {CUP_STORAGE_TEXT.myCup}
         </Text>
-        {/* <CupContainer thumbnail={cups[0].thumbnail} thumbnailSize="large" price={cups[0].price} /> */}
+        <Image source={cups[0].thumbnail} style={styles.myCupImage} />
         <View style={styles.ownedCupContainer}>
-          <Text style={styles.ownedCupFont}>{CUP_STORAGE_TEXT.ownedCup}</Text>
-          {/* <ShopBody /> */}
+          <Text weight="300" style={styles.ownedCupFont}>
+            {CUP_STORAGE_TEXT.ownedCup}
+          </Text>
+          <View style={styles.ownedCupsWrapper}>
+            {cups.map(cup => (
+              <CupContainer
+                key={cup.id}
+                type="storage"
+                thumbnail={cup.thumbnail}
+                thumbnailSize="medium"
+                price={cup.price}
+              />
+            ))}
+          </View>
         </View>
       </ScrollView>
     </View>

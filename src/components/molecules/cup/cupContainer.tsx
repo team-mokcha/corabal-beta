@@ -6,9 +6,9 @@ import Point from "../../atoms/icons/common/point";
 import styles from "./cupContainer.style";
 
 type cupContainerProps = {
-  type: "shop" | "modal";
+  type: "shop" | "storage" | "modal";
   thumbnail: any;
-  thumbnailSize: "small" | "large";
+  thumbnailSize: "small" | "medium" | "large";
   price: number;
 };
 
@@ -18,12 +18,18 @@ const CupContainer = ({
   thumbnailSize,
   price
 }: cupContainerProps): ReactElement => {
-  const handleThumbnailSize = (size: "small" | "large") => {
-    switch (size) {
+  const openModal = HSUseState(globalPurchaseModalState).modalVisibility;
+  const handleThumbnailSize = (fontSize: "small" | "medium" | "large") => {
+    switch (fontSize) {
       case "small":
         return {
           width: 72,
           height: 72
+        };
+      case "medium":
+        return {
+          width: 72,
+          height: 50
         };
       case "large":
         return {
@@ -32,8 +38,6 @@ const CupContainer = ({
         };
     }
   };
-
-  const openModal = HSUseState(globalPurchaseModalState).modalVisibility;
 
   switch (type) {
     case "modal":
@@ -58,6 +62,21 @@ const CupContainer = ({
             style={[styles.thumbnail, handleThumbnailSize(thumbnailSize)]}
           />
           <Point points={price} fontSize="medium" style={styles.point} />
+        </TouchableOpacity>
+      );
+    case "storage":
+      return (
+        <TouchableOpacity
+          onPress={() => {
+            //
+          }}
+          activeOpacity={0.5}
+          style={[styles.cupWrapper, styles.mediumThumbnail]}
+        >
+          <Image
+            source={thumbnail}
+            style={[styles.thumbnail, handleThumbnailSize(thumbnailSize)]}
+          />
         </TouchableOpacity>
       );
   }

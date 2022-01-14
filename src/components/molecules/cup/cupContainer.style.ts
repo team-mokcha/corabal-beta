@@ -11,6 +11,9 @@ const styles = StyleSheet.create({
     width: 72,
     height: 72
   },
+  mediumThumbnail: {
+    marginRight: 24
+  },
   point: {
     marginTop: 10,
     alignItems: "center",
