@@ -70,15 +70,7 @@ const Template = ({ type, isVisible, handleModalVisibility }: TemplateProps): Re
               <DateText type="previous" previousDate="2001-01-05" />
             </View>
             <Modal.Body>
-              <View
-                style={[
-                  styles.pickedRowContainer
-                  // {
-                  //   alignSelf: "center",
-                  //   justifyContent: "center"
-                  // }
-                ]}
-              >
+              <View style={styles.pickedRowContainer}>
                 <PickedRow
                   type="previousRecords"
                   shot="oneActivated"
