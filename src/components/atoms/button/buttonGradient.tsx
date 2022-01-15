@@ -10,24 +10,35 @@ type ButtonProps = {
 } & TouchableOpacityProps;
 
 export default function Button({ title, smallType, style, ...props }: ButtonProps): ReactElement {
-  return (
-    <TouchableOpacity {...props} style={[styles.ButtonGradientRadius, style]}>
-      <LinearGradient
-        colors={["hsla(199, 79%, 71%, 1)", "hsla(220, 100%, 73%, 1)"]}
-        start={{ x: 0, y: 1 }}
-        end={{ x: 1, y: 1 }}
-        style={[styles.buttonContainer]}
-      >
-        {smallType ? (
+  if (smallType) {
+    return (
+      <TouchableOpacity {...props} style={[styles.ButtonGradientRadius, style]}>
+        <LinearGradient
+          colors={["hsla(199, 79%, 71%, 1)", "hsla(220, 100%, 73%, 1)"]}
+          start={{ x: 0, y: 1 }}
+          end={{ x: 1, y: 1 }}
+          style={[styles.buttonSmallContainer]}
+        >
           <Text style={{ color: "#FFFFFF", fontSize: 11, lineHeight: 13 }} weight="400">
             {title}
           </Text>
-        ) : (
+        </LinearGradient>
+      </TouchableOpacity>
+    );
+  } else {
+    return (
+      <TouchableOpacity {...props} style={[styles.ButtonGradientRadius, style]}>
+        <LinearGradient
+          colors={["hsla(199, 79%, 71%, 1)", "hsla(220, 100%, 73%, 1)"]}
+          start={{ x: 0, y: 1 }}
+          end={{ x: 1, y: 1 }}
+          style={[styles.buttonContainer]}
+        >
           <Text style={(styles.buttonText, { color: "#FFFFFF" })} weight="400">
             {title}
           </Text>
-        )}
-      </LinearGradient>
-    </TouchableOpacity>
-  );
+        </LinearGradient>
+      </TouchableOpacity>
+    );
+  }
 }

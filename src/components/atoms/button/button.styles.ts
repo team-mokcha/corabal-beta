@@ -7,6 +7,12 @@ const styles = StyleSheet.create({
     paddingTop: 14,
     paddingBottom: 14
   },
+  buttonSmallContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingTop: 8,
+    paddingBottom: 7
+  },
   buttonWithIconContainer: {
     flexDirection: "row",
     alignItems: "center",
