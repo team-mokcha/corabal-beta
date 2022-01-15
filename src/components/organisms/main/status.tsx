@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Image } from "react-native";
 import { Aim, Point, RecordsOfMonth } from "../../molecules/index";
-import SetGoalModal from "../../../pages/setGoalModal/setGoalModal";
+import SetGoalModal from "../../../pages/modals/setGoals/setGoals";
 import styles from "./status.styles";
 
 const Status = ({
@@ -14,12 +14,12 @@ const Status = ({
   daysOfMonth
 }: any) => {
   return (
-    <View style={styles.aimContainer}>
+    <View style={styles.statusContainer}>
       <Aim setIsShowingGoal={setIsShowingGoal} globalGoal={globalGoal} />
       <SetGoalModal isShowingGoal={isShowingGoal} setIsShowingGoal={setIsShowingGoal} />
-      <View style={styles.mainContainer}>
-        <Image style={styles.mainCatImg} source={require("@assets/main-cat.png")} />
-        <View style={{ flex: 1 }}>
+      <View style={styles.rowContainer}>
+        <Image style={styles.catImg} source={require("@assets/main/illust-cat.png")} />
+        <View style={styles.monthRecordContainer}>
           <RecordsOfMonth
             title="이번달 목표 성공일"
             daysOfSuccess={daysOfSuccess}
@@ -30,7 +30,7 @@ const Status = ({
             daysOfRecords={daysOfRecords}
             daysOfMonth={daysOfMonth}
           />
-          <Point globalPoint={globalPoint} />
+          <Point points={11} style={styles.pointWrapper} fontSize="small" />
         </View>
       </View>
     </View>

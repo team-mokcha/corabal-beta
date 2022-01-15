@@ -2,13 +2,12 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   floatingBtnContainer: {
-    flex: 1,
+    zIndex: 2,
     position: "absolute",
-    bottom: 0,
     right: 24,
-    alignSelf: "flex-end",
-    marginBottom: 48,
-    zIndex: 200
+    bottom: 48,
+    width: 52,
+    height: 52
   }
 });
 

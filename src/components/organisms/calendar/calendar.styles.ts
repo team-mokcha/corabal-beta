@@ -6,14 +6,23 @@ const styles = StyleSheet.create({
     width: "100%",
     marginBottom: 20
   },
+  monthArrowRight: { position: "absolute", bottom: 18, right: 115 },
+  monthArrowLeft: { position: "absolute", bottom: 18, left: 115 },
+  customHeader: {
+    fontSize: 24,
+    lineHeight: 34.75,
+    marginHorizontal: 0,
+    marginBottom: 36,
+    padding: 0
+  },
   indexContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginTop: 10,
+    marginTop: 30,
     paddingLeft: 27
   },
   indexIcon: {
-    marginLeft: 10,
+    marginLeft: 12,
     marginRight: 5,
     width: 9,
     height: 4,
@@ -26,9 +35,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#8E6655"
   },
   indexIconText: {
-    fontSize: 10,
-    lineHeight: 14,
-    color: "#6A6A6A"
+    fontSize: 12,
+    lineHeight: 16,
+    color: "#757574"
   }
 });
 

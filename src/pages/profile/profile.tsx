@@ -1,7 +1,4 @@
 import React, { ReactElement, useState, useEffect } from "react";
-import { View, Image, TouchableOpacity } from "react-native";
-import { ButtonGradient, Text, Header } from "@Components";
-import styles from "./profile.style";
 import {
   logOutWithFirebase,
   sendPasswordRestEmail,
@@ -9,9 +6,9 @@ import {
 } from "@services/functions/handle-auth";
 import { useState as HSUseState } from "@hookstate/core";
 import { globalUserState, globalPointState } from "@stores/stores";
-import CallingCat from "../changeCatStatusModal/changeCatStatusModal";
 // import { initRewardAds } from "@services/watching-ads-service";
 import { db } from "@services/firebaseApp";
+import Template from "./template";
 
 export default function Profile(): ReactElement {
   const [isCallingCat, setIsCallingCat] = useState(false);
@@ -52,70 +49,11 @@ export default function Profile(): ReactElement {
       .collection("users")
       .doc(email)
       .onSnapshot(snapshot => {
-        // console.log(snapshot.data()?.total_cups);
         setTotalCups(snapshot.data()?.total_cups);
       });
     return unsubscribe;
   }, []);
 
-  return (
-    <>
-      <Header back={true} close={false} />
-      <View>
-        <View style={styles.profileContainer}>
-          <Image source={require("@assets/profile.png")} />
-          <TouchableOpacity activeOpacity={0.5} style={styles.profileNameContainer}>
-            <Text style={styles.profileNameFont}>커라밸님</Text>
-            <Image source={require("@assets/updating-user-name.png")} />
-          </TouchableOpacity>
-          <Text style={styles.profileEmailFont}>{email}</Text>
-        </View>
-        <View style={styles.EveryRecordContainer}>
-          <View style={styles.alginCenter}>
-            <Text style={styles.eachRecordNameFont}>기록</Text>
-            <Text style={styles.totalRecords}>{totalCups}</Text>
-          </View>
-          <View style={styles.alginCenter}>
-            <Text style={styles.eachRecordNameFont}>포인트</Text>
-            <Text style={styles.totalPoints}>{globalPoint.current.get()}p</Text>
-            <ButtonGradient
-              // onPress={() => initRewardAds(email)}
-              title="광고 보기 5p"
-              style={{ width: 86, height: 28 }}
-            />
-          </View>
-          <View style={styles.alginCenter}>
-            <Text style={styles.eachRecordNameFont}>내 컵</Text>
-            <Image
-              style={{ width: 82, height: 82 }}
-              source={require("@assets/cat-in-the-cup.png")}
-            />
-            <ButtonGradient
-              onPress={() => setIsCallingCat(true)}
-              title="고양이 부르기"
-              style={{ width: 86, height: 28 }}
-            />
-            <CallingCat isCallingCat={isCallingCat} setIsCallingCat={setIsCallingCat} />
-          </View>
-        </View>
-        <View style={styles.alginCenter}>
-          <TouchableOpacity onPress={() => handlePasswordReset()}>
-            <Text>비밀번호 재설정</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.logout}
-            onPress={() => {
-              logOutWithFirebase();
-              currentUserState.loggedIn.set(false);
-            }}
-          >
-            <Text>로그아웃</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.deletingAccountFont}>계정 삭제</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </>
-  );
+  // return <Template props={} />;
+  return <Template />;
 }

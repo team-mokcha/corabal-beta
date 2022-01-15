@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, ReactElement } from "react";
 import { TouchableOpacity } from "react-native";
 import { Text } from "@Components";
 import styles from "./goalSetting.style";
-import Goal from "../../../pages/setGoalModal/setGoalModal";
+import Goal from "../../../pages/modals/setGoals/setGoals";
 
 type GoalControlParams = {
   isShowingGoal: boolean;
@@ -10,15 +10,15 @@ type GoalControlParams = {
 };
 
 const GOAL_TEXT = {
-  setting: "목표 설정"
+  setting: "목표 설정 >"
 };
 
 const GoalSetting = ({ isShowingGoal, setIsShowingGoal }: GoalControlParams): ReactElement => {
   return (
     <>
       <TouchableOpacity activeOpacity={0.5} onPress={() => setIsShowingGoal(true)}>
-        <Text style={styles.aimSetting}>
-          {GOAL_TEXT.setting} {">"}
+        <Text weight="400" style={styles.aimSetting}>
+          {GOAL_TEXT.setting}
         </Text>
       </TouchableOpacity>
       <Goal isShowingGoal={isShowingGoal} setIsShowingGoal={setIsShowingGoal} />

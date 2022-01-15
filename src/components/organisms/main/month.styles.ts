@@ -1,10 +1,6 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  pointFont: {
-    fontWeight: "bold",
-    color: "#2B8CFF"
-  },
   recordContainer: {
     marginTop: 24,
     marginLeft: 24,
@@ -12,12 +8,18 @@ const styles = StyleSheet.create({
     marginBottom: 40
   },
   thisMonthFont: {
-    fontSize: 15,
-    fontWeight: "500",
-    marginBottom: -30
+    fontSize: 16,
+    lineHeight: 23.17,
+    color: "#000000",
+    marginBottom: 0
   },
   totalCupsFont: {
-    fontSize: 24
+    fontSize: 24,
+    color: "#000000",
+    marginBottom: 24
+  },
+  pointFont: {
+    color: "#2B8CFF"
   }
 });
 

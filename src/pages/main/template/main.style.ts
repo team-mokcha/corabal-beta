@@ -121,6 +121,11 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
     marginBottom: 48,
     zIndex: 200
+  },
+  bannerContainer: {
+    // marginLeft: 24,
+    // marginRight: 24,
+    // marginBottom: 60
   }
 });
 

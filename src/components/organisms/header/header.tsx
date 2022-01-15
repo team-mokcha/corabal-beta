@@ -16,13 +16,13 @@ const Header = ({ back, close }: HeaderProps): ReactElement => {
       <View style={{ flexDirection: "row" }}>
         {back && (
           <TouchableOpacity style={styles.iconPosition} onPress={() => navigation.goBack()}>
-            <Image source={require("@assets/btn_back.png")} />
+            <Image source={require("@assets/nav/btn_back.png")} />
           </TouchableOpacity>
         )}
         {close && (
           <View style={styles.closeBtn}>
             <TouchableOpacity style={styles.iconPosition} onPress={() => navigation.goBack()}>
-              <Image source={require("@assets/btn_x.png")} />
+              <Image source={require("@assets/modal/btn_x.png")} />
             </TouchableOpacity>
           </View>
         )}

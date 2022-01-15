@@ -1,8 +1,14 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
-import { RightArrowIcon } from "../../atoms/index";
+import { TouchableOpacity, Image } from "react-native";
 import { Text } from "@Components";
 import styles from "./aim.styles";
+
+const AIM_TEXT = {
+  goal: "목표",
+  day: "일",
+  dayCriteria: 1,
+  cup: "잔"
+};
 
 const Aim = ({ setIsShowingGoal, globalGoal }: any) => {
   return (
@@ -11,11 +17,20 @@ const Aim = ({ setIsShowingGoal, globalGoal }: any) => {
       activeOpacity={0.5}
       onPress={() => setIsShowingGoal(true)}
     >
-      <Text style={styles.aim}>
-        목표 <Text style={styles.pointFont}>1</Text>일{" "}
-        <Text style={styles.pointFont}>{globalGoal.goal.get()}</Text>잔
+      <Text style={styles.aim} weight="500">
+        {AIM_TEXT.goal}
+        {` `}
+        <Text style={styles.pointFont} weight="700">
+          {AIM_TEXT.dayCriteria}
+        </Text>
+        {AIM_TEXT.day}
+        <Text style={styles.pointFont} weight="700">
+          {` `}
+          {globalGoal.goal.get()}
+        </Text>
+        {AIM_TEXT.cup}
       </Text>
-      <RightArrowIcon style={styles.aimNextBtn} />
+      <Image style={styles.aimNextBtn} source={require("@assets/main/btn_next.png")} />
     </TouchableOpacity>
   );
 };

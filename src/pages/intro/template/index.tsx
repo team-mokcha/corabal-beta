@@ -10,7 +10,7 @@ export default function Template(): ReactElement {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollView}>
-        <Image style={styles.logo} source={require("@assets/logo.png")} />
+        <Image style={styles.logo} source={require("@assets/common/logo.png")} />
         <ButtonNormal
           style={styles.buttonNormal}
           title="로그인"

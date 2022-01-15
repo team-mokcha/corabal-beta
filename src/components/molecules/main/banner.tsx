@@ -1,11 +1,11 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, { ReactElement } from "react";
+import { View, Image } from "react-native";
+import styles from "./banner.styles";
 
-const Banner = () => {
+const Banner = (style: any): ReactElement => {
   return (
-    <View>
-      {/* <Image /> */}
-      <Text>Banner</Text>
+    <View style={style}>
+      <Image style={styles.banner} source={require("@assets/main/banner-poster.png")} />
     </View>
   );
 };

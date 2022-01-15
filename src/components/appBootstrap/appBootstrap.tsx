@@ -5,7 +5,8 @@ import {
   NotoSansKR_300Light,
   NotoSansKR_400Regular,
   NotoSansKR_500Medium,
-  NotoSansKR_700Bold
+  NotoSansKR_700Bold,
+  NotoSansKR_900Black
 } from "@expo-google-fonts/noto-sans-kr";
 import { StyleSheet, ActivityIndicator } from "react-native";
 
@@ -15,6 +16,7 @@ type AppBootstrapProps = {
 
 export default function AppBootstrap({ children }: AppBootstrapProps): ReactElement {
   const [fontLoaded] = useFonts({
+    NotoSansKR_900Black,
     NotoSansKR_700Bold,
     NotoSansKR_500Medium,
     NotoSansKR_400Regular,

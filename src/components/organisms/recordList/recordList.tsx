@@ -1,11 +1,13 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, SetStateAction } from "react";
 import { View, FlatList, Image, TouchableOpacity } from "react-native";
 import Text from "../../atoms/text/text";
 import styles from "./recordList.styles";
 
-// calender 양 옆에 마진 값을 줘야 함... 헤더 스타일 고치고, 어떻게 하면 마킹할 수 있는지 알아보기
+type RecordListProps = {
+  setModalVisible: React.Dispatch<SetStateAction<boolean>>;
+};
 
-export default function RecordList(): ReactElement {
+export default function RecordList({ setModalVisible }: RecordListProps): ReactElement {
   return (
     <FlatList
       data={[
@@ -24,7 +26,12 @@ export default function RecordList(): ReactElement {
         }
       ]}
       renderItem={({ item }) => (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity
+          style={styles.container}
+          onPress={() => {
+            setModalVisible(true);
+          }}
+        >
           <View style={styles.dateContainer}>
             <Text weight="700" style={styles.dateTextNumber}>
               {item.date[0]}
@@ -35,10 +42,13 @@ export default function RecordList(): ReactElement {
           </View>
           <View style={styles.separatingLine} />
           <View style={styles.cupsContainer}>
-            <Image style={styles.cupImage} source={require("@assets/icon_cup_basic_empty.png")} />
+            <Image
+              style={styles.cupImage}
+              source={require("@assets/record/icon_cup_basic_empty.png")}
+            />
           </View>
           <View style={styles.buttonMore}>
-            <Image source={require("@assets/btn_more.png")} />
+            <Image source={require("@assets/record/btn_more.png")} />
           </View>
         </TouchableOpacity>
       )}

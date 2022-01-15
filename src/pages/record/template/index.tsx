@@ -15,7 +15,7 @@ const Template = ({ handleAddNormalCupBtn }: templateProps): ReactElement => {
       <View style={styles.container}>
         <Header back={false} close={true} />
         <DateText type="present" />
-        <Image style={styles.cupImage} source={require("@assets/cup-of-today.png")} />
+        <Image style={styles.cupImage} source={require("@assets/record/cup-of-today.png")} />
         {/* total option container */}
         <View style={styles.totalPickingContainer}>
           <PickingContainer />

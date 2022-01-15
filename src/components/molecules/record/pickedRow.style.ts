@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
   rowContainer: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
     marginBottom: 12,
     minWidth: 263,
@@ -13,19 +12,19 @@ const styles = StyleSheet.create({
   cupIcon: {
     resizeMode: "contain",
     width: 43,
+    marginTop: 21,
     marginBottom: 12,
-    marginLeft: 12,
     marginRight: "auto"
   },
   coffeeTypeContainer: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    marginLeft: 20,
-    marginRight: 59
+    marginTop: 12,
+    marginBottom: 13,
+    marginLeft: 20
   },
   coffeeTypeItem: {
-    marginRight: 16,
     height: 46,
     width: 28
   },
@@ -35,6 +34,8 @@ const styles = StyleSheet.create({
     height: 46
   },
   deleteIcon: {
+    marginTop: 21,
+    marginBottom: 15,
     resizeMode: "contain",
     width: 24
   }

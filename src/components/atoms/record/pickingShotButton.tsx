@@ -21,9 +21,9 @@ const PickingShotButton = ({ type }: pickingShotButtonProps): ReactElement => {
       return (
         <TouchableOpacity style={styles.optionAlign} onPress={() => setGlobalShotState(1)}>
           {globalShotState.get() === 1 ? (
-            <ShotIcon imageStyle={styles.optionImg} type="oneActivated" />
+            <ShotIcon imageStyle={styles.optionImg} type="oneActivated" fontSize="medium" />
           ) : (
-            <ShotIcon imageStyle={styles.optionImg} type="oneDeactivated" />
+            <ShotIcon imageStyle={styles.optionImg} type="oneDeactivated" fontSize="medium" />
           )}
         </TouchableOpacity>
       );
@@ -32,9 +32,9 @@ const PickingShotButton = ({ type }: pickingShotButtonProps): ReactElement => {
       return (
         <TouchableOpacity style={styles.optionAlign} onPress={() => setGlobalShotState(2)}>
           {globalShotState.get() === 2 ? (
-            <ShotIcon imageStyle={styles.optionImg} type="twoActivated" />
+            <ShotIcon imageStyle={styles.optionImg} type="twoActivated" fontSize="medium" />
           ) : (
-            <ShotIcon imageStyle={styles.optionImg} type="twoDeactivated" />
+            <ShotIcon imageStyle={styles.optionImg} type="twoDeactivated" fontSize="medium" />
           )}
         </TouchableOpacity>
       );
@@ -43,9 +43,9 @@ const PickingShotButton = ({ type }: pickingShotButtonProps): ReactElement => {
       return (
         <TouchableOpacity style={styles.optionAlign} onPress={() => setGlobalShotState(3)}>
           {globalShotState.get() === 3 ? (
-            <ShotIcon imageStyle={styles.optionImg} type="threeActivated" />
+            <ShotIcon imageStyle={styles.optionImg} type="threeActivated" fontSize="medium" />
           ) : (
-            <ShotIcon imageStyle={styles.optionImg} type="threeDeactivated" />
+            <ShotIcon imageStyle={styles.optionImg} type="threeDeactivated" fontSize="medium" />
           )}
         </TouchableOpacity>
       );

@@ -12,7 +12,7 @@ import {
   Main,
   Profile,
   Shop,
-  Cups,
+  Storage,
   MonthlyRecord,
   Record
 } from "@pages";
@@ -36,7 +36,7 @@ export type StackNavigatorParams = {
   Main: undefined;
   Profile: undefined;
   Shop: undefined;
-  Cups: undefined;
+  Storage: undefined;
   MonthlyRecord: undefined;
   Record: undefined;
 };
@@ -85,7 +85,7 @@ export type DrawerNavigationParams = {
   Main: undefined;
   Profile: undefined;
   Shop: undefined;
-  Cups: undefined;
+  Storage: undefined;
   Record: undefined;
 };
 
@@ -107,7 +107,7 @@ export const DrawerNavigator = (): ReactElement => {
       <Drawer.Screen name="Main" component={Main} />
       <Drawer.Screen name="Profile" component={Profile} />
       <Drawer.Screen name="Shop" component={Shop} />
-      <Drawer.Screen name="Cups" component={Cups} />
+      <Drawer.Screen name="Storage" component={Storage} />
       <Drawer.Screen name="Record" component={Record} />
     </Drawer.Navigator>
   );

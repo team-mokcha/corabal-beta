@@ -21,9 +21,9 @@ const PickingBaseButton = ({ type }: pickingBaseButtonProps): ReactElement => {
       return (
         <TouchableOpacity style={styles.optionAlign} onPress={() => setGlobalBase("water")}>
           {globalBaseState.get() === "water" ? (
-            <BaseIcon imageStyle={styles.optionImg} type="waterActivated" />
+            <BaseIcon imageStyle={styles.optionImg} type="waterActivated" fontSize="medium" />
           ) : (
-            <BaseIcon imageStyle={styles.optionImg} type="waterDeactivated" />
+            <BaseIcon imageStyle={styles.optionImg} type="waterDeactivated" fontSize="medium" />
           )}
         </TouchableOpacity>
       );
@@ -32,9 +32,9 @@ const PickingBaseButton = ({ type }: pickingBaseButtonProps): ReactElement => {
       return (
         <TouchableOpacity style={styles.optionAlign} onPress={() => setGlobalBase("milk")}>
           {globalBaseState.get() === "milk" ? (
-            <BaseIcon imageStyle={styles.optionImg} type="milkActivated" />
+            <BaseIcon imageStyle={styles.optionImg} type="milkActivated" fontSize="medium" />
           ) : (
-            <BaseIcon imageStyle={styles.optionImg} type="milkDeactivated" />
+            <BaseIcon imageStyle={styles.optionImg} type="milkDeactivated" fontSize="medium" />
           )}
         </TouchableOpacity>
       );

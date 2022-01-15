@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
   },
   aimStrong: {
     fontSize: 18,
-    fontWeight: "bold",
     color: "#2B8CFF"
   }
 });

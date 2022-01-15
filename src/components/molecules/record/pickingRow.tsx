@@ -20,8 +20,10 @@ const pickingRow = ({ type }: PickingRowProps): ReactElement => {
       return (
         <View style={styles.eachOptionContainer}>
           <View style={styles.shotFontContainer}>
-            <Text>{ROW_TEXT.shot}</Text>
-            <Image style={styles.shotIcon} source={require("@assets/shot-of-today.png")} />
+            <Text weight="400" style={styles.titleSize}>
+              {ROW_TEXT.shot}
+            </Text>
+            <Image style={styles.shotIcon} source={require("@assets/record/shot-of-today.png")} />
           </View>
           <View style={styles.flexDirRow}>
             <PickingShotButton type="one" />
@@ -34,7 +36,9 @@ const pickingRow = ({ type }: PickingRowProps): ReactElement => {
     case "base": {
       return (
         <View style={styles.eachOptionContainer}>
-          <Text style={styles.baseTitle}>{ROW_TEXT.base}</Text>
+          <Text weight="400" style={[styles.baseTitle, styles.titleSize]}>
+            {ROW_TEXT.base}
+          </Text>
           <View style={styles.flexDirRow}>
             <PickingBaseButton type="water" />
             <PickingBaseButton type="milk" />
@@ -45,7 +49,9 @@ const pickingRow = ({ type }: PickingRowProps): ReactElement => {
     case "option": {
       return (
         <View style={styles.eachOptionContainer}>
-          <Text style={styles.elseTitle}>{ROW_TEXT.option}</Text>
+          <Text weight="400" style={[styles.elseTitle, styles.titleSize]}>
+            {ROW_TEXT.option}
+          </Text>
           <View style={styles.flexDirRow}>
             <PickingOptionButton type="syrup" />
             <PickingOptionButton type="cream" />

@@ -1,17 +1,20 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  pointFont: {
-    fontWeight: "bold",
-    color: "#2B8CFF"
-  },
-  statusTitleFont: {
-    fontSize: 13
+  statusTitle: {
+    fontSize: 14,
+    lineHeight: 16.41,
+    marginBottom: 6
   },
   statusByMonthFont: {
-    fontSize: 11,
-    fontWeight: "400",
-    color: "#757474"
+    fontSize: 12,
+    lineHeight: 14.06,
+    color: "#757474",
+    marginTop: 4,
+    marginBottom: 12
+  },
+  pointFont: {
+    color: "#2B8CFF"
   }
 });
 

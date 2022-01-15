@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   eachOptionContainer: {
     flexDirection: "row",
+    alignItems: "center",
     marginBottom: 32
   },
   shotFontContainer: {
@@ -10,11 +11,18 @@ const styles = StyleSheet.create({
     marginRight: 41
   },
   shotIcon: {
+    position: "absolute",
+    top: -6,
+    right: -12,
     width: 12,
     height: 12
   },
   flexDirRow: {
     flexDirection: "row"
+  },
+  titleSize: {
+    fontSize: 14,
+    lineHeight: 20.27
   },
   baseTitle: {
     marginRight: 27
