@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import { ScrollView, View, Image } from "react-native";
 import { ButtonNormal, ButtonGradient, DateText } from "../../../../components/atoms/index";
 import { PickedRow } from "../../../../components/molecules";
-import { Modal } from "../../../../components/organisms";
+import Modal from "../../../../components/organisms/modal/modal";
 import styles from "./records.style";
 
 type TemplateProps = {
