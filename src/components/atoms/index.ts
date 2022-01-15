@@ -6,6 +6,7 @@ export { default as DateText } from "./record/dateText";
 export { default as ButtonNormal } from "./button/buttonNormal";
 export { default as ButtonDisable } from "./button/buttonDisable";
 export { default as ButtonGradient } from "./button/buttonGradient";
+export { default as ButtonWithIcon } from "./button/buttonWithIcon";
 export { default as ShotIcon } from "./icons/record/shotIcon";
 export { default as BaseIcon } from "./icons/record/baseIcon";
 export { default as OptionIcon } from "./icons/record/optionIcon";

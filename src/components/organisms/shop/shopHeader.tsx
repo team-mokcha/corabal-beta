@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import { View, Image } from "react-native";
-import { ButtonGradient, Text } from "@Components";
+import { Text } from "@Components";
+import ButtonWithIcon from "../../atoms/button/buttonWithIcon";
 import Point from "../../atoms/icons/common/point";
 import styles from "./shopHeader.style";
 
@@ -12,7 +13,7 @@ type ShopHeaderProps = {
 
 const SHOP_HEADER_TEXT = {
   sir: "님",
-  watchAD: "광고 보기 5p",
+  watchAD: "광고 보기",
   pointCriteria: "p"
 };
 
@@ -29,11 +30,11 @@ const ShopHeader = ({ nickname, points }: ShopHeaderProps): ReactElement => {
           <Point points={points} fontSize="small" />
         </View>
       </View>
-      <ButtonGradient
+      <ButtonWithIcon
         // onPress={() => initRewardAds(globalEmail)}
         style={styles.watchingAdBtn}
         title={SHOP_HEADER_TEXT.watchAD}
-        smallType={true}
+        points={5}
       />
     </View>
   );

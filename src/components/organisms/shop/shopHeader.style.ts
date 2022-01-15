@@ -22,10 +22,9 @@ const styles = StyleSheet.create({
     height: 40,
     marginRight: 8
   },
-
   watchingAdBtn: {
-    width: 100,
-    height: 40
+    width: 112,
+    height: 30
   }
 });
 

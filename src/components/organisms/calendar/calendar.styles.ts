@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     paddingLeft: 27
   },
   indexIcon: {
-    marginLeft: 10,
+    marginLeft: 12,
     marginRight: 5,
     width: 9,
     height: 4,
