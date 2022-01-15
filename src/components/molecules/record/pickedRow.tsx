@@ -11,18 +11,39 @@ type PickedRowProps = {
 };
 
 const PickedRow = ({ type, shot, base, option }: PickedRowProps): ReactElement => {
+  const marginStyle = {
+    cupIcon: { marginLeft: 0 },
+    coffeeTypeContainer: { marginRight: 0 },
+    coffeeTypeItem: { marginRight: 0 }
+  };
+
+  switch (type) {
+    case "todayRecords":
+      marginStyle.cupIcon = { marginLeft: 12 };
+      marginStyle.coffeeTypeContainer = { marginRight: 59 };
+      marginStyle.coffeeTypeItem = { marginRight: 16 };
+      break;
+    case "previousRecords":
+      marginStyle.cupIcon = { marginLeft: 30 };
+      marginStyle.coffeeTypeContainer = { marginRight: 20 };
+      marginStyle.coffeeTypeItem = { marginRight: 20 };
+  }
+
   return (
     <>
       <View style={styles.rowContainer}>
-        <Image source={require("@assets/record/icon_cup_basic_empty.png")} style={styles.cupIcon} />
-        <View style={styles.coffeeTypeContainer}>
-          <View style={styles.coffeeTypeItem}>
+        <Image
+          source={require("@assets/record/icon_cup_basic_empty.png")}
+          style={[styles.cupIcon, marginStyle.cupIcon]}
+        />
+        <View style={[styles.coffeeTypeContainer, marginStyle.coffeeTypeContainer]}>
+          <View style={[styles.coffeeTypeItem, marginStyle.coffeeTypeItem]}>
             <ShotIcon imageStyle={styles.coffeeTypeIcon} type={shot} fontSize="small" />
           </View>
-          <View style={styles.coffeeTypeItem}>
+          <View style={[styles.coffeeTypeItem, marginStyle.coffeeTypeItem]}>
             <BaseIcon imageStyle={styles.coffeeTypeIcon} type={base} fontSize="small" />
           </View>
-          <View style={styles.coffeeTypeItem}>
+          <View style={[styles.coffeeTypeItem, marginStyle.coffeeTypeItem]}>
             <OptionIcon imageStyle={styles.coffeeTypeIcon} type={option} fontSize="small" />
           </View>
         </View>

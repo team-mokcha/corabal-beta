@@ -21,6 +21,9 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderBottomColor: "#E5E5E5"
   },
+  // prevPickedRowContainer: {
+
+  // },
   completeBtn: {
     width: 264,
     height: 48,

@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
     width: 43,
     marginTop: 21,
     marginBottom: 12,
-    marginLeft: 12,
     marginRight: "auto"
   },
   coffeeTypeContainer: {
@@ -23,11 +22,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 12,
     marginBottom: 13,
-    marginLeft: 20,
-    marginRight: 59
+    marginLeft: 20
   },
   coffeeTypeItem: {
-    marginRight: 16,
     height: 46,
     width: 28
   },
